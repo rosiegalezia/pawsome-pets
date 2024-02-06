@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Rosie",
+        "github": "https://github.com/rosiegalezia",
+        "image": "",
+        "role": ""
+    },
+    {
+        "id": 2,
+        "name": "Mijeong",
+        "github": "https://github.com/Salala1005",
+        "image": "",
+        "role": ""
+    },
+    {
+        "id": 3,
+        "name": "Liam",
+        "github": "https://github.com/lico27",
+        "image": "",
+        "role": ""
+    },
+    {
+        "id": 4,
+        "name": "Emma",
+        "github": "https://github.com/E-Davies",
+        "image": "",
+        "role": ""
+    }
+]
