@@ -5,5 +5,19 @@ body {
   font-family: poppins;
 }
 .logo{
-  font-size: 300px;
+  font-size: 30px;
 }
+
+.c-item {
+  height:480px
+}
+.carousel-img {
+  height:100%;
+  object-fit: cover
+}
+
+/* @media (min-width: 768px) {
+  .carousel-img {
+    height: 60vh !important;
+  }
+} */
