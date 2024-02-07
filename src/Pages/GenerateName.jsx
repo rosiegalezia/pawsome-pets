@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
+import './pages.css'
 
 function GenerateName() {
 
@@ -33,19 +34,19 @@ function GenerateName() {
     };
 
     return (
-        <div>
-            <h2 className='p-3 m-3 w-50'>What gender name would you like for your pet?</h2>
-            <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
+        <div className='generate-name'>
 
+            <h2 className='p-3 m-3 w-50'>What gender name would you like for your pet?</h2>
+
+            <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
                 <option>Select your pet's sex</option>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                 <option value="Don't mind">Don't mind</option>
-
             </Form.Select>
 
             <div>
-                <Card className='p-3 m-3 w-50'>
+                <Card className='namecard p-3 m-3 w-50'>
                     <Card.Body>
                         <Card.Text style={{}}>
                             {generatedName}
@@ -53,6 +54,7 @@ function GenerateName() {
                     </Card.Body>
                 </Card>
             </div>
+
             <div>
                 <Button
                     variant="dark"
