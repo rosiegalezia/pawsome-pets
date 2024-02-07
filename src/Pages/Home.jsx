@@ -10,9 +10,6 @@ function Home() {
   return (
     <div>
       <CarouselFade />
-            {/* <div className="social d-flex justify-content-center" id="contact-icon">
-            <a className="mx-3" href="https://github.com/Salala1005" target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
-          </div> */}
     </div>
   )
 }
