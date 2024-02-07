@@ -67,7 +67,7 @@ function GenerateName() {
                         variant="dark"
                         className=''
                         onClick={regenerateClick}
-                    >Re-generate</Button>
+                    >Re-generate 🐾</Button>
                 </div>
 
             </div>
