@@ -1,14 +1,16 @@
 let selectedBreed ; //what the user selects from the drop down
 let selectedBreedID ; // what the dog api breed id is based on the users selection above. 
 
+// How do I get a list of all the dog breeds and ID's from the json?
+// How do I take user input for dog breed and return dog breed ID??
+
+
 const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7"; 
 let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog
 // let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + selectedBreedID + "&api_key=" + apiKey; 
 
 // function to randomly generate a number to use in the dog fact API so that a random dog breed is called from the API
-const randomDogBreedID = () => {
-   console.log(Math.floor(Math.random()* 264) + 1); 
-}
+const randomDogBreedID = () => console.log(Math.floor(Math.random()* 264) + 1); 
 
 
 fetch(queryURLDogFacts)
