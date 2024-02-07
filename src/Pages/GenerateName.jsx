@@ -15,8 +15,6 @@ function GenerateName() {
     const [Sex, setSex] = useState('')
     const [generatedName, setGeneratedName] = useState('')
 
-    // let names;
-
     const handleSexChange = (event) => {
         console.log(event.target.value)
         setSex(event.target.value)
@@ -34,9 +32,9 @@ function GenerateName() {
     };
 
     return (
-        <div className='generate-name'>
+        <div className='generate-name d-flex flex-column'>
 
-            <h2 className='p-3 m-3 w-50'>What gender name would you like for your pet?</h2>
+            <h2 className='p-3 m-3 text-center'>What gender name would you like for your pet?</h2>
 
             <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
                 <option>Select your pet's sex</option>
@@ -45,20 +43,20 @@ function GenerateName() {
                 <option value="Don't mind">Don't mind</option>
             </Form.Select>
 
-            <div>
-                <Card className='namecard p-3 m-3 w-50'>
+            <div className='p-0 m-3 w-50'>
+                <Card className='namecard py-5'>
                     <Card.Body>
-                        <Card.Text style={{}}>
-                            {generatedName}
+                        <Card.Text className='text-center'>
+                           <h2>{generatedName}</h2> 
                         </Card.Text>
                     </Card.Body>
                 </Card>
             </div>
 
-            <div>
+            <div className='p-3 m-3 d-flex'>
                 <Button
                     variant="dark"
-                    className='p-3 m-3 w-50'
+                    className=''
                     onClick={regenerateClick}
                 >Re-generate</Button>
             </div>
