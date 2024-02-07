@@ -41,6 +41,7 @@ import Home from './Pages/Home';
 import GenerateName from './Pages/GenerateName'
 import About from './Pages/About'
 import NavBar from "./Components/NavBar";
+import Footer from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'bootstrap';
 import CarouselFade from './Components/Carousel';
@@ -55,6 +56,7 @@ function App() {
             <Route path="/GenerateName" element={<GenerateName />} />
             <Route path="/About" element={<About />} />
         </Routes>
+        <Footer/>
     </Router>;
 }
 
