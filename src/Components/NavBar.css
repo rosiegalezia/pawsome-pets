@@ -9,7 +9,8 @@ body {
 }
 
 .c-item {
-  height:480px
+  height:480px;
+  padding-top:30px;
 }
 .carousel-img {
   height:100%;
