@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 
-import './TeamMember.css'
+import './Components.css'
 
 function TeamMember(props) {
     return (
