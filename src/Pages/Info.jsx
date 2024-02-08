@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 //Imported Component 
 import FactCard from '../Components/FactCard';
 
+import dogBreeds from '../assets/dogBreeds.json';
+
 function Info() {
     return (
         <div className='page-container'>
@@ -24,6 +26,11 @@ function Info() {
                         <Form.Group className="mb-3">
                             <Form.Label htmlFor="disabledSelect">Select your breed</Form.Label>
                             <Form.Select id="disabledSelect">
+                                {dogBreeds.map((breed) => {
+                                    return <option>
+                                        id={breed.id}
+                                    </option>
+                                })}
                                 <option>Select your breed</option>
                                 <option>!!Use a map here!!</option>
                                 <option>Breed 1</option>
