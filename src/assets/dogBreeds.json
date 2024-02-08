@@ -1,690 +1,690 @@
 [
     {
-        "id": 1,
+        "id": "breed-1",
         "breed": "Affenpinscher"
     },
     {
-        "id": 2,
+        "id": "breed-2",
         "breed": "Afghan Hound"
     },
     {
-        "id": 3,
+        "id": "breed-3",
         "breed": "African Hunting Dog"
     },
     {
-        "id": 4,
+        "id": "breed-4",
         "breed": "Airedale Terrier"
     },
     {
-        "id": 5,
+        "id": "breed-5",
         "breed": "Akbash Dog"
     },
     {
-        "id": 6,
+        "id": "breed-6",
         "breed": "Akita"
     },
     {
-        "id": 7,
+        "id": "breed-7",
         "breed": "Alapaha Blue Blood Bulldog"
     },
     {
-        "id": 8,
+        "id": "breed-8",
         "breed": "Alaskan Husky"
     },
     {
-        "id": 9,
+        "id": "breed-9",
         "breed": "Alaskan Malamute"
     },
     {
-        "id": 10,
+        "id": "breed-10",
         "breed": "American Bulldog"
     },
     {
-        "id": 11,
+        "id": "breed-11",
         "breed": "American Bully"
     },
     {
-        "id": 12,
+        "id": "breed-12",
         "breed": "American Eskimo Dog"
     },
     {
-        "id": 13,
+        "id": "breed-13",
         "breed": "American Eskimo Dog (Miniature)"
     },
     {
-        "id": 14,
+        "id": "breed-14",
         "breed": "American Foxhound"
     },
     {
-        "id": 15,
+        "id": "breed-15",
         "breed": "American Pit Bull Terrier"
     },
     {
-        "id": 16,
+        "id": "breed-16",
         "breed": "American Staffordshire Terrier"
     },
     {
-        "id": 17,
+        "id": "breed-17",
         "breed": "American Water Spaniel"
     },
     {
-        "id": 18,
+        "id": "breed-18",
         "breed": "Anatolian Shepherd Dog"
     },
     {
-        "id": 19,
+        "id": "breed-19",
         "breed": "Appenzeller Sennenhund"
     },
     {
-        "id": 21,
+        "id": "breed-21",
         "breed": "Australian Cattle Dog"
     },
     {
-        "id": 22,
+        "id": "breed-22",
         "breed": "Australian Kelpie"
     },
     {
-        "id": 23,
+        "id": "breed-23",
         "breed": "Australian Shepherd"
     },
     {
-        "id": 24,
+        "id": "breed-24",
         "breed": "Australian Terrier"
     },
     {
-        "id": 25,
+        "id": "breed-25",
         "breed": "Azawakh"
     },
     {
-        "id": 26,
+        "id": "breed-26",
         "breed": "Barbet"
     },
     {
-        "id": 28,
+        "id": "breed-28",
         "breed": "Basenji"
     },
     {
-        "id": 29,
+        "id": "breed-29",
         "breed": "Basset Bleu de Gascogne"
     },
     {
-        "id": 30,
+        "id": "breed-30",
         "breed": "Basset Hound"
     },
     {
-        "id": 31,
+        "id": "breed-31",
         "breed": "Beagle"
     },
     {
-        "id": 32,
+        "id": "breed-32",
         "breed": "Bearded Collie"
     },
     {
-        "id": 33,
+        "id": "breed-33",
         "breed": "Beauceron"
     },
     {
-        "id": 34,
+        "id": "breed-34",
         "breed": "Bedlington Terrier"
     },
     {
-        "id": 36,
+        "id": "breed-36",
         "breed": "Belgian Malinois"
     },
     {
-        "id": 38,
+        "id": "breed-38",
         "breed": "Belgian Tervuren"
     },
     {
-        "id": 41,
+        "id": "breed-41",
         "breed": "Bernese Mountain Dog"
     },
     {
-        "id": 42,
+        "id": "breed-42",
         "breed": "Bichon Frise"
     },
     {
-        "id": 43,
+        "id": "breed-43",
         "breed": "Black and Tan Coonhound"
     },
     {
-        "id": 45,
+        "id": "breed-45",
         "breed": "Bloodhound"
     },
     {
-        "id": 47,
+        "id": "breed-47",
         "breed": "Bluetick Coonhound"
     },
     {
-        "id": 48,
+        "id": "breed-48",
         "breed": "Boerboel"
     },
     {
-        "id": 50,
+        "id": "breed-50",
         "breed": "Border Collie"
     },
     {
-        "id": 51,
+        "id": "breed-51",
         "breed": "Border Terrier"
     },
     {
-        "id": 53,
+        "id": "breed-53",
         "breed": "Boston Terrier"
     },
     {
-        "id": 54,
+        "id": "breed-54",
         "breed": "Bouvier des Flandres"
     },
     {
-        "id": 55,
+        "id": "breed-55",
         "breed": "Boxer"
     },
     {
-        "id": 56,
+        "id": "breed-56",
         "breed": "Boykin Spaniel"
     },
     {
-        "id": 57,
+        "id": "breed-57",
         "breed": "Bracco Italiano"
     },
     {
-        "id": 58,
+        "id": "breed-58",
         "breed": "Briard"
     },
     {
-        "id": 59,
+        "id": "breed-59",
         "breed": "Brittany"
     },
     {
-        "id": 61,
+        "id": "breed-61",
         "breed": "Bull Terrier"
     },
     {
-        "id": 62,
+        "id": "breed-62",
         "breed": "Bull Terrier (Miniature)"
     },
     {
-        "id": 64,
+        "id": "breed-64",
         "breed": "Bullmastiff"
     },
     {
-        "id": 65,
+        "id": "breed-65",
         "breed": "Cairn Terrier"
     },
     {
-        "id": 67,
+        "id": "breed-67",
         "breed": "Cane Corso"
     },
     {
-        "id": 68,
+        "id": "breed-68",
         "breed": "Cardigan Welsh Corgi"
     },
     {
-        "id": 69,
+        "id": "breed-69",
         "breed": "Catahoula Leopard Dog"
     },
     {
-        "id": 70,
+        "id": "breed-70",
         "breed": "Caucasian Shepherd (Ovcharka)"
     },
     {
-        "id": 71,
+        "id": "breed-71",
         "breed": "Cavalier King Charles Spaniel"
     },
     {
-        "id": 76,
+        "id": "breed-76",
         "breed": "Chesapeake Bay Retriever"
     },
     {
-        "id": 78,
+        "id": "breed-78",
         "breed": "Chinese Crested"
     },
     {
-        "id": 79,
+        "id": "breed-79",
         "breed": "Chinese Shar-Pei"
     },
     {
-        "id": 80,
+        "id": "breed-80",
         "breed": "Chinook"
     },
     {
-        "id": 81,
+        "id": "breed-81",
         "breed": "Chow Chow"
     },
     {
-        "id": 84,
+        "id": "breed-84",
         "breed": "Clumber Spaniel"
     },
     {
-        "id": 86,
+        "id": "breed-86",
         "breed": "Cocker Spaniel"
     },
     {
-        "id": 87,
+        "id": "breed-87",
         "breed": "Cocker Spaniel (American)"
     },
     {
-        "id": 89,
+        "id": "breed-89",
         "breed": "Coton de Tulear"
     },
     {
-        "id": 92,
+        "id": "breed-92",
         "breed": "Dalmatian"
     },
     {
-        "id": 94,
+        "id": "breed-94",
         "breed": "Doberman Pinscher"
     },
     {
-        "id": 95,
+        "id": "breed-95",
         "breed": "Dogo Argentino"
     },
     {
-        "id": 98,
+        "id": "breed-98",
         "breed": "Dutch Shepherd"
     },
     {
-        "id": 101,
+        "id": "breed-101",
         "breed": "English Setter"
     },
     {
-        "id": 102,
+        "id": "breed-102",
         "breed": "English Shepherd"
     },
     {
-        "id": 103,
+        "id": "breed-103",
         "breed": "English Springer Spaniel"
     },
     {
-        "id": 104,
+        "id": "breed-104",
         "breed": "English Toy Spaniel"
     },
     {
-        "id": 105,
+        "id": "breed-105",
         "breed": "English Toy Terrier"
     },
     {
-        "id": 107,
+        "id": "breed-107",
         "breed": "Eurasier"
     },
     {
-        "id": 108,
+        "id": "breed-108",
         "breed": "Field Spaniel"
     },
     {
-        "id": 110,
+        "id": "breed-110",
         "breed": "Finnish Lapphund"
     },
     {
-        "id": 111,
+        "id": "breed-111",
         "breed": "Finnish Spitz"
     },
     {
-        "id": 113,
+        "id": "breed-113",
         "breed": "French Bulldog"
     },
     {
-        "id": 114,
+        "id": "breed-114",
         "breed": "German Pinscher"
     },
     {
-        "id": 115,
+        "id": "breed-115",
         "breed": "German Shepherd Dog"
     },
     {
-        "id": 116,
+        "id": "breed-116",
         "breed": "German Shorthaired Pointer"
     },
     {
-        "id": 119,
+        "id": "breed-119",
         "breed": "Giant Schnauzer"
     },
     {
-        "id": 120,
+        "id": "breed-120",
         "breed": "Glen of Imaal Terrier"
     },
     {
-        "id": 121,
+        "id": "breed-121",
         "breed": "Golden Retriever"
     },
     {
-        "id": 123,
+        "id": "breed-123",
         "breed": "Gordon Setter"
     },
     {
-        "id": 124,
+        "id": "breed-124",
         "breed": "Great Dane"
     },
     {
-        "id": 125,
+        "id": "breed-125",
         "breed": "Great Pyrenees"
     },
     {
-        "id": 127,
+        "id": "breed-127",
         "breed": "Greyhound"
     },
     {
-        "id": 128,
+        "id": "breed-128",
         "breed": "Griffon Bruxellois"
     },
     {
-        "id": 129,
+        "id": "breed-129",
         "breed": "Harrier"
     },
     {
-        "id": 130,
+        "id": "breed-130",
         "breed": "Havanese"
     },
     {
-        "id": 134,
+        "id": "breed-134",
         "breed": "Irish Setter"
     },
     {
-        "id": 135,
+        "id": "breed-135",
         "breed": "Irish Terrier"
     },
     {
-        "id": 137,
+        "id": "breed-137",
         "breed": "Irish Wolfhound"
     },
     {
-        "id": 138,
+        "id": "breed-138",
         "breed": "Italian Greyhound"
     },
     {
-        "id": 140,
+        "id": "breed-140",
         "breed": "Japanese Chin"
     },
     {
-        "id": 141,
+        "id": "breed-141",
         "breed": "Japanese Spitz"
     },
     {
-        "id": 142,
+        "id": "breed-142",
         "breed": "Keeshond"
     },
     {
-        "id": 144,
+        "id": "breed-144",
         "breed": "Komondor"
     },
     {
-        "id": 145,
+        "id": "breed-145",
         "breed": "Kooikerhondje"
     },
     {
-        "id": 147,
+        "id": "breed-147",
         "breed": "Kuvasz"
     },
     {
-        "id": 149,
+        "id": "breed-149",
         "breed": "Labrador Retriever"
     },
     {
-        "id": 151,
+        "id": "breed-151",
         "breed": "Lagotto Romagnolo"
     },
     {
-        "id": 153,
+        "id": "breed-153",
         "breed": "Lancashire Heeler"
     },
     {
-        "id": 155,
+        "id": "breed-155",
         "breed": "Leonberger"
     },
     {
-        "id": 156,
+        "id": "breed-156",
         "breed": "Lhasa Apso"
     },
     {
-        "id": 161,
+        "id": "breed-161",
         "breed": "Maltese"
     },
     {
-        "id": 165,
+        "id": "breed-165",
         "breed": "Miniature American Shepherd"
     },
     {
-        "id": 167,
+        "id": "breed-167",
         "breed": "Miniature Pinscher"
     },
     {
-        "id": 168,
+        "id": "breed-168",
         "breed": "Miniature Schnauzer"
     },
     {
-        "id": 171,
+        "id": "breed-171",
         "breed": "Newfoundland"
     },
     {
-        "id": 172,
+        "id": "breed-172",
         "breed": "Norfolk Terrier"
     },
     {
-        "id": 176,
+        "id": "breed-176",
         "breed": "Norwich Terrier"
     },
     {
-        "id": 177,
+        "id": "breed-177",
         "breed": "Nova Scotia Duck Tolling Retriever"
     },
     {
-        "id": 178,
+        "id": "breed-178",
         "breed": "Old English Sheepdog"
     },
     {
-        "id": 179,
+        "id": "breed-179",
         "breed": "Olde English Bulldogge"
     },
     {
-        "id": 181,
+        "id": "breed-181",
         "breed": "Papillon"
     },
     {
-        "id": 183,
+        "id": "breed-183",
         "breed": "Pekingese"
     },
     {
-        "id": 184,
+        "id": "breed-184",
         "breed": "Pembroke Welsh Corgi"
     },
     {
-        "id": 185,
+        "id": "breed-185",
         "breed": "Perro de Presa Canario"
     },
     {
-        "id": 188,
+        "id": "breed-188",
         "breed": "Pharaoh Hound"
     },
     {
-        "id": 189,
+        "id": "breed-189",
         "breed": "Plott"
     },
     {
-        "id": 193,
+        "id": "breed-193",
         "breed": "Pomeranian"
     },
     {
-        "id": 196,
+        "id": "breed-196",
         "breed": "Poodle (Miniature)"
     },
     {
-        "id": 197,
+        "id": "breed-197",
         "breed": "Poodle (Toy)"
     },
     {
-        "id": 201,
+        "id": "breed-201",
         "breed": "Pug"
     },
     {
-        "id": 204,
+        "id": "breed-204",
         "breed": "Puli"
     },
     {
-        "id": 205,
+        "id": "breed-205",
         "breed": "Pumi"
     },
     {
-        "id": 207,
+        "id": "breed-207",
         "breed": "Rat Terrier"
     },
     {
-        "id": 208,
+        "id": "breed-208",
         "breed": "Redbone Coonhound"
     },
     {
-        "id": 209,
+        "id": "breed-209",
         "breed": "Rhodesian Ridgeback"
     },
     {
-        "id": 210,
+        "id": "breed-210",
         "breed": "Rottweiler"
     },
     {
-        "id": 211,
+        "id": "breed-211",
         "breed": "Russian Toy"
     },
     {
-        "id": 212,
+        "id": "breed-212",
         "breed": "Saint Bernard"
     },
     {
-        "id": 213,
+        "id": "breed-213",
         "breed": "Saluki"
     },
     {
-        "id": 214,
+        "id": "breed-214",
         "breed": "Samoyed"
     },
     {
-        "id": 216,
+        "id": "breed-216",
         "breed": "Schipperke"
     },
     {
-        "id": 218,
+        "id": "breed-218",
         "breed": "Scottish Deerhound"
     },
     {
-        "id": 219,
+        "id": "breed-219",
         "breed": "Scottish Terrier"
     },
     {
-        "id": 221,
+        "id": "breed-221",
         "breed": "Shetland Sheepdog"
     },
     {
-        "id": 222,
+        "id": "breed-222",
         "breed": "Shiba Inu"
     },
     {
-        "id": 223,
+        "id": "breed-223",
         "breed": "Shih Tzu"
     },
     {
-        "id": 225,
+        "id": "breed-225",
         "breed": "Shiloh Shepherd"
     },
     {
-        "id": 226,
+        "id": "breed-226",
         "breed": "Siberian Husky"
     },
     {
-        "id": 228,
+        "id": "breed-228",
         "breed": "Silky Terrier"
     },
     {
-        "id": 232,
+        "id": "breed-232",
         "breed": "Smooth Fox Terrier"
     },
     {
-        "id": 233,
+        "id": "breed-233",
         "breed": "Soft Coated Wheaten Terrier"
     },
     {
-        "id": 235,
+        "id": "breed-235",
         "breed": "Spanish Water Dog"
     },
     {
-        "id": 236,
+        "id": "breed-236",
         "breed": "Spinone Italiano"
     },
     {
-        "id": 238,
+        "id": "breed-238",
         "breed": "Staffordshire Bull Terrier"
     },
     {
-        "id": 239,
+        "id": "breed-239",
         "breed": "Standard Schnauzer"
     },
     {
-        "id": 242,
+        "id": "breed-242",
         "breed": "Swedish Vallhund"
     },
     {
-        "id": 243,
+        "id": "breed-243",
         "breed": "Thai Ridgeback"
     },
     {
-        "id": 244,
+        "id": "breed-244",
         "breed": "Tibetan Mastiff"
     },
     {
-        "id": 245,
+        "id": "breed-245",
         "breed": "Tibetan Spaniel"
     },
     {
-        "id": 246,
+        "id": "breed-246",
         "breed": "Tibetan Terrier"
     },
     {
-        "id": 248,
+        "id": "breed-248",
         "breed": "Toy Fox Terrier"
     },
     {
-        "id": 250,
+        "id": "breed-250",
         "breed": "Treeing Walker Coonhound"
     },
     {
-        "id": 251,
+        "id": "breed-251",
         "breed": "Vizsla"
     },
     {
-        "id": 253,
+        "id": "breed-253",
         "breed": "Weimaraner"
     },
     {
-        "id": 254,
+        "id": "breed-254",
         "breed": "Welsh Springer Spaniel"
     },
     {
-        "id": 256,
+        "id": "breed-256",
         "breed": "West Highland White Terrier"
     },
     {
-        "id": 257,
+        "id": "breed-257",
         "breed": "Whippet"
     },
     {
-        "id": 258,
+        "id": "breed-258",
         "breed": "White Shepherd"
     },
     {
-        "id": 259,
+        "id": "breed-259",
         "breed": "Wire Fox Terrier"
     },
     {
-        "id": 260,
+        "id": "breed-260",
         "breed": "Wirehaired Pointing Griffon"
     },
     {
-        "id": 261,
+        "id": "breed-261",
         "breed": "Wirehaired Vizsla"
     },
     {
-        "id": 262,
+        "id": "breed-262",
         "breed": "Xoloitzcuintli"
     },
     {
-        "id": 264,
+        "id": "breed-264",
         "breed": "Yorkshire Terrier"
     }
 ]
