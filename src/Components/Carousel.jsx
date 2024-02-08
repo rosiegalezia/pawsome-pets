@@ -20,7 +20,7 @@ function CarouselFade() {
             </Button>
           </Link>
         </div>
-          <p className='carouselWelcome'>Welcome to PAWSOME PETS</p>
+          <p className='carouselWelcome'>Welcome to PAWESOME PETS</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='c-item'>

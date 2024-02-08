@@ -36,8 +36,10 @@ function GenerateName() {
                 return '#fff0f9'; // Light pink for female
             case 'Male':
                 return '#f0f9ff'; // Light blue for male
+            case "Don't mind":
+                return '#fffbf0'; // Yellow for don't mind
             default:
-                return '#f7f0ff'; // Default background color
+                return '#fff'; // Default white background
         }
     };
 
