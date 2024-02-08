@@ -1,8 +1,10 @@
 /*********** TO DO ************/
 
 // Center the input and buttons. 
-    // Should the btns go at the end of input box or below...?
-
+    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+     btn underneath??
+    */
 
 
 
@@ -15,6 +17,7 @@ import React, { useState, useEffect } from 'react';
 
 function FactCard() {
 
+    /***************************** Dog Img API ********************************/
         // Need to populate this with user choice
         const breedName = "chihuahua";
         
@@ -33,6 +36,8 @@ function FactCard() {
                 setCardImg(data.message[0]);
             });
     }, []);
+
+
 
     return (
         <div>
