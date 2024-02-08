@@ -13,7 +13,7 @@ function CarouselFade() {
         <img src={carouselImg2} alt='doggy with tongue out' className='carousel-img d-block w-100' text="First slide" fluid/>
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg">
+        <Button variant="light" size="lg" className="carouselBtn">
           Get Started
         </Button></div>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -23,7 +23,7 @@ function CarouselFade() {
         <img src={carouselImg1} alt='dog friends' className='carousel-img d-block w-100' text="Second slide"fluid />
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg">
+        <Button variant="light" size="lg" className="carouselBtn">
           Get Started
         </Button></div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -33,7 +33,7 @@ function CarouselFade() {
         <img src={carouselImg3} alt='dog friends' className='carousel-img d-block w-100' text="Third slide"fluid />
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg">
+        <Button variant="light" size="lg" className="carouselBtn">
           Get Started
         </Button></div>
           <p>
