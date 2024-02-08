@@ -3,28 +3,28 @@
         "id": 1,
         "name": "Rosie",
         "github": "https://github.com/rosiegalezia",
-        "image": "./img-1.jpg",
+        "image": "../assets/img-1.jpg",
         "role": "Name generator, about section"
     },
     {
         "id": 2,
         "name": "Mijeong",
         "github": "https://github.com/Salala1005",
-        "image": "./img-1.jpg",
+        "image": "./team/img-1.jpg",
         "role": "NavBar, image carousel"
     },
     {
         "id": 3,
         "name": "Liam",
         "github": "https://github.com/lico27",
-        "image": "./img-1.jpg",
+        "image": "./team/img-1.jpg",
         "role": "dog images API"
     },
     {
         "id": 4,
         "name": "Emma",
         "github": "https://github.com/E-Davies",
-        "image": "./img-1.jpg",
+        "image": "./team/img-1.jpg",
         "role": "dog facts API"
     }
 ]

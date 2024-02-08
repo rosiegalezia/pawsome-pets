@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaw } from '@fortawesome/free-solid-svg-icons'
 
 
-
 function NavBar() {
   return (
     <Navbar bg="light" data-bs-theme="light">
