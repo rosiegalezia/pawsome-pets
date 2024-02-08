@@ -1,6 +1,6 @@
 /*********** TO DO ************/
 
-// Center Card
+// Center Card - done
 // Remove Dog image and add seperate card to left for image https://cdn2.thedogapi.com/images/B12BnxcVQ_1280.jpg
 // Center Dog Breed
 // Center buttons
@@ -47,7 +47,7 @@ function FactCard(props) {
                     Have you found your fur-ever friend? <br/> If so, why not get some help to chose the paw-fect name for them.
                 </Card.Text>
                 <Button className='me-4' variant="primary">Pick a name for your pet</Button>
-                <Button variant="primary">Add to favourites</Button>
+                <Button variant="primary" disabled="true">Add to favourites</Button>
             </Card.Body>
         </Card>
     );
