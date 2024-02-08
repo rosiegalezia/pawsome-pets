@@ -10,18 +10,18 @@
     position: relative;
     bottom: 0;
     width: 100vw;
-    height: 10rem;
+    /* height: 10rem; */
 }
 
-/* .darkBtn {
-    background-color: #51372A;
-    border: none;
+.footer-logo {
+    display: flex;
+    width: 15vw;
+    margin: 0 auto;
 }
 
-.darkBtn:active {
-    background-color: red;
-    border: none;
-} */
+.navbar-logo {
+    
+}
 
 .btn-primary {
     --bs-btn-color: #fff;
@@ -30,7 +30,7 @@
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: #432b20;
     --bs-btn-hover-border-color: #51372A;
-    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
     --bs-btn-active-color: #fff;
     --bs-btn-active-bg: #472f23;
     --bs-btn-active-border-color: #432b20;
@@ -47,7 +47,7 @@
     --bs-btn-hover-color: #432b20;
     --bs-btn-hover-bg: #ede4df;
     --bs-btn-hover-border-color: #ede4df;
-    --bs-btn-focus-shadow-rgb: 211,212,213;
+    --bs-btn-focus-shadow-rgb: 211, 212, 213;
     --bs-btn-active-color: #432b20;
     --bs-btn-active-bg: #e8ddd8;
     --bs-btn-active-border-color: #e8ddd8;
