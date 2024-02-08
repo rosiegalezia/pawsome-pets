@@ -1,7 +1,6 @@
 /*********** TO DO ************/
 
-// Need to import dogFacts.json into react when i move it over to a component/page
-// How do I get a list of all the dog breeds and ID's from the json? 
+// Need to import dogBreeds.json into react when i move it over to a component/page
 // How do I take user input for dog breed and return dog breed ID??
 
 

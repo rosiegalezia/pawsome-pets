@@ -1,5 +1,5 @@
 # Pawsome-pets
-A guide for new pet owners, create for Project 2 of the Web Development Bootcamp
+A guide for new pet owners, created for Project 2 of the Web Development Bootcamp
 
 ## Description
 A resource to help prospective pet (dog) owners choose a breed and a name for their furry friend 🐶.
@@ -8,7 +8,8 @@ A resource to help prospective pet (dog) owners choose a breed and a name for th
 To meet the project Acceptance Criteria, the app:
 - Is a unique and novel project idea ✅ 
 - Makes two API calls to two different API endpoints ✅ 
-  - 
+  - [The Dog API](https://www.thedogapi.com/)
+  - [Dog.ceo API](https://dog.ceo/dog-api/)
 - Uses two libraries, packages or technologies not discussed in class ✅ 
   - [React-Bootstrap](https://react-bootstrap.netlify.app/)
   - [dog-names npm package](https://www.npmjs.com/package/dog-names?activeTab=readme)
@@ -28,7 +29,7 @@ To meet the project Acceptance Criteria, the app:
 No installation required.
 
 ### Usage
-👨‍💻 The deployed webpage can be viewed at ADD LINK HERE<br/>
+👨‍💻 The deployed webpage can be viewed [here](https://main--sunny-semifreddo-f70c5b.netlify.app/#)
 
 
 
@@ -38,11 +39,11 @@ Coming soon
 
 ## Credits
 👏 Project designed and built by [Liam Cottrell](https://github.com/lico27), [Emma Davies](https://github.com/E-Davies), [Rosie Galezia](https://github.com/rosiegalezia) and [Mijeong Jin](https://github.com/Salala1005)<br/>
-👏 https://www.npmjs.com/package/dog-names?activeTab=readme
-👏 
+
 
 ## License
-Produced under the MIT license. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br/>
+Produced under the MIT license. 
 
 ## Badges
 ![Static Badge](https://img.shields.io/badge/project-in_progress-blue)
