@@ -1,4 +1,13 @@
 .generate-name {
-    /* background-color: pink; */
+align-items: center;
+}
 
+.page-container {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 10rem;
+}
+
+.page-content {
+    /* padding-bottom: 10rem; */
 }
