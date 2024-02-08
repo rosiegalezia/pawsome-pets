@@ -1,12 +1,14 @@
+// Need to import dogFacts.json into react when i move it over to a component/page
+// How do I get a list of all the dog breeds and ID's from the json? 
+// How do I take user input for dog breed and return dog breed ID??
+
+
 import dogs from './src/assets/dogFacts.json';
 
 
 let selectedBreed ; //what the user selects from the drop down
 let selectedBreedID ; // what the dog api breed id is based on the users selection above. 
 
-// Need to import dogFacts.json into react when i move it over to a component/page
-// How do I get a list of all the dog breeds and ID's from the json? 
-// How do I take user input for dog breed and return dog breed ID??
 
 
 // function to randomly generate a number to use in the dog fact API so that a random dog breed is called from the API
