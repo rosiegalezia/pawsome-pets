@@ -15,10 +15,10 @@ function NavBar() {
   return (
     <Navbar bg="light" data-bs-theme="light">
     <Container>
-      <Navbar.Brand href="/" className='logo'><FontAwesomeIcon icon={faPaw} />PAWSOME PETS</Navbar.Brand>
+      <Navbar.Brand href="/#" className='logo'><FontAwesomeIcon icon={faPaw} />PAWSOME PETS</Navbar.Brand>
       <Nav className="ms-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="#Info">Dog Breeds</Nav.Link>
+        <Nav.Link href="/#">Home</Nav.Link>
+        <Nav.Link href="#Info">Dog Breeds Info</Nav.Link>
         <Nav.Link href="#GenerateName">Name Generator</Nav.Link>
         <Nav.Link href="#About">About</Nav.Link>
       </Nav>
