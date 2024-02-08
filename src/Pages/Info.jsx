@@ -1,4 +1,6 @@
-/**/
+/*********** TO DO ************/
+
+// Set it up not to run dogFact API until a breed is selected and show info btn clicked
 
 
 
@@ -15,7 +17,7 @@ import { useEffect, useState } from 'react';
 
 function Info() {
 
-    const [breedID, setBreedID] = useState(1);
+    const [breedID, setBreedID] = useState(1); // can we set to null and then - if breedID = null --> do not run API/render card
     console.log(breedID);
     const handleBreedChange = (event) => {
         console.log(event.target.value);
@@ -27,8 +29,8 @@ function Info() {
     };
 
 
-        /***************************** Dog Facts API *******************************/
-        const [cardFact, setCardFact] = useState(null);
+/************************************* Dog Facts API *************************************/
+        const [cardFact, setCardFact] = useState('');
         
                 const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7"; 
 /*TEST API    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog */
@@ -66,7 +68,7 @@ let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" +
                     {/* This is another iput drop down to choose cat or dog */}
                     {/* <Form.Group className="mb-3">
                             <Form.Label htmlFor="disabledSelect">Select your animal</Form.Label>
-                            <Form.Select id="disabledSelect">
+                            <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>
                                 <option>Dog</option>
