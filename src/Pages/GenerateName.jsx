@@ -89,7 +89,7 @@ function GenerateName() {
 
                 </div>
 
-                <Toast show={toast} onClose={toggleToast}>
+                <Toast className='toast' show={toast} onClose={toggleToast} delay={1000} autohide>
                     <Toast.Body>Name copied to clipboard</Toast.Body>
                 </Toast>
 

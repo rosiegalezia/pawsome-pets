@@ -11,7 +11,7 @@
 }
 
 .bg-light {
-background-color: #f7f1ee !important;
+    background-color: #f7f1ee !important;
 }
 
 .footer {
@@ -63,4 +63,10 @@ background-color: #f7f1ee !important;
     --bs-btn-disabled-color: #69554b;
     --bs-btn-disabled-bg: #f8f9fa;
     --bs-btn-disabled-border-color: #f8f9fa;
+}
+
+.toast {
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    border-color: #f6eeea;
 }
