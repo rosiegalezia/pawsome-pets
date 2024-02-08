@@ -5,7 +5,7 @@ body {
   font-family: poppins!important;
 }
 .logo{
-  font-size: 30px!important;
+  font-size: 15px!important;
   font-weight: 600;
   font-family: poppins !important;
   color: rgb(77, 75, 75) !important;
@@ -19,7 +19,6 @@ body {
   height:100%;
   object-fit: cover
 }
-
 
 .carouselBtn {
   font-family: poppins !important;
