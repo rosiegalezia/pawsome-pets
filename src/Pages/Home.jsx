@@ -5,14 +5,16 @@ import '../Components/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap'
 import CarouselFade from '../Components/Carousel';
+import PawPrints from '../assets/paw-prints.svg'
 
 function Home() {
   return (
     <div className='page-container'>
       <div className='page-content'>
       <CarouselFade />
-      <h2 className='p-3 m-3 text-center'>Welcome to Pawsome Pets</h2>
-      <h4 className='text-center'>Find your fur-ever friend and come up with a paw-fect name for them 🐾</h4>
+      {/* <h2 className='p-3 m-3 text-center'>Welcome to Pawesome Pets</h2> */}
+      {/* <h4 className='text-center'>Find your fur-ever friend and come up with a paw-fect name for them 🐾</h4> */}
+      {/* <img src={PawPrints} alt=""  className='p-5'/> */}
       </div>
     </div>
   )

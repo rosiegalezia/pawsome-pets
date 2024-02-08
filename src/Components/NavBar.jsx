@@ -13,7 +13,7 @@ import Logo from "../assets/logo-one-line.svg"
 function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+      <Container className=''>
       <img src={Logo} alt="" className='navbar-logo'/>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
