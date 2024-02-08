@@ -11,6 +11,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import './Components.css'
+
+// Image API stuff (work in progress)
+// let breedName = "chihuahua";
+// let imgAlt = "a " + breedName;
+// let queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
+// let cardImg = "src/assets/example.jpg";
 import React, { useState, useEffect } from 'react';
 
 function FactCard() {
@@ -36,9 +43,17 @@ function FactCard() {
 
     return (
         <div>
-            {/* Build card */}
-            <Card style={{ width: '38rem' }} bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center'>
-                <Card.Img variant="top" src={cardImg} style={{ objectFit: "cover", height: "400px" }} alt={imgAlt} />
+        <Card style={{ width: '38rem' }} bg="dark" text='light' className='card m-2 text-center  mx-auto d-flex justify-content-center'>
+            <Card.Img variant="top" src="src/assets/example.jpg" style={{ objectFit: "cover"}} /> {/*Currently a placeholder dog img */}
+            <Card.Body>
+                <Card.Title className='mb-4' >Dog Breed</Card.Title>
+                
+                {/* <ListGroup className='mb-3' as="ul">
+                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
+                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 2: </span>xscvbfghjbmn</ListGroup.Item>
+                    <ListGroup.Item variant="dark" as="li" ><span className='fw-bold'>Info 3: </span>xscvbfghjbmn</ListGroup.Item>
+                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 4: </span>xscvbfghjbmn</ListGroup.Item>
+                </ListGroup> */}
 
                 <Card.Body>
                     <Card.Title className='mb-4' >{breedName}</Card.Title>

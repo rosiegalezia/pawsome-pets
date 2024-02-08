@@ -40,6 +40,16 @@ function GenerateName() {
         }
     };
 
+    const handleCardClick = () => {
+        navigator.clipboard.writeText(generatedName)
+            .then(() => {
+                alert('Text copied to clipboard!');
+            })
+            .catch((error) => {
+                console.error('Unable to copy text to clipboard:', error);
+            });
+    };
+
     return (
         <div className='page-container'>
             <div className='page-content generate-name d-flex flex-column'>
@@ -54,7 +64,7 @@ function GenerateName() {
                 </Form.Select>
 
                 <div className='p-0 m-3 w-50'>
-                    <Card className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card onClick={handleCardClick} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center'>
                                 <h2>{generatedName}</h2>
