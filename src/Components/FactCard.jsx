@@ -1,3 +1,10 @@
+/*********** TO DO ************/
+
+// Center the input and buttons. 
+    // Should the btns go at the end of input box or below...?
+
+
+
 
 //Imported Components from React Bootstrap 
 import Button from 'react-bootstrap/Button';
@@ -24,7 +31,7 @@ function FactCard(props) {
         <Card style={{ width: '38rem' }} bg="dark" text='light' className='m-2 text-center  mx-auto d-flex justify-content-center'>
             <Card.Img variant="top" src="src/assets/example.jpg" style={{ objectFit: "cover"}} /> {/*Currently a placeholder dog img */}
             <Card.Body>
-                <Card.Title className='mb-4' >Dog Breed</Card.Title>
+                <Card.Title className='mb-4'>Dog Breed</Card.Title>
                 
                 {/* <ListGroup className='mb-3' as="ul">
                     <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
