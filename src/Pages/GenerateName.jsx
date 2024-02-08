@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 
 import './pages.css'
+import '../Components/Components.css'
 
 function GenerateName() {
 
@@ -64,8 +65,8 @@ function GenerateName() {
 
                 <div className='p-3 m-3 d-flex'>
                     <Button
-                        variant="dark"
-                        className=''
+                        variant="primary"
+                        className='darkBtn'
                         onClick={regenerateClick}
                     >Re-generate 🐾</Button>
                 </div>
