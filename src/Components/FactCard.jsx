@@ -16,7 +16,7 @@ import React, { useState, useEffect } from 'react';
 function FactCard() {
 
         // Need to populate this with user choice
-        const breedName = "chihuahua";
+        const breedName = "boxer";
         
     const [cardImg, setCardImg] = useState(null);
     const imgAlt = "a " + breedName;
@@ -34,14 +34,19 @@ function FactCard() {
             });
     }, []);
 
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    const breedNameCap = capitalizeFirstLetter(breedName);
+
     return (
         <div>
             {/* Build card */}
-            <Card style={{ width: '38rem' }} bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center'>
-                <Card.Img variant="top" src={cardImg} style={{ objectFit: "cover", height: "400px" }} alt={imgAlt} />
+            <Card bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center col-md-8'>
+                <Card.Img variant="top" src={cardImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
 
                 <Card.Body>
-                    <Card.Title className='mb-4' >{breedName}</Card.Title>
+                    <Card.Title className='mb-4' >{breedNameCap}</Card.Title>
 
                     {/* <ListGroup className='mb-3' as="ul">
                         <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
