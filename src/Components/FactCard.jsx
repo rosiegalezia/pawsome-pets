@@ -22,9 +22,9 @@ import React, { useState, useEffect } from 'react';
 
 function FactCard() {
 
-    // Need to populate this with user choice
-    const breedName = "chihuahua";
-
+        // Need to populate this with user choice
+        const breedName = "boxer";
+        
     const [cardImg, setCardImg] = useState(null);
     const imgAlt = "a " + breedName;
     const queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
@@ -41,12 +41,19 @@ function FactCard() {
             });
     }, []);
 
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    const breedNameCap = capitalizeFirstLetter(breedName);
+
     return (
         <div>
-            <Card style={{ width: '38rem' }} bg="dark" text='light' className='card m-2 text-center  mx-auto d-flex justify-content-center'>
-                <Card.Img variant="top" src="src/assets/example.jpg" style={{ objectFit: "cover" }} /> {/*Currently a placeholder dog img */}
+            {/* Build card */}
+            <Card bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center col-md-8'>
+                <Card.Img variant="top" src={cardImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
+
                 <Card.Body>
-                    <Card.Title className='mb-4' >Dog Breed</Card.Title>
+                    <Card.Title className='mb-4' >{breedNameCap}</Card.Title>
 
                     {/* <ListGroup className='mb-3' as="ul">
                     <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
