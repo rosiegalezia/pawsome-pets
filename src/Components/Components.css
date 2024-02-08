@@ -27,9 +27,9 @@ background-color: #f7f1ee !important;
     margin: 0 auto;
 }
 
-/* .navbar-logo {
-
-} */
+.navbar-logo {
+    width: 20vw;
+}
 
 .btn-primary {
     --bs-btn-color: #fff;
