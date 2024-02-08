@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import './Components.css'
+
 // Image API stuff (work in progress)
 // let breedName = "chihuahua";
 // let imgAlt = "a " + breedName;
@@ -21,7 +23,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 function FactCard(props) {
     return (
         <div>
-        <Card style={{ width: '38rem' }} bg="dark" text='light' className='m-2 text-center  mx-auto d-flex justify-content-center'>
+        <Card style={{ width: '38rem' }} bg="dark" text='light' className='card m-2 text-center  mx-auto d-flex justify-content-center'>
             <Card.Img variant="top" src="src/assets/example.jpg" style={{ objectFit: "cover"}} /> {/*Currently a placeholder dog img */}
             <Card.Body>
                 <Card.Title className='mb-4' >Dog Breed</Card.Title>
