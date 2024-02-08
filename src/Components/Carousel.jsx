@@ -3,6 +3,7 @@ import carouselImg1 from '../assets/carouselImg1.jpg';
 import carouselImg2 from '../assets/carouselImg2.jpg';
 import carouselImg3 from '../assets/carouselImg3.jpg';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 function CarouselFade() {
@@ -10,34 +11,36 @@ function CarouselFade() {
     <>
     <Carousel fade>
       <Carousel.Item className='c-item'>
-        <img src={carouselImg2} alt='doggy with tongue out' className='carousel-img d-block w-100' text="First slide" fluid/>
+        <img src={carouselImg1} alt='dog in the car' className='carousel-img d-block w-100' text="First slide"/>
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg" className="carouselBtn">
-          Get Started
-        </Button></div>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <Link to="Info">
+            <Button variant="outline-light" size="lg" className="carouselBtn">
+              Get Started
+            </Button>
+          </Link>
+        </div>
+          <p className='carouselWelcome'>Welcome to PAWSOME PETS</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='c-item'>
-        <img src={carouselImg1} alt='dog friends' className='carousel-img d-block w-100' text="Second slide"fluid />
+        <img src={carouselImg3} alt='dog with stick' className='carousel-img d-block w-100' text="Second slide"/>
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg" className="carouselBtn">
+        <Button variant="outline-light" size="lg" className="carouselBtn">
           Get Started
         </Button></div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p className='carouselP'>Find your fur-ever friend and come up with a paw-fect name for them 🐾</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='c-item'>
-        <img src={carouselImg3} alt='dog friends' className='carousel-img d-block w-100' text="Third slide"fluid />
+        <img src={carouselImg2} alt='dog in the beach' className='carousel-img d-block w-100' text="Third slide" />
         <Carousel.Caption>
         <div className="mb-2">
-        <Button variant="light" size="lg" className="carouselBtn">
+        <Button variant="outline-light" size="lg" className="carouselBtn">
           Get Started
         </Button></div>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          <p className='carouselP'>
           </p>
         </Carousel.Caption>
       </Carousel.Item>
