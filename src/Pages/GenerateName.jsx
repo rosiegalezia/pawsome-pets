@@ -76,10 +76,18 @@ function GenerateName() {
                 <div className='p-3 m-3 d-flex'>
                     <Button
                         variant="primary"
-                        className='darkBtn'
+                        className='darkBtn m-1'
                         onClick={regenerateClick}
-                    >Re-generate 🐾</Button>
+                    >Re-generate</Button>
+
+                    <Button
+                        variant="primary"
+                        className='darkBtn m-1'
+                        onClick={regenerateClick}
+                    >Save Name</Button>
+
                 </div>
+
 
             </div>
         </div>
