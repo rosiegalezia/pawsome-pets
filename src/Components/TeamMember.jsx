@@ -5,7 +5,7 @@ import './Components.css'
 
 function TeamMember(props) {
     return (
-        <Card className='team-card m-3 g-0 col-3 col-sm-12 col-md-6 col-lg-3 col-xl-2'>
+        <Card className='team-card m-3 g-0 col-12 col-sm-12 col-md-6 col-lg-3 col-xl-2'>
             <Card.Img variant="top" src={props.image} className='member-photo' />
             <Card.Body className='p-3'>
                 <Card.Title>{props.name}</Card.Title>
