@@ -26,12 +26,14 @@ function Info() {
                         <Form.Group className="mb-3">
                             <Form.Label htmlFor="disabledSelect">Select your breed</Form.Label>
                             <Form.Select id="disabledSelect">
+                                <option id="breed-select">Please select a breed</option>
                                 {dogBreeds.map((breed) => {
                                     return <option id={breed.id}>{breed.breed}</option>
                                 })};
                             </Form.Select>
                         </Form.Group>
                         <Button type="submit">Show Info</Button>
+                        <Button type="random-breed" className="ms-2">Pick a random breed</Button>
                     </fieldset>
                 </Form>
 
