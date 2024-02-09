@@ -7,15 +7,18 @@ import FactCard from '../Components/FactCard';
 
 import dogBreeds from '../assets/dogBreeds.json';
 
+import '../Components/Components.css'
+
+
 function Info() {
     return (
         <div className='page-container'>
             <div className='page-content'>
-                <h2 className='p-3 m-3 text-center'>Select a dog breed to learn more about them!</h2>
+                <h2 className='p-3 m-3 pt-5 text-center'>Select a dog breed to learn more about them!</h2>
 
-                <Form className='m-3'> 
+                <Form className='m-3'>
                     <fieldset >
-                    {/* <Form.Group className="mb-3">
+                        {/* <Form.Group className="mb-3">
                             <Form.Label htmlFor="disabledSelect">Select your animal</Form.Label>
                             <Form.Select id="disabledSelect">
                                 <option>Select your animal</option>
@@ -31,10 +34,10 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
-                       <div className="mb-3 mx-auto d-flex justify-content-center">
-                            <Button type="submit">Show Info</Button>
-                            <Button type="random-breed" className="ms-2">Pick a random breed</Button>
-                       </div>
+                        <div className="mb-3 mx-auto d-flex justify-content-center">
+                            <Button variant="primary" type="submit">Show Info</Button>
+                            <Button variant="primary" type="random-breed" className="ms-2 btn-primary">Pick a random breed</Button>
+                        </div>
                     </fieldset>
                 </Form>
 

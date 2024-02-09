@@ -8,11 +8,12 @@ import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import ReactDOM from 'react-dom'
 import Logo from "../assets/logo-one-line.svg"
+import '../Components/Components.css'
 
 
 function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary bg-light">
       <Container className=''>
       <img src={Logo} alt="" className='navbar-logo'/>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
