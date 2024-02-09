@@ -74,9 +74,9 @@ function FactCard() {
                         <Card.Text >
                             Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
                         </Card.Text>
-                        <Button className='me-4 mb-4' variant="primary">Pick a name for your pet</Button>
-                        <Button className='me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
-                        <Button className='mb-4' variant="primary">Get a new image</Button>
+                        <Button className='btn-brown me-4 mb-4' variant="primary">Pick a name for your pet</Button>
+                        <Button className='btn-brown me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
+                        <Button className='btn-brown mb-4' variant="primary">Get a new image</Button>
                     </Card.Body>
                
             </Card>

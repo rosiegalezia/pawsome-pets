@@ -4,6 +4,7 @@ import carouselImg2 from '../assets/carouselImg2.jpg';
 import carouselImg3 from '../assets/carouselImg3.jpg';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import "@fontsource/poppins"; // Defaults to weight 400
 import './NavBar.css';
 
 function CarouselFade() {
@@ -20,7 +21,7 @@ function CarouselFade() {
             </Button>
           </Link>
         </div>
-          <p className='carouselWelcome'>Welcome to PAWSOME PETS</p>
+          <p className='carouselWelcome'>Welcome to PAWESOME PETS</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item className='c-item'>
