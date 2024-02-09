@@ -15,7 +15,7 @@ function TeamMember(props) {
                     <b>Favourite pet:</b><br /> {props.favpet}
                 </Card.Text>
             </Card.Body>
-            <Button variant="primary" href={props.github} target="_blank" className='p-2 m-3 darkBtn'>View {props.name}'s GitHub Profile</Button>
+            <Button href={props.github} target="_blank" className='p-2 m-3 btn-brown'>View {props.name}'s GitHub Profile</Button>
         </Card>
     );
 }

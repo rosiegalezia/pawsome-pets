@@ -14,7 +14,7 @@ import '../Components/Components.css'
 
 function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary bg-light">
+    <Navbar expand="lg" className="bg-cream">
       <Container className=''>
         <Link to="/#">
           <img src={Logo} alt="" className='navbar-logo' />
