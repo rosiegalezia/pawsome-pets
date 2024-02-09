@@ -51,14 +51,18 @@ function Info() {
                 let dog = data[0].breeds[0];
 
                 let dogAPIData = {
-                    breedGroup: dog.breed_group,
-                    bredFor: dog.bred_for,
-                    lifeSpan: dog.life_span,
-                    temperament: dog.temperament
+                    dogID: dog.id,
+                    dogName: dog.name,
+                    dogImg: data[0].url,
+                    dogBreedGroup: dog.breed_group,
+                    dogBredFor: dog.bred_for,
+                    dogLifeSpan: dog.life_span,
+                    dogTemperament: dog.temperament
                 };
 
                 console.log('dog id: ' + dog.id);
                 console.log('dog breed: ' + dog.name);
+                console.log('dog img: ' + data[0].url);
                 console.log('breed group: ' + dog.breed_group);
                 console.log('bred for: ' + dog.bred_for);
                 console.log('life span: ' + dog.life_span);
@@ -105,10 +109,12 @@ function Info() {
 
                 <FactCard 
                     // key={FactCard.}
-                    breedGroup={FactCard.breedGroup}
-                    bredFor={FactCard.bredFor}
-                    lifeSpan={FactCard.lifeSpan}
-                    temperament={FactCard.temperament}
+                    dogName={FactCard.dogName}
+                    dogImg={FactCard.dogImg}
+                    dogBreedGroup={FactCard.dogBreedGroup}
+                    dogBredFor={FactCard.dogBredFor}
+                    dogLifeSpan={FactCard.dogLifeSpan}
+                    dogTemperament={FactCard.dogTemperament}
                 />
             </div>
 
