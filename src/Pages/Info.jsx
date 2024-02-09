@@ -13,48 +13,57 @@ import FactCard from '../Components/FactCard';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function Info() {
 
     const [breedID, setBreedID] = useState(1); // can we set to null and then - if breedID = null --> do not run API/render card
     console.log(breedID);
+
+    // Function to take users breed selection and obtain the API breed ID number to use in API call
     const handleBreedChange = (event) => {
         console.log(event.target.value);
         let selectedBreed = event.target.value;
         let breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
-        setBreedID(breedObj.id.split('-')[1]); 
-        
-        
+        let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
+        setBreedID(apiBreedID);         
     };
 
 
 /************************************* Dog Facts API *************************************/
-        const [cardFact, setCardFact] = useState('');
+    const [cardFact, setCardFact] = useState('');
+    console.log(cardFact);
         
                 const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7"; 
 /*TEST API    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog */
         
-let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
+    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
 
-       const handleShowInfoClick = () => {
-            fetch(queryURLDogFacts)
-                .then(function(response){
-                    return response.json();
-                }).then(function (data){
-                    let dog = data[0].breeds[0];
+    const handleShowInfoClick = () => {
+        fetch(queryURLDogFacts)
+            .then(function(response){
+                return response.json();
+            }).then(function (data){
+                console.log(data);
+                let dog = data[0].breeds[0];
 
-                    console.log(data);
-                    console.log('dog id: ' + dog.id);
-                    console.log('dog breed: ' + dog.name);
-                    console.log('breed group: ' + dog.breed_group);
-                    console.log('bred for: ' + dog.bred_for);
-                    console.log('life span: ' + dog.life_span);
-                    console.log('temperament: ' + dog.temperament);
-                    
-                    setCardFact();
-                });
-            };
+                let dogAPIData = {
+                    breedGroup: dog.breed_group,
+                    bredFor: dog.bred_for,
+                    lifeSpan: dog.life_span,
+                    temperament: dog.temperament
+                };
+
+                console.log('dog id: ' + dog.id);
+                console.log('dog breed: ' + dog.name);
+                console.log('breed group: ' + dog.breed_group);
+                console.log('bred for: ' + dog.bred_for);
+                console.log('life span: ' + dog.life_span);
+                console.log('temperament: ' + dog.temperament);
+                
+                setCardFact(dogAPIData);
+            });
+    };
     /******************************************************************************************/
 
 
@@ -89,11 +98,17 @@ let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" +
                     </fieldset>
                 </Form>
 
-                <FactCard />
+                <FactCard 
+                    // key={FactCard.}
+                    breedGroup={FactCard.breedGroup}
+                    bredFor={FactCard.bredFor}
+                    lifeSpan={FactCard.lifeSpan}
+                    temperament={FactCard.temperament}
+                />
             </div>
 
         </div>
     )
-}
+};
 
 export default Info;

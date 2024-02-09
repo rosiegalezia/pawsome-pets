@@ -13,9 +13,11 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import cardFact from '../Pages/Info';
+
 import React, { useState, useEffect } from 'react';
 
-function FactCard() {
+function FactCard(props) {
 
     /***************************** Dog Img API ********************************/
         // Need to populate this with user choice
@@ -56,10 +58,10 @@ function FactCard() {
                     </ListGroup> */}
 
                     <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>xscvbfghjbmn</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>xscvbfghjbmn</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>xscvbfghjbmn</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>xscvbfghjbmn</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.breedGroup}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.bredFor}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.lifeSpan}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.temperament}</ListGroup.Item>
                     </ListGroup>
 
 
@@ -73,7 +75,8 @@ function FactCard() {
                     Have you found your fur-ever friend? <br/> If so, why not get some help to chose the paw-fect name for them.
                 </Card.Text>
                     <Button className='me-4 mb-4' variant="primary">Pick a name for your pet</Button>
-                    <Button className='me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
+                    <Button className='me-4 mb-4' variant="primary">Add to favourites</Button>
+                    {/*For Fav btn -->    disabled="true" */}
                     <Button className='mb-4' variant="primary">Get a new image</Button>
                 </Card.Body>
             </Card>
