@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Toast from 'react-bootstrap/Toast';
 
 import './pages.css'
 import '../Components/Components.css'
@@ -35,19 +36,20 @@ function GenerateName() {
                 return '#fff0f9'; // Light pink for female
             case 'Male':
                 return '#f0f9ff'; // Light blue for male
+            case "Don't mind":
+                return '#fffbf0'; // Yellow for don't mind
             default:
-                return '#f7f0ff'; // Default background color
+                return '#fff'; // Default white background
         }
     };
 
-    const handleCardClick = () => {
+    const [toast, setToast] = useState(true);
+
+    const toggleToast = () => {
         navigator.clipboard.writeText(generatedName)
             .then(() => {
-                alert('Text copied to clipboard!');
+                setToast(!toast)
             })
-            .catch((error) => {
-                console.error('Unable to copy text to clipboard:', error);
-            });
     };
 
     return (
@@ -64,7 +66,7 @@ function GenerateName() {
                 </Form.Select>
 
                 <div className='p-0 m-3 w-50'>
-                    <Card onClick={handleCardClick} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card onClick={toggleToast} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center'>
                                 <h2>{generatedName}</h2>
@@ -84,13 +86,19 @@ function GenerateName() {
                         variant="primary"
                         className='darkBtn m-1'
                         onClick={regenerateClick}
-                    >Save Name</Button>
+                        disabled="true"
+                    >Save to Favourites</Button>
 
                 </div>
 
+                <Toast className='toast' show={toast} onClose={toggleToast} delay={1000} autohide>
+                    <Toast.Body>Name copied to clipboard</Toast.Body>
+                </Toast>
 
             </div>
         </div>
+
+
     )
 }
 

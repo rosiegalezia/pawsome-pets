@@ -23,8 +23,7 @@ function Info() {
                                 <option>Dog</option>
                             </Form.Select>
                         </Form.Group> */}
-                        <Form.Group className="mb-3">
-                            <Form.Label htmlFor="disabledSelect">Select your breed</Form.Label>
+                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
                                 {dogBreeds.map((breed) => {
@@ -32,8 +31,10 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
-                        <Button type="submit">Show Info</Button>
-                        <Button type="random-breed" className="ms-2">Pick a random breed</Button>
+                       <div className="mb-3 mx-auto d-flex justify-content-center">
+                            <Button type="submit">Show Info</Button>
+                            <Button type="random-breed" className="ms-2">Pick a random breed</Button>
+                       </div>
                     </fieldset>
                 </Form>
 
