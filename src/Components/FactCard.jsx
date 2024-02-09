@@ -47,14 +47,17 @@ function FactCard(props) {
     }
     const breedNameCap = capitalizeFirstLetter(breedName);
 
+
+
+
     return (
         <div>
             {/* Build card */}
             <Card bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
-                <Card.Img variant="top" src={cardImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
+                <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
 
                 <Card.Body>
-                    <Card.Title className='mb-4' >{breedNameCap}</Card.Title>
+                    <Card.Title className='mb-4' >{props.dogName}</Card.Title>
 
                     {/* <ListGroup className='mb-3' as="ul">
                     <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
@@ -63,11 +66,12 @@ function FactCard(props) {
                     <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 4: </span>xscvbfghjbmn</ListGroup.Item>
                 </ListGroup> */}
 
+
                     <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.breedGroup}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.bredFor}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.lifeSpan}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.temperament}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.dogBredFor}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.dogLifeSpan}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.dogTemperament}</ListGroup.Item>
                     </ListGroup>
 
 
