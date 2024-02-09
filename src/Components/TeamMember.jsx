@@ -8,7 +8,7 @@ function TeamMember(props) {
         <Card className='team-card m-3 g-0 col-12 col-sm-12 col-md-5 col-lg-3 col-xl-2'>
             <Card.Img variant="top" src={props.image} className='member-photo' />
             <Card.Body className='p-3'>
-                <Card.Title>{props.name}</Card.Title>
+                <Card.Title className='py-2'>{props.name}</Card.Title>
                 <Card.Text>
                     <b>Worked on:</b><br />The {props.role} <br />
                     <br />

@@ -56,7 +56,7 @@ function GenerateName() {
         <div className='page-container'>
             <div className='page-content generate-name d-flex flex-column'>
 
-                <h2 className='p-3 m-3 text-center'>What gender name would you like for your pet?</h2>
+                <h2 className='p-3 m-3  pt-5 text-center'>What gender name would you like for your pet?</h2>
 
                 <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
                     <option>Select your pet's sex</option>
