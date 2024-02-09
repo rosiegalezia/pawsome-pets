@@ -1,5 +1,11 @@
 /*********** TO DO ************/
 
+// Center the input and buttons. 
+    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+     btn underneath??
+    */
+
 
 
 //Imported Components from React Bootstrap 
@@ -7,12 +13,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import cardFact from '../Pages/Info';
 import './Components.css'
 
 import React, { useState, useEffect } from 'react';
 
-function FactCard() {
+function FactCard(props) {
 
+    /***************************** Dog Img API ********************************/
         // Need to populate this with user choice
         const breedName = "boxer";
         
@@ -31,6 +39,8 @@ function FactCard() {
                 setCardImg(data.message[0]);
             });
     }, []);
+   /******************************************************************************************/
+
 
     function capitalizeFirstLetter(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
@@ -53,12 +63,12 @@ function FactCard() {
                     <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 4: </span>xscvbfghjbmn</ListGroup.Item>
                 </ListGroup> */}
 
-                        <ListGroup className='mb-3' as="ul" style={{ textAlign: "left" }}>
-                            <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>xscvbfghjbmn</ListGroup.Item>
-                            <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>xscvbfghjbmn</ListGroup.Item>
-                            <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>xscvbfghjbmn</ListGroup.Item>
-                            <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>xscvbfghjbmn</ListGroup.Item>
-                        </ListGroup>
+                    <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.breedGroup}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.bredFor}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.lifeSpan}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.temperament}</ListGroup.Item>
+                    </ListGroup>
 
 
                         {/* <ListGroup className='mb-2' variant="flush">
