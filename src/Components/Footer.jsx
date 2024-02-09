@@ -3,7 +3,7 @@ import Logo from '../assets/logo-two-lines.svg'
 
 function Footer() {
     return (
-        <div className='footer p-4 w-100 bg-light'>
+        <div className='footer p-4 w-100 bg-cream'>
             <img src={Logo} alt="" className='footer-logo p-3 img-fluid' />
 
             <p className='text-center'>Copyright © 2024 Rosie Galezia, Emma Davies, Mijeong Jin, Liam Cottrell</p>
