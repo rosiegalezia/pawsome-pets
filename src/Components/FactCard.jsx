@@ -12,6 +12,8 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
+
 
 import cardFact from '../Pages/Info';
 import './Components.css'
