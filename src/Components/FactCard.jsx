@@ -22,7 +22,7 @@ function FactCard(props) {
 
     /***************************** Dog Img API ********************************/
         // Need to populate this with user choice
-        const breedName = "boxer";
+        const breedName = "dachshund";
         
     const [cardImg, setCardImg] = useState(null);
     const imgAlt = "a " + breedName;
@@ -42,10 +42,14 @@ function FactCard(props) {
    /******************************************************************************************/
 
 
-    function capitalizeFirstLetter(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+    function capitalizeFirstLetters(str) {
+        const words = str.split(' ');
+        const capitalisedWords = words.map(word => {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        });
+        return capitalisedWords.join(' ');
     }
-    const breedNameCap = capitalizeFirstLetter(breedName);
+    const breedNameCap = capitalizeFirstLetters(breedName);
 
 
 
