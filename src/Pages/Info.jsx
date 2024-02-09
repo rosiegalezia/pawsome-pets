@@ -51,18 +51,14 @@ function Info() {
                 let dog = data[0].breeds[0];
 
                 let dogAPIData = {
-                    dogID: dog.id,
-                    dogName: dog.name,
-                    dogImg: data[0].url,
-                    dogBreedGroup: dog.breed_group,
-                    dogBredFor: dog.bred_for,
-                    dogLifeSpan: dog.life_span,
-                    dogTemperament: dog.temperament
+                    breedGroup: dog.breed_group,
+                    bredFor: dog.bred_for,
+                    lifeSpan: dog.life_span,
+                    temperament: dog.temperament
                 };
 
                 console.log('dog id: ' + dog.id);
                 console.log('dog breed: ' + dog.name);
-                console.log('dog img: ' + data[0].url);
                 console.log('breed group: ' + dog.breed_group);
                 console.log('bred for: ' + dog.bred_for);
                 console.log('life span: ' + dog.life_span);
@@ -101,20 +97,18 @@ function Info() {
                             </Form.Select>
                         </Form.Group>
                         <div className="m-4 mx-auto d-flex justify-content-center">
-                            <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
-                            <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                            <Button className='btn-brown m-2' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
+                            <Button className='btn-brown m-2 btn-primary' variant="primary" type="random-breed" disabled={true} >Pick a random breed</Button>
                         </div>
                     </fieldset>
                 </Form>
 
                 <FactCard 
                     // key={FactCard.}
-                    dogName={FactCard.dogName}
-                    dogImg={FactCard.dogImg}
-                    dogBreedGroup={FactCard.dogBreedGroup}
-                    dogBredFor={FactCard.dogBredFor}
-                    dogLifeSpan={FactCard.dogLifeSpan}
-                    dogTemperament={FactCard.dogTemperament}
+                    breedGroup={FactCard.breedGroup}
+                    bredFor={FactCard.bredFor}
+                    lifeSpan={FactCard.lifeSpan}
+                    temperament={FactCard.temperament}
                 />
             </div>
 
