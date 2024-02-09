@@ -1,10 +1,10 @@
 /*********** TO DO ************/
 
 // Center the input and buttons. 
-    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
-     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
-     btn underneath??
-    */
+/* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+ input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+ btn underneath??
+*/
 
 
 
@@ -23,9 +23,9 @@ import React, { useState, useEffect } from 'react';
 function FactCard(props) {
 
     /***************************** Dog Img API ********************************/
-        // Need to populate this with user choice
-        const breedName = "dachshund";
-        
+    // Need to populate this with user choice
+    const breedName = "dachshund";
+
     const [cardImg, setCardImg] = useState(null);
     const imgAlt = "a " + breedName;
     const queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
@@ -41,7 +41,7 @@ function FactCard(props) {
                 setCardImg(data.message[0]);
             });
     }, []);
-   /******************************************************************************************/
+    /******************************************************************************************/
 
 
     function capitalizeFirstLetters(str) {
@@ -59,7 +59,7 @@ function FactCard(props) {
     return (
         <div>
             {/* Build card */}
-            <Card text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
+            <Card text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-8 col-md-8'>
                 <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
 
                 <Card.Body>
@@ -73,7 +73,7 @@ function FactCard(props) {
                 </ListGroup> */}
 
 
-                    <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
+                    <ListGroup className='mb-3' as="ul" style={{ textAlign: "left" }}>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.dogBredFor}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.dogLifeSpan}</ListGroup.Item>
@@ -91,9 +91,18 @@ function FactCard(props) {
                         Have you found your fur-ever friend? <br /> If so, we can help you choose the paw-fect name for them.
                     </Card.Text>
 
-                    <Button className='btn-brown m-2 mb-4' href='#GenerateName' variant="primary">Pick a name for your pet</Button>
-                    <Button className='btn-brown m-2 mb-4' variant="primary" disabled={true}>Add to favourites</Button>
-                    <Button className='btn-brown m-2 mb-4' variant="primary">Get a new image</Button>
+                    <div className='row'>
+
+                        <div className='col-md'>
+                            <Button className='btn-brown mb-4 w-100' href='#GenerateName' variant="primary">Pick a name for your pet</Button>
+                        </div>
+                        <div className='col-md'>
+                            <Button className='btn-brown mb-4 w-100' variant="primary" disabled={true}>Add to favourites</Button>
+                        </div>
+                        <div className='col-md'>
+                            <Button className='btn-brown mb-4 w-100' variant="primary">Get a new image</Button>
+                        </div>
+                    </div>
                 </Card.Body>
 
             </Card>
