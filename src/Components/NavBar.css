@@ -5,7 +5,7 @@ body {
 
 .bg-body-tertiary {
   background-color: #f7f1ee !important;
-  height: 70px;
+  /* height: 70px; */
 }
 
 .ms-auto {
