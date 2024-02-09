@@ -16,7 +16,7 @@
 
 .footer {
     position: relative;
-    bottom: 0;
+    /* bottom: 0; */
     width: 100vw;
     /* height: 10rem; */
 }
@@ -31,13 +31,17 @@
     width: 300px;
 }
 
+.text-brown {
+    color: #51372A !important;
+}
+
 .btn-brown {
     --bs-btn-color: #fff !important;
     --bs-btn-bg: #51372A !important;
     --bs-btn-border-color: #51372A !important;
     --bs-btn-hover-color: #fff !important;
     --bs-btn-hover-bg: #432b20 !important;
-    --bs-btn-hover-border-color: #51372A !important;
+    --bs-btn-hover-border-color: #432b20 !important;
     --bs-btn-focus-shadow-rgb: 49, 132, 253 !important;
     --bs-btn-active-color: #fff !important;
     --bs-btn-active-bg: #472f23 !important;
