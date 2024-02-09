@@ -35,8 +35,8 @@ function Info() {
                             </Form.Select>
                         </Form.Group>
                         <div className="mb-3 mx-auto d-flex justify-content-center">
-                            <Button className='btn-brown' variant="primary" type="submit">Show Info</Button>
-                            <Button className='btn-brown' variant="primary" type="random-breed" className="ms-2 btn-primary">Pick a random breed</Button>
+                            <Button className='btn-brown m-2' variant="primary" type="submit">Show Info</Button>
+                            <Button className='btn-brown m-2' variant="primary" type="random-breed">Pick a random breed</Button>
                         </div>
                     </fieldset>
                 </Form>
