@@ -4,6 +4,7 @@ import carouselImg2 from '../assets/carouselImg2.jpg';
 import carouselImg3 from '../assets/carouselImg3.jpg';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import "@fontsource/poppins"; // Defaults to weight 400
 import './NavBar.css';
 
 function CarouselFade() {

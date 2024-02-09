@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
@@ -15,7 +16,9 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary bg-light">
       <Container className=''>
-      <img src={Logo} alt="" className='navbar-logo'/>
+        <Link to="/#">
+          <img src={Logo} alt="" className='navbar-logo' />
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
