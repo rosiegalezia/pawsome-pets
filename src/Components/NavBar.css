@@ -1,23 +1,20 @@
 
-
 body {
   font-family: poppins;
+}
+
+.bg-body-tertiary {
+  background-color: #f7f1ee !important;
+  height: 70px;
 }
 
 .ms-auto {
   font-family: poppins!important;
 }
 
-.logo{
-  font-size: 15px!important;
-  font-weight: 600;
-  font-family: poppins !important;
-  color: rgb(77, 75, 75) !important;
-}
-
 .c-item {
-  height:500px;
-  padding-top:30px;
+  height:600px;
+  /* padding-top:30px; */
 }
 .carousel-img {
   height:100%;
@@ -37,7 +34,6 @@ body {
 .carouselP {
   font-size: 25px;
   font-family: poppins!important;
-  text-shadow: 0px 1px whitesmoke;
 }
 .carouselWelcome {
   font-size: 35px;
