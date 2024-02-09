@@ -15,6 +15,9 @@ import FactCard from '../Components/FactCard';
 import dogBreeds from '../assets/dogBreeds.json';
 import { useState } from 'react';
 
+import '../Components/Components.css'
+
+
 function Info() {
 
     const [breedID, setBreedID] = useState(1); // can we set to null and then - if breedID = null --> do not run API/render card
@@ -70,9 +73,9 @@ function Info() {
     return (
         <div className='page-container'>
             <div className='page-content'>
-                <h2 className='p-3 m-3 text-center'>Select a dog breed to learn more about them!</h2>
+                <h2 className='p-3 m-3 pt-5 text-center'>Select a dog breed to learn more about them!</h2>
 
-                <Form className='m-3'> 
+                <Form className='m-3'>
                     <fieldset >
                     {/* This is another iput drop down to choose cat or dog */}
                     {/* <Form.Group className="mb-3">
@@ -83,8 +86,8 @@ function Info() {
                                 <option>Dog</option>
                             </Form.Select>
                         </Form.Group> */}
-                        <Form.Group className="mb-3">
-                            <Form.Label htmlFor="disabledSelect">Select your breed</Form.Label>
+                        
+                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
                                 {/* Add here an if/else statement if user choose cat or dog */}
@@ -93,8 +96,10 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
-                        <Button type="submit" onClick={handleShowInfoClick}>Show Info</Button>
-                        <Button type="random-breed" className="ms-2">Pick a random breed</Button>
+                        <div className="mb-3 mx-auto d-flex justify-content-center">
+                            <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
+                            <Button className='btn-brown' variant="primary" type="random-breed" className="ms-2 btn-primary">Pick a random breed</Button>
+                        </div>
                     </fieldset>
                 </Form>
 

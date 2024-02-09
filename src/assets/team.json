@@ -4,14 +4,14 @@
         "name": "Rosie",
         "github": "https://github.com/rosiegalezia",
         "image": "./team/Bunny.jpg",
-        "role": "Name generator, about section",
+        "role": "name generator, about section",
         "favpet": "Rabbits!"
     },
     {
         "id": 2,
         "name": "Mijeong",
         "github": "https://github.com/Salala1005",
-        "image": "./team/img-1.jpg",
+        "image": "./team/Cat.jpg",
         "role": "NavBar, image carousel",
         "favpet": "Cats!"
     },
@@ -21,7 +21,7 @@
         "github": "https://github.com/lico27",
         "image": "./team/Pickle.jpg",
         "role": "dog images API",
-        "favpet": "Pickle (see above)"
+        "favpet": "My dog Pickle"
     },
     {
         "id": 4,
@@ -29,6 +29,6 @@
         "github": "https://github.com/E-Davies",
         "image": "./team/Archie.jpeg",
         "role": "dog facts API",
-        "favpet": "Archie (see above)"
+        "favpet": "My dog Archie"
     }
 ]

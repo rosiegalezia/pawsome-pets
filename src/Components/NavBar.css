@@ -1,18 +1,20 @@
+
 body {
   font-family: poppins;
 }
+
+.bg-body-tertiary {
+  background-color: #f7f1ee !important;
+  /* height: 70px; */
+}
+
 .ms-auto {
   font-family: poppins!important;
 }
-.logo{
-  font-size: 30px!important;
-  font-weight: 500;
-  color: rgb(77, 75, 75) !important;
-}
 
 .c-item {
-  height:480px;
-  padding-top:30px;
+  height:600px;
+  /* padding-top:30px; */
 }
 .carousel-img {
   height:100%;
@@ -29,3 +31,13 @@ body {
     height: 60vh !important;
   }
 } */
+.carouselP {
+  font-size: 25px;
+  font-family: poppins!important;
+}
+.carouselWelcome {
+  font-size: 35px;
+  text-shadow: 0px 1px whitesmoke;
+  font-family: poppins!important;
+  margin-bottom: 30px;
+}

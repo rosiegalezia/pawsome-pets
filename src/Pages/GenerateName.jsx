@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Toast from 'react-bootstrap/Toast';
 
 import './pages.css'
 import '../Components/Components.css'
@@ -35,16 +36,27 @@ function GenerateName() {
                 return '#fff0f9'; // Light pink for female
             case 'Male':
                 return '#f0f9ff'; // Light blue for male
+            case "Don't mind":
+                return '#fffbf0'; // Yellow for don't mind
             default:
-                return '#f7f0ff'; // Default background color
+                return '#fff'; // Default white background
         }
+    };
+
+    const [toast, setToast] = useState(true);
+
+    const toggleToast = () => {
+        navigator.clipboard.writeText(generatedName)
+            .then(() => {
+                setToast(!toast)
+            })
     };
 
     return (
         <div className='page-container'>
             <div className='page-content generate-name d-flex flex-column'>
 
-                <h2 className='p-3 m-3 text-center'>What gender name would you like for your pet?</h2>
+                <h2 className='p-3 m-3  pt-5 text-center'>What gender name would you like for your pet?</h2>
 
                 <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
                     <option>Select your pet's sex</option>
@@ -54,7 +66,7 @@ function GenerateName() {
                 </Form.Select>
 
                 <div className='p-0 m-3 w-50'>
-                    <Card className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card onClick={toggleToast} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center'>
                                 <h2>{generatedName}</h2>
@@ -65,14 +77,28 @@ function GenerateName() {
 
                 <div className='p-3 m-3 d-flex'>
                     <Button
-                        variant="primary"
-                        className='darkBtn'
+                        // variant="primary"
+                        className='btn-brown m-1'
                         onClick={regenerateClick}
-                    >Re-generate 🐾</Button>
+                    >Re-generate</Button>
+
+                    <Button
+                        // variant="primary"
+                        className='btn-brown m-1'
+                        onClick={regenerateClick}
+                        disabled="true"
+                    >Save to Favourites</Button>
+
                 </div>
+
+                <Toast className='toast' show={toast} onClose={toggleToast} delay={1000} autohide>
+                    <Toast.Body>Name copied to clipboard</Toast.Body>
+                </Toast>
 
             </div>
         </div>
+
+
     )
 }
 
