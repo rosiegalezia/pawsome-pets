@@ -3,10 +3,10 @@
 // Set up input boxes so that the user selects an animal and then the next input becomes live/appears with the relevant animal breed list
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
-    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
-     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
-     btn underneath??
-    */
+/* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+ input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+ btn underneath??
+*/
 
 
 //Imported Components from React Bootstrap 
@@ -15,6 +15,7 @@ import Form from 'react-bootstrap/Form';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
+// import Random from '../Components/Random';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
@@ -25,9 +26,15 @@ import '../Components/Components.css'
 
 function Info() {
 
+    const generateRandom = () => {
+        let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
+        console.log(randomBreed)
+    }
+
+
     const handleAnimalChange = () => {
         // when cat is selected, then the cat breed drop down is shown
-        // when  dog is selected, then the dog breed drop down is shown
+        // when dog is selected, then the dog breed drop down is shown
     };
 
     //variable used in the dog API URL
@@ -36,27 +43,32 @@ function Info() {
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
+
         console.log(event.target.value);
+        
+        // TODO: event.target.value OR if randomly generated, randomBreed
         let selectedBreed = event.target.value;
         let breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+
+        // same for randomly generated or user selected
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
-        setBreedID(apiBreedID);         
+        setBreedID(apiBreedID);
     };
 
     /************************************* Dog Facts API *************************************/
     const [cardFact, setCardFact] = useState('');
     console.log(cardFact);
-        
+
     /*TEST API    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog */
-    
-    const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
-    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
+
+    const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";
+    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey;
 
     const handleShowInfoClick = () => {
         fetch(queryURLDogFacts)
-            .then(function(response){
+            .then(function (response) {
                 return response.json();
-            }).then(function (data){
+            }).then(function (data) {
                 console.log(data);
                 let dog = data[0].breeds[0];
 
@@ -73,7 +85,7 @@ function Info() {
                 console.log('bred for: ' + dog.bred_for);
                 console.log('life span: ' + dog.life_span);
                 console.log('temperament: ' + dog.temperament);
-                
+
                 setCardFact(dogAPIData);
             });
     };
@@ -84,7 +96,6 @@ function Info() {
         <div className='page-container'>
             <div className='page-content'>
                 <h2 className='p-3 m-3 pt-5 text-center'>Select a dog breed to learn more about them!</h2>
-
                 <Form className='m-3'>
                     <fieldset >
                         {/* This input drop down is to choose cat or dog */}
@@ -95,7 +106,7 @@ function Info() {
                                 <option>Dog</option>
                             </Form.Select>
                         </Form.Group>
-                        
+
                         {/* This input drop down is to choose dog breed */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
@@ -106,15 +117,15 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
-                        
+
                         <div className="m-4 mx-auto d-flex justify-content-center">
                             <Button className='btn-brown m-2' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
-                            <Button className='btn-brown m-2 btn-primary' variant="primary" type="random-breed" disabled={true} >Pick a random breed</Button>
+                            <Button className='btn-brown m-2 btn-primary' variant="primary" type="random-breed" disabled={false} onClick={generateRandom}>Pick a random breed</Button>
                         </div>
                     </fieldset>
                 </Form>
 
-                <FactCard 
+                <FactCard
                     key={cardFact.dogID}
                     dogName={cardFact.dogName}
                     dogImg={cardFact.dogImg}
