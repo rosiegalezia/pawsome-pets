@@ -1,6 +1,5 @@
 /*********** TO DO ************/
 
-// When you click 'show info' btn again, the card disappears, then you click it again and then it renders. Think it's to do with 'setCardShown(!cardShown)'
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
 /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
