@@ -92,7 +92,7 @@ function Info() {
 
                 <Form className='m-3'>
                     <fieldset >
-                    {/* This is another iput drop down to choose cat or dog */}
+                        {/* This input drop down is to choose cat or dog */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
@@ -101,6 +101,7 @@ function Info() {
                             </Form.Select>
                         </Form.Group>
                         
+                        {/* This input drop down is to choose dog breed */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
@@ -110,6 +111,7 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
+
                         <div className="mb-3 mx-auto d-flex justify-content-center">
                             <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
                             <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
