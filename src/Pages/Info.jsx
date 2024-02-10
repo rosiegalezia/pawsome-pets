@@ -1,6 +1,5 @@
 /*********** TO DO ************/
 
-// When you click 'show info' btn again, the card disappears, then you click it again and then it renders. Think it's to do with 'setCardShown(!cardShown)'
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
 /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
@@ -15,7 +14,6 @@ import Form from 'react-bootstrap/Form';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
-import DropDown from '../Components/DropDown';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
@@ -132,7 +130,6 @@ function Info() {
                     <fieldset >
 
                         {/* This input drop down is to choose cat or dog */}
-
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
@@ -157,39 +154,34 @@ function Info() {
                                 <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
                                     setCardShown(true)}}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
-                        </div> 
+                            </div> 
                         </>) : null}
 
                         {/*If user selects Dog then the Dog breed drop down is rendered along with btns*/}
                         {animalChoice === 'Dog' ? (<>
-                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
-                            <Form.Select onChange={handleBreedChange} id="disabledSelect">
-                                <option id="breed-select">Please select a breed</option>
-                                {dogBreeds.map((breed) => {
+                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                                <Form.Select onChange={handleBreedChange} id="disabledSelect">
+                                    <option id="breed-select">Please select a breed</option>
+                                    {dogBreeds.map((breed) => {
 
-                                    // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
-                                    return <option id={breed.id} key={breed.id}>{breed.breed}</option>
-                                })};
-                            </Form.Select>
-                        </Form.Group> 
-                        <div className="m-4 mx-auto d-flex justify-content-center">
-                            <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
-                                setCardShown(true)}}>Show info</Button>
-                            <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
-                        </div> 
+                                        // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
+                                        return <option id={breed.id} key={breed.id}>{breed.breed}</option>
+                                    })};
+                                </Form.Select>
+                            </Form.Group> 
+                            <div className="m-4 mx-auto d-flex justify-content-center">
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
+                                    setCardShown(true)}}>Show info</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                            </div> 
                         </>) : null}
-
-                        {/* <div className="m-4 mx-auto d-flex justify-content-center">
-                            <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
-                                setCardShown(!cardShown)}}>Show info</Button>
-                            <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
-                        </div> */}
                     </fieldset>
                 </Form>
 
                 {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
 {/**************************ADD CAT STUFF*/}
-                {cardShown === true && animalChoice === 'Cat' ? (<FactCard 
+                {cardShown === true && animalChoice === 'Cat' ? (
+                <FactCard 
                     key={cardFact.dogID}
                     dogName={cardFact.dogName}
                     dogImg={cardFact.dogImg}
@@ -201,7 +193,8 @@ function Info() {
                 />) : null}
 
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
-                {cardShown === true && animalChoice === 'Dog' ? (<FactCard 
+                {cardShown === true && animalChoice === 'Dog' ? (
+                <FactCard 
                     key={cardFact.dogID}
                     dogName={cardFact.dogName}
                     dogImg={cardFact.dogImg}

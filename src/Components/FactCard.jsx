@@ -70,11 +70,11 @@ function FactCard(props) {
                     <span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.
                     </Card.Text>
 
-                    <Button className='btn btn-brown side-btn m-2' onClick={props.handleShowInfoClick}>See more images</Button>
+                    <Button className='btn side-btn m-2' onClick={props.handleShowInfoClick}>See more images</Button>
                     <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                         Pick a name for your pet
                     </NavLink>
-                    <Button className='btn btn-brown side-btn disabled-btn m-2'disabled={true}>Save to favourites</Button>
+                    <Button className='btn side-btn disabled-btn m-2'disabled={true}>Save to favourites</Button>
                 </Card.Body>
             </Card>
         </div>
