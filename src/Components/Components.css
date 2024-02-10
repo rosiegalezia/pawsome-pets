@@ -7,9 +7,8 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-/* colour for nav bar and footer */
 .fact-card-text{
-    color:#FCFCFD !important;
+    /* color:#FCFCFD !important; */
     margin-top: 2rem;
     margin-bottom: 2rem
 }

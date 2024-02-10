@@ -15,7 +15,6 @@ import Form from 'react-bootstrap/Form';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
-// import Random from '../Components/Random';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
@@ -77,7 +76,7 @@ function Info() {
 
     const handleShowInfoClick = () => {
         fetch(queryURLDogFacts)
-        
+
             .then(function (response) {
                 return response.json();
 
