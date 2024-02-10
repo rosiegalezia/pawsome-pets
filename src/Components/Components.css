@@ -1,6 +1,6 @@
-.member-photo {
-    /* max-width: 300px; */
-}
+/* .member-photo {
+    max-width: 300px;
+} */
 
 .card {
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
@@ -8,6 +8,10 @@
 
 .card:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.fact-card-text{
+    color:#FCFCFD !important;
 }
 
 .bg-cream {
