@@ -1,7 +1,11 @@
 /*********** TO DO ************/
 
-// Set it up not to run dogFact API until a breed is selected and show info btn clicked
-
+// Set up input boxes so that the user selects an animal and then the next input becomes live/appears with the relevant animal breed list
+// Buttons: 
+    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+     btn underneath??
+    */
 
 
 //Imported Components from React Bootstrap 

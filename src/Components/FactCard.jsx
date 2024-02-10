@@ -1,11 +1,6 @@
 /*********** TO DO ************/
 
-// Center the input and buttons. 
-    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
-     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
-     btn underneath??
-    */
-
+// ......
 
 
 //Imported Components from React Bootstrap 
@@ -13,9 +8,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import cardFact from '../Pages/Info';
+import Info from '../Pages/Info';
 import './Components.css'
 
+import { NavLink } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 
 function FactCard(props) {
@@ -88,9 +84,12 @@ function FactCard(props) {
                         <Card.Text >
                             Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
                         </Card.Text>
-                        <Button className='btn-brown me-4 mb-4' variant="primary">Pick a name for your pet</Button>
-                        <Button className='btn-brown me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
-                        <Button className='btn-brown mb-4' variant="primary">Get a new image</Button>
+                        <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
+                            Pick a name for your pet
+                        </NavLink>
+                        <Button className='btn-brown me-4 mb-4' variant="primary" >Add to favourites</Button>
+                        {/* disabled="true"  */}
+                        {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
                     </Card.Body>
                
             </Card>
