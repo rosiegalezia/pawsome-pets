@@ -87,7 +87,7 @@ function GenerateName() {
                         className='btn-brown m-1'
                         onClick={regenerateClick}
                         disabled="true"
-                    >Save to Favourites</Button>
+                    >Save to favourites</Button>
 
                 </div>
 

@@ -73,7 +73,7 @@ function FactCard(props) {
                     <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
                         Pick a name for your pet
                     </NavLink>
-                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled={true}>Add to favourites</Button>
+                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled={true}>Save to favourites</Button>
                     {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
                 </Card.Body>
             </Card>
