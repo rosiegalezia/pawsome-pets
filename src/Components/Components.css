@@ -1,5 +1,6 @@
 .card {
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+    max-width: 700px !important;
 }
 
 .card:hover {
@@ -7,6 +8,12 @@
 }
 
 /* colour for nav bar and footer */
+.fact-card-text{
+    color:#FCFCFD !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem
+}
+
 .bg-cream {
     background-color: #f7f1ee !important;
 }
@@ -30,6 +37,22 @@
 
 .text-brown {
     color: #51372A !important;
+}
+
+.side-btn{
+    --bs-btn-color:#FCFCFD !important;
+    --bs-btn-bg: #2f3132 !important;
+    --bs-btn-border-color: #b2b2b4 !important; 
+    --bs-btn-hover-bg: #424649!important;
+    --bs-btn-hover-border-color: #FCFCFD !important;
+    --bs-btn-disabled-bg: #424649 !important;
+    --bs-btn-disabled-border-color: #FCFCFD !important;
+    --bs-btn-disabled-hover-bg: #2f3132 !important;
+}
+
+.disabled-btn{
+    cursor: not-allowed !important;
+    pointer-events: all !important;
 }
 
 .btn-brown {
