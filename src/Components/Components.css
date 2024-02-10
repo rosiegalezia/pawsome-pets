@@ -1,7 +1,3 @@
-/* .member-photo {
-    max-width: 300px;
-} */
-
 .card {
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
     max-width: 700px !important;
@@ -11,6 +7,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+/* colour for nav bar and footer */
 .fact-card-text{
     color:#FCFCFD !important;
     margin-top: 2rem;
@@ -22,7 +19,7 @@
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     /* bottom: 0; */
     width: 100vw;
     /* height: 10rem; */
@@ -82,7 +79,7 @@
     --bs-btn-hover-color: #432b20 !important;
     --bs-btn-hover-bg: #ede4df !important;
     --bs-btn-hover-border-color: #ede4df !important;
-    --bs-btn-focus-shadow-rgb: 211, 212, 213!important;
+    --bs-btn-focus-shadow-rgb: 211, 212, 213 !important;
     --bs-btn-active-color: #432b20 !important;
     --bs-btn-active-bg: #e8ddd8 !important;
     --bs-btn-active-border-color: #e8ddd8 !important;
@@ -96,4 +93,53 @@
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
     border-color: #f6eeea;
+}
+
+/******************** NAVBAR STYLING ******************************/
+
+body {
+    font-family: poppins;
+}
+
+.bg-body-tertiary {
+    background-color: #f7f1ee !important;
+    /* height: 70px; */
+}
+
+.ms-auto {
+    font-family: poppins !important;
+}
+
+.c-item {
+    height: 600px;
+    background: black;
+    /* padding-top:30px; */
+}
+
+.carousel-img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.carouselBtn {
+    font-family: poppins !important;
+    margin-bottom: 40px;
+}
+
+/* @media (min-width: 768px) {
+    .carousel-img {
+      height: 60vh !important;
+    }
+  } */
+.carouselP {
+    font-size: 25px;
+    font-family: poppins !important;
+}
+
+.carouselWelcome {
+    font-size: 35px;
+    text-shadow: 0px 1px whitesmoke;
+    font-family: poppins !important;
+    margin-bottom: 30px;
 }
