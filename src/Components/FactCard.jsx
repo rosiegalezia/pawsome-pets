@@ -54,7 +54,7 @@ function FactCard(props) {
         <div>
             {/* Build card */}
             <Card bg="dark" text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
-                <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
+                <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={props.dogName} />
 
                 <Card.Body>
                     <Card.Title className='mb-4' >{props.dogName}</Card.Title>

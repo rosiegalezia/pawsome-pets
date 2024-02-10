@@ -118,7 +118,7 @@ function Info() {
                 </Form>
 
                 <FactCard 
-                    // key={FactCard.}
+                    key={FactCard.id}
                     dogName={FactCard.dogName}
                     dogImg={FactCard.dogImg}
                     dogBreedGroup={FactCard.dogBreedGroup}
