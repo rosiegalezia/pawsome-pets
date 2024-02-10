@@ -1,6 +1,7 @@
 /*********** TO DO ************/
 
 // Set up input boxes so that the user selects an animal and then the next input becomes live/appears with the relevant animal breed list
+// Find out what id="disabledSelect" is on the form - should it be different (without disabled?)
 // Buttons: 
     /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
      input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
@@ -24,10 +25,16 @@ import '../Components/Components.css'
 
 function Info() {
 
+    const handleAnimalChange = () => {
+        // when cat is selected, then the cat breed drop down is shown
+        // when  dog is selected, then the dog breed drop down is shown
+    };
+
+    //variable used in the dog API URL
     const [breedID, setBreedID] = useState(1); // can we set to null and then - if breedID = null --> do not run API/render card
     console.log(breedID);
 
-    // Function to take users breed selection and obtain the API breed ID number to use in API call
+    // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
         console.log(event.target.value);
         let selectedBreed = event.target.value;
@@ -86,14 +93,13 @@ function Info() {
                 <Form className='m-3'>
                     <fieldset >
                     {/* This is another iput drop down to choose cat or dog */}
-                    {/* <Form.Group className="mb-3">
-                            <Form.Label htmlFor="disabledSelect">Select your animal</Form.Label>
+                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>
                                 <option>Dog</option>
                             </Form.Select>
-                        </Form.Group> */}
+                        </Form.Group>
                         
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
