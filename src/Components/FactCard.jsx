@@ -1,7 +1,8 @@
 /*********** TO DO ************/
 
-// how to create a catch for when the API doesn't have the info - i.e. it does have info for 'bred for:'
+// Some images don't fit quite right in the Fact Card. Not sure how best to proceed...
 // Temperament -> get these 2 divs to go in a row and not in column
+// Swap wording like 'Breed group:' for props and then set this in Info so we can do different options for cat card
 
 
 //Imported Components from React Bootstrap 
@@ -38,7 +39,6 @@ function FactCard(props) {
     // }, []);
    /******************************************************************************************/
 
-
     // function capitalizeFirstLetters(str) {
     //     const words = str.split(' ');
     //     const capitalisedWords = words.map(word => {
@@ -47,9 +47,6 @@ function FactCard(props) {
     //     return capitalisedWords.join(' ');
     // }
     // const breedNameCap = capitalizeFirstLetters(breedName);
-
-
-
 
     return (
         <div>

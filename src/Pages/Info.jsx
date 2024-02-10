@@ -1,6 +1,6 @@
 /*********** TO DO ************/
 
-// Set up input boxes so that the user selects an animal and then the next input becomes live/appears with the relevant animal breed list
+// When you click 'show info' btn again, the card disappears, then you click it again and then it renders. Think it's to do with 'setCardShown(!cardShown)'
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
     /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
@@ -15,6 +15,7 @@ import Form from 'react-bootstrap/Form';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
+import DropDown from '../Components/DropDown';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
@@ -24,65 +25,83 @@ import '../Components/Components.css'
 
 
 function Info() {
+    const[cardShown, setCardShown] = useState(false);
+    const[animalChoice, setAnimalChoice] = useState('');
 
-    const handleAnimalChange = () => {
-        // when cat is selected, then the cat breed drop down is shown
-        // when  dog is selected, then the dog breed drop down is shown
+    // when cat is selected, then the cat breed drop down is shown + buttons
+    // when  dog is selected, then the dog breed drop down is shown + buttons
+
+    // updates animalChoice to cat or dog so that it can be used to show relevant breed dropdown
+    const handleAnimalChange = (event) => {
+        let animalChosen = event.target.value;
+        setAnimalChoice(animalChosen);
     };
-
+    
     //variable used in the dog API URL
-    const [breedID, setBreedID] = useState(1); // can we set to null and then - if breedID = null --> do not run API/render card
-    console.log(breedID);
+    const [breedID, setBreedID] = useState(''); 
+    // console.log(`Dog Breed ID = ${breedID}`);
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
-        console.log(event.target.value);
+        console.log(`User selected ${event.target.value}`);
         let selectedBreed = event.target.value;
         let breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
         setBreedID(apiBreedID);         
     };
 
-    /************************************* Dog Facts API *************************************/
+    /************************************* Cat & Dog Facts API *************************************/
     const [cardFact, setCardFact] = useState('');
-    console.log(cardFact);
-        
-    /*TEST API    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog */
-    
+
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
 
     const handleShowInfoClick = () => {
-        fetch(queryURLDogFacts)
-            .then(function(response){
-                return response.json();
-            }).then(function (data){
-                console.log(data);
-                let dog = data[0].breeds[0];
+        if(animalChoice === 'Dog'){
+            fetch(queryURLDogFacts)
+                .then(function(response){
+                    return response.json();
+                }).then(function (data){
+                    console.log(data);
+                    let dog = data[0].breeds[0];
 
-                let dogAPIData = {
-                    dogID: dog.id,
-                    dogName: dog.name,
-                    dogImg: data[0].url,
-                    dogBreedGroup: dog.breed_group,
-                    dogBredFor: dog.bred_for,
-                    dogLifeSpan: dog.life_span,
-                    dogTemperament: dog.temperament
-                };
+                    let dogAPIData = {
+                        dogID: dog.id || 'No information available',
+                        dogName: dog.name || 'No information available',
+                        dogImg: data[0].url || 'No information available',
+                        dogBreedGroup: dog.breed_group || 'No information available',
+                        dogBredFor: dog.bred_for || 'No information available',
+                        dogLifeSpan: dog.life_span || 'No information available',
+                        dogTemperament: dog.temperament || 'No information available'
+                    };               
+                    setCardFact(dogAPIData);
+                });
+        }
+{/**************************ADD CAT STUFF*/}
 
-                console.log('dog id: ' + dog.id);
-                console.log('dog breed: ' + dog.name);
-                console.log('dog img: ' + data[0].url);
-                console.log('breed group: ' + dog.breed_group);
-                console.log('bred for: ' + dog.bred_for);
-                console.log('life span: ' + dog.life_span);
-                console.log('temperament: ' + dog.temperament);
-                
-                setCardFact(dogAPIData);
-            });
+        // }else if(animalChoice === 'Cat'){
+        //     fetch(queryURLCatFacts)
+        //         .then(function(response){
+        //             return response.json();
+        //         }).then(function (data){
+        //             console.log(data);
+        //             let cat = data[0].breeds[0];
+
+        //             let catAPIData = {
+        //                 catID: cat.id || 'No information available',
+        //                 catName: cat.name || 'No information available',
+        //                 catImg: data[0].url || 'No information available',
+        //                 catBreedGroup: cat.breed_group || 'No information available',
+        //                 catBredFor: cat.bred_for || 'No information available',
+        //                 catLifeSpan: cat.life_span || 'No information available',
+        //                 catTemperament: cat.temperament || 'No information available'
+        //             };               
+        //             setCardFact(catAPIData);
+
+        //         });
+        // }     
     };
     /******************************************************************************************/
-
 
     return (
         <div className='page-container'>
@@ -91,7 +110,6 @@ function Info() {
 
                 <Form className='m-3'>
                     <fieldset >
-                        {/* This input drop down is to choose cat or dog */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
@@ -99,26 +117,54 @@ function Info() {
                                 <option>Dog</option>
                             </Form.Select>
                         </Form.Group>
-                        
-                        {/* This input drop down is to choose dog breed */}
+
+                        {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
+{/**************************ADD CAT STUFF*/}
+                        {animalChoice === 'Cat' ? (<>
+                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                                <Form.Select onChange={handleBreedChange} id="disabledSelect">
+                                    <option id="breed-select">Please select a breed</option>
+                                    <option id="cat-breed-1">Cat Breed 1</option>
+                                    {/* {catBreeds.map((breed) => {
+                                        return <option id={breed.id}>{breed.breed}</option>
+                                    })}; */}
+                                </Form.Select>
+                            </Form.Group>
+                            <div className="m-4 mx-auto d-flex justify-content-center">
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
+                                    setCardShown(true)}}>Show info</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                        </div> 
+                        </>) : null}
+
+                        {/*If user selects Dog then the Dog breed drop down is rendered along with btns*/}
+                        {animalChoice === 'Dog' ? (<>
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
-                                {/* Add here an if/else statement if user choose cat or dog */}
                                 {dogBreeds.map((breed) => {
                                     return <option id={breed.id}>{breed.breed}</option>
                                 })};
                             </Form.Select>
-                        </Form.Group>
-                        
+                        </Form.Group> 
                         <div className="m-4 mx-auto d-flex justify-content-center">
-                            <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
+                            <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
+                                setCardShown(true)}}>Show info</Button>
                             <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
-                        </div>
+                        </div> 
+                        </>) : null}
+
+                        {/* <div className="m-4 mx-auto d-flex justify-content-center">
+                            <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
+                                setCardShown(!cardShown)}}>Show info</Button>
+                            <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                        </div> */}
                     </fieldset>
                 </Form>
 
-                <FactCard 
+                {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
+{/**************************ADD CAT STUFF*/}
+                {cardShown === true && animalChoice === 'Cat' ? (<FactCard 
                     key={cardFact.dogID}
                     dogName={cardFact.dogName}
                     dogImg={cardFact.dogImg}
@@ -127,9 +173,20 @@ function Info() {
                     dogLifeSpan={cardFact.dogLifeSpan}
                     dogTemperament={cardFact.dogTemperament}
                     handleShowInfoClick={handleShowInfoClick}
-                />
-            </div>
+                />) : null}
 
+                {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
+                {cardShown === true && animalChoice === 'Dog' ? (<FactCard 
+                    key={cardFact.dogID}
+                    dogName={cardFact.dogName}
+                    dogImg={cardFact.dogImg}
+                    dogBreedGroup={cardFact.dogBreedGroup}
+                    dogBredFor={cardFact.dogBredFor}
+                    dogLifeSpan={cardFact.dogLifeSpan}
+                    dogTemperament={cardFact.dogTemperament}
+                    handleShowInfoClick={handleShowInfoClick}
+                />) : null} 
+            </div>
         </div>
     )
 };
