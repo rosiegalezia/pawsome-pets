@@ -15,7 +15,6 @@ import Form from 'react-bootstrap/Form';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
-import DropDown from '../Components/DropDown';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
@@ -132,7 +131,6 @@ function Info() {
                     <fieldset >
 
                         {/* This input drop down is to choose cat or dog */}
-
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
