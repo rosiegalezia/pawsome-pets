@@ -9,14 +9,15 @@ To meet the project Acceptance Criteria, the app:
 - Is a unique and novel project idea ✅ 
 - Makes two API calls to two different API endpoints ✅ 
   - [The Dog API](https://www.thedogapi.com/)
-  - [Dog.ceo API](https://dog.ceo/dog-api/)
+  - [The Cat API](https://www.thecatapi.com/)
+  <!-- - [Dog.ceo API](https://dog.ceo/dog-api/) -->
 - Uses two libraries, packages or technologies not discussed in class ✅ 
   - [React-Bootstrap](https://react-bootstrap.netlify.app/)
   - [dog-names npm package](https://www.npmjs.com/package/dog-names?activeTab=readme)
 - Uses React.js ✅ 
 - Uses Node.js ✅ 
-- Is responsive ✅ 
-- Is deployed via Netflify ❗
+- Is responsive ❗
+- Is deployed via Netflify ✅
 - Has a clean and polished UI ❗
 - Has a clean repository ✅
 - Meets technical acceptance criteria ✅ including:
