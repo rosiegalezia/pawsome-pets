@@ -26,11 +26,12 @@ import '../Components/Components.css'
 
 function Info() {
 
+    // get a random breed object from the json
     const generateRandom = () => {
         let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
-        console.log(randomBreed)
+        console.log(randomBreed.breed)
+        return randomBreed;
     }
-
 
     const handleAnimalChange = () => {
         // when cat is selected, then the cat breed drop down is shown
@@ -45,10 +46,20 @@ function Info() {
     const handleBreedChange = (event) => {
 
         console.log(event.target.value);
-        
-        // TODO: event.target.value OR if randomly generated, randomBreed
+
         let selectedBreed = event.target.value;
-        let breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+
+        // declare breedObj variable
+        let breedObj;
+
+        // if user has selected a breed manually, set breedObj equal to that, otherwise set to randomBreed
+        if (selectedBreed) {
+            breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+        } else {
+            breedObj = generateRandom();
+        }
+
+        console.log(breedObj)
 
         // same for randomly generated or user selected
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
@@ -66,8 +77,10 @@ function Info() {
 
     const handleShowInfoClick = () => {
         fetch(queryURLDogFacts)
+        
             .then(function (response) {
                 return response.json();
+
             }).then(function (data) {
                 console.log(data);
                 let dog = data[0].breeds[0];
@@ -98,7 +111,9 @@ function Info() {
                 <h2 className='p-3 m-3 pt-5 text-center'>Select a dog breed to learn more about them!</h2>
                 <Form className='m-3'>
                     <fieldset >
+
                         {/* This input drop down is to choose cat or dog */}
+
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
@@ -107,13 +122,16 @@ function Info() {
                             </Form.Select>
                         </Form.Group>
 
-                        {/* This input drop down is to choose dog breed */}
+                        {/* This input drop down is to choose a dog breed */}
+
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
                                 {/* Add here an if/else statement if user choose cat or dog */}
                                 {dogBreeds.map((breed) => {
-                                    return <option id={breed.id}>{breed.breed}</option>
+
+                                    // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
+                                    return <option id={breed.id} key={breed.id}>{breed.breed}</option>
                                 })};
                             </Form.Select>
                         </Form.Group>
