@@ -1,16 +1,16 @@
-// NPM library import
+// Imported NPM library
 import dogNames from 'dog-names';
 
-// React state import
+// Imported React state
 import { useState } from 'react';
 
-// React-Bootstrap element imports
+// Imported React-Bootstrap elements
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Toast from 'react-bootstrap/Toast';
 
-// CSS imports
+// Imported CSS
 import './pages.css'
 import '../Components/Components.css'
 
