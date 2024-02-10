@@ -1,7 +1,7 @@
 /*********** TO DO ************/
 
 // Set up input boxes so that the user selects an animal and then the next input becomes live/appears with the relevant animal breed list
-// Find out what id="disabledSelect" is on the form - should it be different (without disabled?)
+// Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
     /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
      input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
@@ -110,6 +110,7 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
+                        
                         <div className="m-4 mx-auto d-flex justify-content-center">
                             <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
                             <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
@@ -118,13 +119,14 @@ function Info() {
                 </Form>
 
                 <FactCard 
-                    key={FactCard.id}
-                    dogName={FactCard.dogName}
-                    dogImg={FactCard.dogImg}
-                    dogBreedGroup={FactCard.dogBreedGroup}
-                    dogBredFor={FactCard.dogBredFor}
-                    dogLifeSpan={FactCard.dogLifeSpan}
-                    dogTemperament={FactCard.dogTemperament}
+                    key={cardFact.dogID}
+                    dogName={cardFact.dogName}
+                    dogImg={cardFact.dogImg}
+                    dogBreedGroup={cardFact.dogBreedGroup}
+                    dogBredFor={cardFact.dogBredFor}
+                    dogLifeSpan={cardFact.dogLifeSpan}
+                    dogTemperament={cardFact.dogTemperament}
+                    handleShowInfoClick={handleShowInfoClick}
                 />
             </div>
 
