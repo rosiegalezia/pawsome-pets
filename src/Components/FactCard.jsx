@@ -1,6 +1,6 @@
 /*********** TO DO ************/
 
-// ......
+// Link the api results in the Info page to the props on the FactCard
 
 
 //Imported Components from React Bootstrap 
@@ -18,34 +18,34 @@ function FactCard(props) {
 
     /***************************** Dog Img API ********************************/
         // Need to populate this with user choice
-        const breedName = "dachshund";
+    //     const breedName = "dachshund";
         
-    const [cardImg, setCardImg] = useState(null);
-    const imgAlt = "a " + breedName;
-    const queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
-    const cardImg2 = "src/assets/example.jpg";
+    // const [cardImg, setCardImg] = useState(null);
+    // const imgAlt = "a " + breedName;
+    // const queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
+    // const cardImg2 = "src/assets/example.jpg";
 
-    useEffect(() => {
-        fetch(queryUrlImg)
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                // Update state with fetched data
-                setCardImg(data.message[0]);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch(queryUrlImg)
+    //         .then(function (response) {
+    //             return response.json();
+    //         })
+    //         .then(function (data) {
+    //             // Update state with fetched data
+    //             setCardImg(data.message[0]);
+    //         });
+    // }, []);
    /******************************************************************************************/
 
 
-    function capitalizeFirstLetters(str) {
-        const words = str.split(' ');
-        const capitalisedWords = words.map(word => {
-            return word.charAt(0).toUpperCase() + word.slice(1);
-        });
-        return capitalisedWords.join(' ');
-    }
-    const breedNameCap = capitalizeFirstLetters(breedName);
+    // function capitalizeFirstLetters(str) {
+    //     const words = str.split(' ');
+    //     const capitalisedWords = words.map(word => {
+    //         return word.charAt(0).toUpperCase() + word.slice(1);
+    //     });
+    //     return capitalisedWords.join(' ');
+    // }
+    // const breedNameCap = capitalizeFirstLetters(breedName);
 
 
 
@@ -59,14 +59,6 @@ function FactCard(props) {
                 <Card.Body>
                     <Card.Title className='mb-4' >{props.dogName}</Card.Title>
 
-                    {/* <ListGroup className='mb-3' as="ul">
-                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
-                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 2: </span>xscvbfghjbmn</ListGroup.Item>
-                    <ListGroup.Item variant="dark" as="li" ><span className='fw-bold'>Info 3: </span>xscvbfghjbmn</ListGroup.Item>
-                    <ListGroup.Item variant="dark" as="li"><span className='fw-bold'>Info 4: </span>xscvbfghjbmn</ListGroup.Item>
-                </ListGroup> */}
-
-
                     <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.dogBredFor}</ListGroup.Item>
@@ -74,24 +66,17 @@ function FactCard(props) {
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.dogTemperament}</ListGroup.Item>
                     </ListGroup>
 
+                    <Card.Text >
+                        Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
+                    </Card.Text>
 
-                        {/* <ListGroup className='mb-2' variant="flush">
-                        <ListGroup.Item border="dark" ><span className='fw-bold'>Info 1: </span>xscvbfghjbmn</ListGroup.Item>
-                        <ListGroup.Item className='text-bg-secondary p-3'><span className='fw-bold'>Info 2: </span>xscvbfghjbmn</ListGroup.Item>
-                        <ListGroup.Item className='text-bg-secondary p-3'><span className='fw-bold'>Info 3: </span>xscvbfghjbmn</ListGroup.Item>
-                    </ListGroup> */}
-
-                        <Card.Text >
-                            Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
-                        </Card.Text>
-                        <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
-                            Pick a name for your pet
-                        </NavLink>
-                        <Button className='btn-brown me-4 mb-4' variant="primary" >Add to favourites</Button>
-                        {/* disabled="true"  */}
-                        {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
-                    </Card.Body>
-               
+                    <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
+                        Pick a name for your pet
+                    </NavLink>
+                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
+                    {/* disabled="true"  */}
+                    {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
+                </Card.Body>
             </Card>
         </div>
     );
