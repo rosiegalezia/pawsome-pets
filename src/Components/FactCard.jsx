@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import Info from '../Pages/Info';
+// import Info from '../Pages/Info';
 import './Components.css'
 
 import { NavLink } from "react-router-dom";
@@ -57,7 +57,7 @@ function FactCard(props) {
                 <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={props.dogName} />
 
                 <Card.Body>
-                    <Card.Title className='mb-4 fact-card-text' >Dog Breed{props.dogName}</Card.Title>
+                    <Card.Title className='mb-4 fact-card-text' >{props.dogName}</Card.Title>
 
                     <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>

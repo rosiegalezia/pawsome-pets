@@ -118,13 +118,13 @@ function Info() {
                 </Form>
 
                 <FactCard 
-                    key={FactCard.id}
-                    dogName={FactCard.dogName}
-                    dogImg={FactCard.dogImg}
-                    dogBreedGroup={FactCard.dogBreedGroup}
-                    dogBredFor={FactCard.dogBredFor}
-                    dogLifeSpan={FactCard.dogLifeSpan}
-                    dogTemperament={FactCard.dogTemperament}
+                    key={cardFact.dogID}
+                    dogName={cardFact.dogName}
+                    dogImg={cardFact.dogImg}
+                    dogBreedGroup={cardFact.dogBreedGroup}
+                    dogBredFor={cardFact.dogBredFor}
+                    dogLifeSpan={cardFact.dogLifeSpan}
+                    dogTemperament={cardFact.dogTemperament}
                 />
             </div>
 
