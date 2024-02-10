@@ -3,10 +3,10 @@
 // When you click 'show info' btn again, the card disappears, then you click it again and then it renders. Think it's to do with 'setCardShown(!cardShown)'
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
-    /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
-     input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
-     btn underneath??
-    */
+/* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
+ input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
+ btn underneath??
+*/
 
 
 //Imported Components from React Bootstrap 
@@ -35,7 +35,15 @@ function Info() {
     const handleAnimalChange = (event) => {
         let animalChosen = event.target.value;
         setAnimalChoice(animalChosen);
-    };
+    }
+
+    // get a random breed object from the json
+    const generateRandom = () => {
+        let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
+        console.log(randomBreed.breed)
+        return randomBreed;
+    }
+   
     
     //variable used in the dog API URL
     const [breedID, setBreedID] = useState(''); 
@@ -45,9 +53,22 @@ function Info() {
     const handleBreedChange = (event) => {
         console.log(`User selected ${event.target.value}`);
         let selectedBreed = event.target.value;
-        let breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+
+        // declare breedObj variable
+        let breedObj;
+
+        // if user has selected a breed manually, set breedObj equal to that, otherwise set to randomBreed
+        if (selectedBreed) {
+            breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+        } else {
+            breedObj = generateRandom();
+        }
+
+        console.log(breedObj)
+
+        // same for randomly generated or user selected
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
-        setBreedID(apiBreedID);         
+        setBreedID(apiBreedID);
     };
 
     /************************************* Cat & Dog Facts API *************************************/
@@ -107,9 +128,11 @@ function Info() {
         <div className='page-container'>
             <div className='page-content'>
                 <h2 className='p-3 m-3 pt-5 text-center'>Select a dog breed to learn more about them!</h2>
-
                 <Form className='m-3'>
                     <fieldset >
+
+                        {/* This input drop down is to choose cat or dog */}
+
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
@@ -143,7 +166,9 @@ function Info() {
                             <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                 <option id="breed-select">Please select a breed</option>
                                 {dogBreeds.map((breed) => {
-                                    return <option id={breed.id}>{breed.breed}</option>
+
+                                    // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
+                                    return <option id={breed.id} key={breed.id}>{breed.breed}</option>
                                 })};
                             </Form.Select>
                         </Form.Group> 

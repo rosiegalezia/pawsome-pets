@@ -10,7 +10,7 @@ import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import ReactDOM from 'react-dom'
 import Logo from "../assets/logo-one-line.svg"
 import '../Components/Components.css'
-
+import "./NavBar.css"
 
 function NavBar() {
   return (
@@ -23,7 +23,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/#">Home</Nav.Link>
-            <Nav.Link href="#Info">Dog Breeds Info</Nav.Link>
+            <Nav.Link href="#Info">Dog Breeds</Nav.Link>
             <Nav.Link href="#GenerateName">Name Generator</Nav.Link>
             <Nav.Link href="#About">About</Nav.Link>
           </Nav>

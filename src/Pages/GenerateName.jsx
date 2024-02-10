@@ -1,35 +1,45 @@
+// Imported NPM library
 import dogNames from 'dog-names';
+
+// Imported React state
 import { useState } from 'react';
 
+// Imported React-Bootstrap elements
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Toast from 'react-bootstrap/Toast';
 
+// Imported CSS
 import './pages.css'
 import '../Components/Components.css'
 
 function GenerateName() {
 
+    // create states for if sex has been set and name generated
     const [Sex, setSex] = useState('')
     const [generatedName, setGeneratedName] = useState('')
 
+    // event handler for when sex has been set/changed from dropdown
     const handleSexChange = (event) => {
         console.log(event.target.value)
         setSex(event.target.value)
         generateName()
     }
 
+    // calls the npm library and generates a name depending on chosen sex
     const generateName = () => {
         if (Sex === "Female") { setGeneratedName(dogNames.femaleRandom()) }
         else if (Sex === "Male") { setGeneratedName(dogNames.maleRandom()) }
         else { setGeneratedName(dogNames.allRandom()) }
     }
 
+    // call the generate Name function as well if Re-generate button clicked
     const regenerateClick = () => {
         generateName();
     };
 
+    // set the colour of the card depending on chosen sex
     const setBackgroundColor = () => {
         switch (Sex) {
             case 'Female':
@@ -43,8 +53,10 @@ function GenerateName() {
         }
     };
 
+    // create states for the toast that confirms name has been copied
     const [toast, setToast] = useState(true);
 
+    // function to copy the generated name and toggle the Toast state
     const toggleToast = () => {
         navigator.clipboard.writeText(generatedName)
             .then(() => {
@@ -58,13 +70,15 @@ function GenerateName() {
 
                 <h2 className='p-3 m-3  pt-5 text-center'>What gender name would you like for your pet?</h2>
 
-                <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
+                {/* dropdown for sex selection  */}
+                <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50 w-sm-100'>
                     <option>Select your pet's sex</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                     <option value="Don't mind">Don't mind</option>
                 </Form.Select>
 
+                {/* card in which generated name is displayed */}
                 <div className='p-0 m-3 w-50'>
                     <Card onClick={toggleToast} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
@@ -75,23 +89,29 @@ function GenerateName() {
                     </Card>
                 </div>
 
-                <div className='p-3 m-3 d-flex'>
-                    <Button
-                        // variant="primary"
-                        className='btn-brown m-1'
-                        onClick={regenerateClick}
-                    >Re-generate</Button>
+                {/* button that calls the generate name function again */}
+                <div className='p-3 m-3 row w-md-50'>
+                    <div className='col-md'>
+                        <Button
+                            // variant="primary"
+                            className='btn-brown m-2 w-100'
+                            onClick={regenerateClick}
+                        >Re-generate</Button>
+                    </div>
 
-                    <Button
-                        // variant="primary"
-                        className='btn-brown disabled-btn m-1'
-                        onClick={regenerateClick}
-                        disabled="true"
-                    >Save to favourites</Button>
+                    <div className='col-md'>
+                        <Button
+                            // variant="primary"
+                            className='btn-brown m-2 w-100 text-nowrap'
+                            onClick={regenerateClick}
+                            disabled="true"
+                        >Save to Favourites</Button>
+                    </div>
 
                 </div>
 
-                <Toast className='toast' show={toast} onClose={toggleToast} delay={1000} autohide>
+                {/* Toast to confirm name has been copied */}
+                <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
                     <Toast.Body>Name copied to clipboard</Toast.Body>
                 </Toast>
 
