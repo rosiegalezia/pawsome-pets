@@ -1,6 +1,7 @@
 /*********** TO DO ************/
 
-// Link the api results in the Info page to the props on the FactCard
+// how to create a catch for when the API doesn't have the info - i.e. it does have info for 'bred for:'
+// Temperament -> get these 2 divs to go in a row and not in column
 
 
 //Imported Components from React Bootstrap 
@@ -54,7 +55,7 @@ function FactCard(props) {
         <div>
             {/* Build card */}
             <Card bg="dark" text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
-                <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={props.dogName} />
+                <Card.Img variant="top" className="object-fit-cover" src={props.dogImg} style={{ height: "50vh" }} alt={props.dogName} />
 
                 <Card.Body>
                     <Card.Title className='mb-4 fact-card-text' >{props.dogName}</Card.Title>
@@ -63,18 +64,18 @@ function FactCard(props) {
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.dogBredFor}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.dogLifeSpan}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.dogTemperament}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><div className='fw-bold'>Temperament: </div><div>{props.dogTemperament}</div></ListGroup.Item> {/*get these 2 divs to go in a row and not in column*/}
                     </ListGroup>
 
                     <Card.Text className="fact-card-text">
-                        Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
+                    <span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.
                     </Card.Text>
 
+                    <Button className='side-btn me-4 mb-4' variant="dark" onClick={props.handleShowInfoClick}>See more images</Button>
                     <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
                         Pick a name for your pet
                     </NavLink>
-                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled={true}>Save to favourites</Button>
-                    {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
+                    <Button className='side-btn disabled-btn mb-4' variant="dark" disabled={true}>Save to favourites</Button>
                 </Card.Body>
             </Card>
         </div>

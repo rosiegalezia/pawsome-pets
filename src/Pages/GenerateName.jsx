@@ -84,7 +84,7 @@ function GenerateName() {
 
                     <Button
                         // variant="primary"
-                        className='btn-brown m-1'
+                        className='btn-brown disabled-btn m-1'
                         onClick={regenerateClick}
                         disabled="true"
                     >Save to favourites</Button>
