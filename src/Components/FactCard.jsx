@@ -53,7 +53,7 @@ function FactCard(props) {
     return (
         <div>
             {/* Build card */}
-            <Card bg="dark" text='light' className='m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
+            <Card bg="dark" text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
                 <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={imgAlt} />
 
                 <Card.Body>
@@ -73,8 +73,7 @@ function FactCard(props) {
                     <NavLink to="/GenerateName" role="button" className='btn btn-brown me-4 mb-4' variant="primary">
                         Pick a name for your pet
                     </NavLink>
-                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled="true">Add to favourites</Button>
-                    {/* disabled="true"  */}
+                    <Button className='btn-brown me-4 mb-4' variant="primary" disabled={true}>Add to favourites</Button>
                     {/* <Button className='btn-brown mb-4' variant="primary">Get a new image</Button> */}
                 </Card.Body>
             </Card>

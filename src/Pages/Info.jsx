@@ -110,8 +110,7 @@ function Info() {
                                 })};
                             </Form.Select>
                         </Form.Group>
-
-                        <div className="mb-3 mx-auto d-flex justify-content-center">
+                        <div className="m-4 mx-auto d-flex justify-content-center">
                             <Button className='btn-brown' variant="primary" type="submit" onClick={handleShowInfoClick}>Show Info</Button>
                             <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
                         </div>
