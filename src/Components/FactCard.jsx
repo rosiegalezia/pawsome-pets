@@ -57,7 +57,7 @@ function FactCard(props) {
                 <Card.Img variant="top" src={props.dogImg} style={{ objectFit: "cover", height: "50vh" }} alt={props.dogName} />
 
                 <Card.Body>
-                    <Card.Title className='mb-4' >{props.dogName}</Card.Title>
+                    <Card.Title className='mb-4 fact-card-text' >Dog Breed{props.dogName}</Card.Title>
 
                     <ListGroup className='mb-3' as="ul" style={{textAlign: "left"}}>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
@@ -66,7 +66,7 @@ function FactCard(props) {
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Temperament: </span>{props.dogTemperament}</ListGroup.Item>
                     </ListGroup>
 
-                    <Card.Text >
+                    <Card.Text className="fact-card-text">
                         Have you found your fur-ever friend? <br /> If so, why not get some help to chose the paw-fect name for them.
                     </Card.Text>
 
