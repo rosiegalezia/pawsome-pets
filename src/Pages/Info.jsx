@@ -82,7 +82,9 @@ function Info() {
 
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect (() => {
-        localStorage.setItem("animal", JSON.stringify(saveAnimal))
+        const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.dogID, animal])).values());
+        console.log(`this is the unique animals list`, uniqueAnimals)
+        localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
     }, [saveAnimal]);
 
     //Function to Save animal factCard info to saveAnimal variable

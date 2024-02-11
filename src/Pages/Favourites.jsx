@@ -23,7 +23,7 @@ function Favourites(props) {
         const storedAnimals = JSON.parse(localStorage.getItem('animal'))
         console.log(`This is stored animals`, storedAnimals)
 
-
+      
 
     const handleDeleteAnimal = () => {
 
@@ -40,22 +40,23 @@ function Favourites(props) {
                     <h2 className='py-3'>Breeds</h2>
 
                     {/*Add a map here to add all cards in?*/}
+
                     {storedAnimals.map((animal) => {
                         return(
-                    <FactCard 
-                        key={animal.dogID}
-                        animalBreed={animal.dogName}
-                        img={animal.dogImg}
-                        title1='Breed group'
-                        info1={animal.dogBreedGroup}
-                        title2='Bred for'
-                        info2={animal.dogBredFor}
-                        title3='Life span'
-                        info3={animal.dogLifeSpan}
-                        title4='Temperament'
-                        info4={animal.dogTemperament}
-                        btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={handleDeleteAnimal}>Delete</Button>}
-                    />)
+                            <FactCard 
+                                key={animal.dogID}
+                                animalBreed={animal.dogName}
+                                img={animal.dogImg}
+                                title1='Breed group'
+                                info1={animal.dogBreedGroup}
+                                title2='Bred for'
+                                info2={animal.dogBredFor}
+                                title3='Life span'
+                                info3={animal.dogLifeSpan}
+                                title4='Temperament'
+                                info4={animal.dogTemperament}
+                                btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={handleDeleteAnimal}>Delete</Button>}
+                            />)
                     })}
 
                     {/* <FactCard 
