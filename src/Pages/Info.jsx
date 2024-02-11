@@ -86,7 +86,7 @@ function Info() {
     const handleSaveAnimal = () => {
         console.log(cardFact)
 
-        const insertAt = 0; // Add new saved animal obj to start of savedAnimal array
+        const insertAt = 0; // Add new saved animal obj to start of saveAnimal array
         const nextSavedAnimal = [
             ...saveAnimal.slice(0, insertAt), // Items before the insertion point
             cardFact,// New item
