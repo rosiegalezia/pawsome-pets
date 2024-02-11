@@ -1,3 +1,9 @@
+/*********** TO DO ************/
+
+// Create function for favs btn
+// Add ways to delete items
+
+
 // Imported Component
 import FactCard from '../Components/FactCard';
 

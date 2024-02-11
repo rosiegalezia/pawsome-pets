@@ -3,7 +3,7 @@
 // Some images don't fit quite right in the Fact Card. Not sure how best to proceed...
 // Temperament -> get these 2 divs to go in a row and not in column
 // Swap wording like 'Breed group:' for props and then set this in Info so we can do different options for cat card
-
+// How to make card.text and btns generic - for info and fav pgs
 
 //Imported Components from React Bootstrap 
 import Button from 'react-bootstrap/Button';
@@ -72,7 +72,7 @@ function FactCard(props) {
                     <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                         Pick a name for your pet
                     </NavLink>
-                    <Button className='btn side-btn disabled-btn m-2'disabled={true}>Save to favourites</Button>
+                    <Button className='btn side-btn m-2' onClick={props.handleSaveAnimal}>Save to favourites</Button> {/*disabled={true}   disabled-btn  */}
                 </Card.Body>
             </Card>
         </div>

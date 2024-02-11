@@ -1,5 +1,7 @@
 /*********** TO DO ************/
 
+// Create function for favs btn
+// Add a Toast to notify user has saved choice?
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
 /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
@@ -24,6 +26,10 @@ import '../Components/Components.css'
 function Info() {
     const[cardShown, setCardShown] = useState(false);
     const[animalChoice, setAnimalChoice] = useState('');
+    
+    // let savedAnimalObj = [];
+    const[saveAnimal, setSaveAnimal] = useState([]);
+    console.log(saveAnimal)
 
     // when cat is selected, then the cat breed drop down is shown + buttons
     // when  dog is selected, then the dog breed drop down is shown + buttons
@@ -66,6 +72,38 @@ function Info() {
         // same for randomly generated or user selected
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
         setBreedID(apiBreedID);
+    };
+
+    // const[saveAnimal, setSaveAnimal] = useState(savedAnimalObj);
+
+    // let savedAnimalObj = [];
+    //Function to Save animal factCard to local storage
+    const handleSaveAnimal = () => {
+        console.log(cardFact)
+
+        const insertAt = 0; // Add new saved animal obj to start of savedAnimal array
+        const nextSavedAnimal = [
+            ...saveAnimal.slice(0, insertAt), // Items before the insertion point
+            cardFact,// New item
+            ...saveAnimal.slice(insertAt) // Items after the insertion point
+          ];
+          setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that was just saved by user
+
+        // localStorage.setItem('animal', JSON.stringify(cardFact))
+
+        /*
+        cardFact ={
+            "dogID": 6,
+            "dogName": "Akita",
+            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+            "dogBreedGroup": "Working",
+            "dogBredFor": "Hunting bears",
+            "dogLifeSpan": "10 - 14 years",
+            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+        }
+        */
+
+        // setSaveAnimal()
     };
 
     /************************************* Cat & Dog Facts API *************************************/
@@ -193,6 +231,7 @@ function Info() {
                     title4='...'
                     info4={cardFact.catTemperament}
                     handleShowInfoClick={handleShowInfoClick}
+                    handleSaveAnimal={handleSaveAnimal}
                 />) : null}
 
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
@@ -210,6 +249,7 @@ function Info() {
                     title4='Temperament'
                     info4={cardFact.dogTemperament}
                     handleShowInfoClick={handleShowInfoClick}
+                    handleSaveAnimal={handleSaveAnimal}
                 />) : null} 
             </div>
         </div>
