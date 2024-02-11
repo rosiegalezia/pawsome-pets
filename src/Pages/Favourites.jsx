@@ -23,6 +23,10 @@ function Favourites(props) {
         const storedAnimals = JSON.parse(localStorage.getItem('animal'))
         console.log(`This is stored animals`, storedAnimals)
 
+        const storedNames = JSON.parse(localStorage.getItem('name'))
+        console.log(`This is stored names`, storedNames)
+
+
       
 
     const handleDeleteAnimal = () => {
@@ -59,34 +63,25 @@ function Favourites(props) {
                             />)
                     })}
 
-                    {/* <FactCard 
-                        key={cardFact.dogID}
-                        animalBreed={cardFact.dogName}
-                        img={cardFact.dogImg}
-                        title1='....'
-                        info1={cardFact.dogBreedGroup}
-                        title2='....'
-                        info2={cardFact.dogBredFor}
-                        title3='...'
-                        info3={cardFact.dogLifeSpan}
-                        title4='...'
-                        info4={cardFact.dogTemperament}
-                        btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={handleDeleteAnimal}>Delete</Button>}
-                    /> */}
                 </div>
                 <div className="col-3">
                     <h2 className='py-3'>Names</h2>
+
                     {/*Add a map here to add all names in?*/}
-                    <div className='row p-0 m-3'>
-                        <Card className='col-10 namecard py-2 fav-animal-name'> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
-                            <Card.Body>
-                                <Card.Text className='text-center'>
-                                    Animal Name here{props.generatedName}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        <Button className="btn-brown col-2 name-delete-btn" onClick={handleDeleteName}>X</Button>
-                    </div>
+                    {storedNames.map((name) =>{
+                        return (
+                            <div className='row p-0 m-3'>
+                                <Card className='col-10 namecard py-2 fav-animal-name' key={name}> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
+                                    <Card.Body>
+                                        <Card.Text className='text-center'>
+                                            {name}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                                <Button className="btn-brown col-2 name-delete-btn" onClick={handleDeleteName}>X</Button>
+                            </div>
+                        )
+                    })}
 
                     {/* <div className='row p-0 m-3'>
                         <Card className='col-10 namecard py-2'> 

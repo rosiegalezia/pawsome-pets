@@ -73,7 +73,9 @@ function GenerateName() {
 
     // Tracks when saveName variable is updated and then updates local storage
     useEffect (() => {
-        localStorage.setItem("name", JSON.stringify(saveName))
+        const uniqueNames = [...new Set(saveName)]
+        console.log('unique names: ', uniqueNames)
+        localStorage.setItem("name", JSON.stringify(uniqueNames))
     }, [saveName]);
 
     //Function to Save Names to saveName variable
