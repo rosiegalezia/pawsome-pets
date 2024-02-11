@@ -2,7 +2,7 @@
 import dogNames from 'dog-names';
 
 // Imported React state
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // Imported React-Bootstrap elements
 import Button from 'react-bootstrap/Button';
@@ -25,14 +25,14 @@ function GenerateName() {
         console.log(event.target.value)
         setSex(event.target.value)
         generateName()
-    }
+    };
 
     // calls the npm library and generates a name depending on chosen sex
     const generateName = () => {
         if (Sex === "Female") { setGeneratedName(dogNames.femaleRandom()) }
         else if (Sex === "Male") { setGeneratedName(dogNames.maleRandom()) }
         else { setGeneratedName(dogNames.allRandom()) }
-    }
+    };
 
     // call the generate Name function as well if Re-generate button clicked
     const regenerateClick = () => {
@@ -63,6 +63,33 @@ function GenerateName() {
                 setToast(!toast)
             })
     };
+
+    /************************************* Local Storage *************************************/
+
+    const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedNames to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveName, setSaveName] = useState(storedNames);
+    console.log(`Names in local storage:`)
+    console.log(saveName)
+
+    // Tracks when saveName variable is updated and then updates local storage
+    useEffect (() => {
+        const uniqueNames = [...new Set(saveName)]
+        console.log('unique names: ', uniqueNames)
+        localStorage.setItem("name", JSON.stringify(uniqueNames))
+    }, [saveName]);
+
+    //Function to Save Names to saveName variable
+    const handleSaveName = () => {
+        
+        const insertAt = 0; // Add new saved name to start of saveName array
+        const nextSavedName = [
+            ...saveName.slice(0, insertAt), // Items before the insertion point
+            generatedName,// New item
+            ...saveName.slice(insertAt) // Items after the insertion point
+            ];
+            setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
+    };
+    /*****************************************************************************************/
 
     return (
         <div className='page-container'>
@@ -103,8 +130,8 @@ function GenerateName() {
                         <Button
                             // variant="primary"
                             className='btn-brown m-2 w-100 text-nowrap'
-                            onClick={regenerateClick}
-                            disabled="true"
+                            onClick={handleSaveName}
+                            // disabled={true}
                         >Save to Favourites</Button>
                     </div>
 
@@ -114,6 +141,11 @@ function GenerateName() {
                 <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
                     <Toast.Body>Name copied to clipboard</Toast.Body>
                 </Toast>
+
+                {/* Toast to confirm name has been saved */}
+                {/* <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
+                    <Toast.Body>Name has been saved to Favourites</Toast.Body>
+                </Toast> */}
 
             </div>
         </div>

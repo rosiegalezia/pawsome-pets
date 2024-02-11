@@ -1,5 +1,8 @@
 /*********** TO DO ************/
 
+// Add a Toast to notify user has saved choice?
+// Add Cat stuff
+
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
 /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
@@ -11,13 +14,16 @@
 //Imported Components from React-Bootstrap 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import '../Components/Components.css'
 
 
@@ -68,7 +74,49 @@ function Info() {
         setBreedID(apiBreedID);
     };
 
+    /************************************* Local Storage *************************************/
+
+    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
+    console.log(`Animals in local storage:`)
+    console.log(saveAnimal)
+
+    // Tracks when saveAnimal variable is updated and then updates local storage
+    useEffect (() => {
+{/**************************ADD CAT STUFF??? Maybe not now ID is changed??*/}
+        const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
+        console.log(`this is the unique animals list`, uniqueAnimals)
+        localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
+    }, [saveAnimal]);
+
+    //Function to Save animal factCard info to saveAnimal variable
+    const handleSaveAnimal = () => {
+        console.log(cardFact)
+
+        const insertAt = 0; // Add new saved animal obj to start of saveAnimal array
+        const nextSavedAnimal = [
+            ...saveAnimal.slice(0, insertAt), // Items before the insertion point
+            cardFact,// New item
+            ...saveAnimal.slice(insertAt) // Items after the insertion point
+          ];
+          setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
+    };
+
+      /*
+        cardFact ={
+            "ID": 6,
+            "dogName": "Akita",
+            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+            "dogBreedGroup": "Working",
+            "dogBredFor": "Hunting bears",
+            "dogLifeSpan": "10 - 14 years",
+            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+        }
+        */
+
+
     /************************************* Cat & Dog Facts API *************************************/
+    
     const [cardFact, setCardFact] = useState('');
 
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
@@ -84,7 +132,7 @@ function Info() {
                     let dog = data[0].breeds[0];
 
                     let dogAPIData = {
-                        dogID: dog.id || 'No information available',
+                        ID: dog.id || 'No information available',
                         dogName: dog.name || 'No information available',
                         dogImg: data[0].url || 'No information available',
                         dogBreedGroup: dog.breed_group || 'No information available',
@@ -106,7 +154,7 @@ function Info() {
         //             let cat = data[0].breeds[0];
 
         //             let catAPIData = {
-        //                 catID: cat.id || 'No information available',
+        //                 ID: cat.id || 'No information available',
         //                 catName: cat.name || 'No information available',
         //                 catImg: data[0].url || 'No information available',
         //                 catBreedGroup: cat.breed_group || 'No information available',
@@ -179,26 +227,34 @@ function Info() {
 
                 {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
 {/**************************ADD CAT STUFF*/}
-                {cardShown === true && animalChoice === 'Cat' ? (
+                {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
-                    key={cardFact.catID}
+                    key={cardFact.ID}
                     animalBreed={cardFact.catName}
                     img={cardFact.catImg}
                     title1='....'
                     info1={cardFact.catBreedGroup}
                     title2='....'
                     info2={cardFact.catBredFor}
-                    title3='...'
+                    title3='....'
                     info3={cardFact.catLifeSpan}
-                    title4='...'
+                    title4='....'
                     info4={cardFact.catTemperament}
-                    handleShowInfoClick={handleShowInfoClick}
+                    // handleShowInfoClick={handleShowInfoClick}
+                    // handleSaveAnimal={handleSaveAnimal}
+                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
+                    btn2={
+                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            Pick a name for your pet
+                        </NavLink>}
+                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null}
 
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
                 {cardShown === true && animalChoice === 'Dog' ? (
                 <FactCard 
-                    key={cardFact.dogID}
+                    key={cardFact.ID}
                     animalBreed={cardFact.dogName}
                     img={cardFact.dogImg}
                     title1='Breed group'
@@ -209,7 +265,15 @@ function Info() {
                     info3={cardFact.dogLifeSpan}
                     title4='Temperament'
                     info4={cardFact.dogTemperament}
-                    handleShowInfoClick={handleShowInfoClick}
+                    // handleShowInfoClick={handleShowInfoClick}
+                    // handleSaveAnimal={handleSaveAnimal}
+                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
+                    btn2={
+                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            Pick a name for your pet
+                        </NavLink>}
+                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null} 
             </div>
         </div>

@@ -38,6 +38,16 @@
     color: #51372A !important;
 }
 
+.name-delete-btn{
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.fav-animal-name{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
 .side-btn{
     --bs-btn-color:#432b20 !important;
     --bs-btn-bg: #F7F1EE !important;

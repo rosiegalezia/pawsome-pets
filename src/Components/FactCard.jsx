@@ -3,7 +3,7 @@
 // Some images don't fit quite right in the Fact Card. Not sure how best to proceed...
 // Temperament -> get these 2 divs to go in a row and not in column
 // Swap wording like 'Breed group:' for props and then set this in Info so we can do different options for cat card
-
+// How to make card.text and btns generic - for info and fav pgs
 
 //Imported Components from React Bootstrap 
 import Button from 'react-bootstrap/Button';
@@ -64,15 +64,21 @@ function FactCard(props) {
                         <ListGroup.Item variant="light" as="li"><div className='fw-bold'>{props.title4}: </div><div>{props.info4}</div></ListGroup.Item> {/*get these 2 divs to go in a row and not in column*/}
                     </ListGroup>
 
-                    <Card.Text className="fact-card-text">
-                    <span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.
-                    </Card.Text>
+                    {props.msg}
+                    {props.btn1}
+                    {props.btn2}
+                    {props.btn3}
 
-                    <Button className='btn side-btn m-2' onClick={props.handleShowInfoClick}>See more images</Button>
-                    <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+
+                    {/* <Card.Text className="fact-card-text"> */}
+                    {/* <span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them. */}
+                    {/* </Card.Text> */}
+
+                    {/* <Button className='btn side-btn m-2' onClick={props.handleShowInfoClick}>See more images</Button> */}
+                    {/* <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                         Pick a name for your pet
-                    </NavLink>
-                    <Button className='btn side-btn disabled-btn m-2'disabled={true}>Save to favourites</Button>
+                    </NavLink> */}
+                    {/*<Button className='btn side-btn m-2' onClick={props.handleSaveAnimal}>Save to favourites</Button>*/} {/*disabled={true}   disabled-btn  */}
                 </Card.Body>
             </Card>
         </div>
