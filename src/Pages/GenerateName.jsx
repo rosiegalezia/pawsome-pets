@@ -140,6 +140,11 @@ function GenerateName() {
                     <Toast.Body>Name copied to clipboard</Toast.Body>
                 </Toast>
 
+                {/* Toast to confirm name has been saved */}
+                {/* <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
+                    <Toast.Body>Name has been saved to Favourites</Toast.Body>
+                </Toast> */}
+
             </div>
         </div>
 
