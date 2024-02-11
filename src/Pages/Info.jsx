@@ -1,7 +1,7 @@
 /*********** TO DO ************/
 
-// Create function for favs btn
 // Add a Toast to notify user has saved choice?
+
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
 /* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
