@@ -114,7 +114,6 @@ body {
 .c-item {
     height: 600px;
     background: black;
-    /* padding-top:30px; */
 }
 
 .carousel-img {
@@ -131,10 +130,19 @@ body {
 .carouselP {
     font-size: 25px;
     font-family: poppins !important;
+    margin-bottom: 30px;
 }
 
 .carouselWelcome {
     font-size: 35px;
     font-family: poppins !important;
     margin-bottom: 30px;
+}
+
+.nav-link {
+    margin-right: 25px;
+}
+
+.navbar {
+    padding: 20px!important;
 }
