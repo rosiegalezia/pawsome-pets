@@ -8,7 +8,7 @@
 */
 
 
-//Imported Components from React Bootstrap 
+//Imported Components from React-Bootstrap 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -18,7 +18,6 @@ import FactCard from '../Components/FactCard';
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
 import { useState } from 'react';
-
 import '../Components/Components.css'
 
 
@@ -182,13 +181,17 @@ function Info() {
 {/**************************ADD CAT STUFF*/}
                 {cardShown === true && animalChoice === 'Cat' ? (
                 <FactCard 
-                    key={cardFact.dogID}
-                    dogName={cardFact.dogName}
-                    dogImg={cardFact.dogImg}
-                    dogBreedGroup={cardFact.dogBreedGroup}
-                    dogBredFor={cardFact.dogBredFor}
-                    dogLifeSpan={cardFact.dogLifeSpan}
-                    dogTemperament={cardFact.dogTemperament}
+                    key={cardFact.catID}
+                    animalBreed={cardFact.catName}
+                    img={cardFact.catImg}
+                    title1='....'
+                    info1={cardFact.catBreedGroup}
+                    title2='....'
+                    info2={cardFact.catBredFor}
+                    title3='...'
+                    info3={cardFact.catLifeSpan}
+                    title4='...'
+                    info4={cardFact.catTemperament}
                     handleShowInfoClick={handleShowInfoClick}
                 />) : null}
 
@@ -196,12 +199,16 @@ function Info() {
                 {cardShown === true && animalChoice === 'Dog' ? (
                 <FactCard 
                     key={cardFact.dogID}
-                    dogName={cardFact.dogName}
-                    dogImg={cardFact.dogImg}
-                    dogBreedGroup={cardFact.dogBreedGroup}
-                    dogBredFor={cardFact.dogBredFor}
-                    dogLifeSpan={cardFact.dogLifeSpan}
-                    dogTemperament={cardFact.dogTemperament}
+                    animalBreed={cardFact.dogName}
+                    img={cardFact.dogImg}
+                    title1='Breed group'
+                    info1={cardFact.dogBreedGroup}
+                    title2='Bred for'
+                    info2={cardFact.dogBredFor}
+                    title3='Life span'
+                    info3={cardFact.dogLifeSpan}
+                    title4='Temperament'
+                    info4={cardFact.dogTemperament}
                     handleShowInfoClick={handleShowInfoClick}
                 />) : null} 
             </div>
