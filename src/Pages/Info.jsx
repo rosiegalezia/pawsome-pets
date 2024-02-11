@@ -13,6 +13,8 @@
 //Imported Components from React-Bootstrap 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Card from 'react-bootstrap/Card';
+
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
@@ -20,6 +22,7 @@ import FactCard from '../Components/FactCard';
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
 import { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import '../Components/Components.css'
 
 
@@ -235,6 +238,13 @@ function Info() {
                     info4={cardFact.catTemperament}
                     handleShowInfoClick={handleShowInfoClick}
                     handleSaveAnimal={handleSaveAnimal}
+                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
+                    btn2={
+                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            Pick a name for your pet
+                        </NavLink>}
+                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null}
 
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
@@ -251,8 +261,15 @@ function Info() {
                     info3={cardFact.dogLifeSpan}
                     title4='Temperament'
                     info4={cardFact.dogTemperament}
-                    handleShowInfoClick={handleShowInfoClick}
-                    handleSaveAnimal={handleSaveAnimal}
+                    // handleShowInfoClick={handleShowInfoClick}
+                    // handleSaveAnimal={handleSaveAnimal}
+                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
+                    btn2={
+                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            Pick a name for your pet
+                        </NavLink>}
+                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null} 
             </div>
         </div>
