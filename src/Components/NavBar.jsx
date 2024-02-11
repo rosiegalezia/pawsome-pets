@@ -10,7 +10,6 @@ import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import ReactDOM from 'react-dom'
 import Logo from "../assets/logo-one-line.svg"
 import '../Components/Components.css'
-import "./NavBar.css"
 
 function NavBar() {
   return (
