@@ -1,6 +1,7 @@
 /*********** TO DO ************/
 
 // Add a Toast to notify user has saved choice?
+// Add Cat stuff
 
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
@@ -82,7 +83,7 @@ function Info() {
 
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect (() => {
-{/**************************ADD CAT STUFF??? Maybe not now ID is changed*/}
+{/**************************ADD CAT STUFF??? Maybe not now ID is changed??*/}
         const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
         console.log(`this is the unique animals list`, uniqueAnimals)
         localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
@@ -153,7 +154,7 @@ function Info() {
         //             let cat = data[0].breeds[0];
 
         //             let catAPIData = {
-        //                 catID: cat.id || 'No information available',
+        //                 ID: cat.id || 'No information available',
         //                 catName: cat.name || 'No information available',
         //                 catImg: data[0].url || 'No information available',
         //                 catBreedGroup: cat.breed_group || 'No information available',
@@ -228,7 +229,7 @@ function Info() {
 {/**************************ADD CAT STUFF*/}
                 {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
-                    key={cardFact.catID}
+                    key={cardFact.ID}
                     animalBreed={cardFact.catName}
                     img={cardFact.catImg}
                     title1='....'

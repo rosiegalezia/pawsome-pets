@@ -3,7 +3,7 @@
 // How to render local storage to factCard and name box
 // Create function for delete btn
 // Add a Toast to notify when item is deleted?? or a 'Are you sure' confirmation?
-
+// Why is footer in wrong place? It's too high
 
 // Imported Component
 import FactCard from '../Components/FactCard';
@@ -25,7 +25,7 @@ function Favourites(props) {
     // Get items from Local Storage
     const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []
     const storedNames = JSON.parse(localStorage.getItem('name')) || []
-    console.log('storedNames[0]: ' , storedNames[0])
+    // console.log('storedNames[0]: ' , storedNames[0])
 
     // Functions to delete a favourite item
     const handleDeleteAnimal = () => {
