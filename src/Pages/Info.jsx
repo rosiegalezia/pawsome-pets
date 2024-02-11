@@ -26,33 +26,6 @@ import '../Components/Components.css'
 function Info() {
     const[cardShown, setCardShown] = useState(false);
     const[animalChoice, setAnimalChoice] = useState('');
-    
-    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
-    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
-    // console.log(saveAnimal)
-
-    // Adds saveAnimal variable to local Storage
-    useEffect (() => {
-        // console.log(saveAnimal)
-        localStorage.setItem("animal", JSON.stringify(saveAnimal))
-    }, [saveAnimal])
-
-
-      /*
-        cardFact ={
-            "dogID": 6,
-            "dogName": "Akita",
-            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
-            "dogBreedGroup": "Working",
-            "dogBredFor": "Hunting bears",
-            "dogLifeSpan": "10 - 14 years",
-            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
-        }
-        */
-
-
-
-
 
     // when cat is selected, then the cat breed drop down is shown + buttons
     // when  dog is selected, then the dog breed drop down is shown + buttons
@@ -97,7 +70,17 @@ function Info() {
         setBreedID(apiBreedID);
     };
 
-    // const[saveAnimal, setSaveAnimal] = useState([]);
+    /************************************* Local Storage *************************************/
+
+    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
+    console.log(`Animals in local storage:`)
+    console.log(saveAnimal)
+
+    // Tracks when saveAnimal variable is updated and then updates local storage
+    useEffect (() => {
+        localStorage.setItem("animal", JSON.stringify(saveAnimal))
+    }, [saveAnimal]);
 
     //Function to Save animal factCard info to saveAnimal variable
     const handleSaveAnimal = () => {
@@ -109,10 +92,24 @@ function Info() {
             cardFact,// New item
             ...saveAnimal.slice(insertAt) // Items after the insertion point
           ];
-          setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that was just saved by user
+          setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
     };
 
+      /*
+        cardFact ={
+            "dogID": 6,
+            "dogName": "Akita",
+            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+            "dogBreedGroup": "Working",
+            "dogBredFor": "Hunting bears",
+            "dogLifeSpan": "10 - 14 years",
+            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+        }
+        */
+
+
     /************************************* Cat & Dog Facts API *************************************/
+    
     const [cardFact, setCardFact] = useState('');
 
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
