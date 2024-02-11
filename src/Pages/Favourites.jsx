@@ -22,11 +22,16 @@ function Favourites(props) {
 
     };
 
+    const handleDeleteName = () => {
+
+    };
+
     return (
         <div className="container text-center">
             <div className="row justify-content-evenly">
                 <div className="bg-secondary col-9">
                     <h2 className='py-3'>Breeds</h2>
+
                     {/*Add a map here to add all cards in?*/}
                     <FactCard 
                         key={1}
@@ -59,16 +64,29 @@ function Favourites(props) {
                 </div>
                 <div className="bg-primary col-3">
                     <h2 className='py-3'>Names</h2>
-                    <div className='p-0 m-3'>
-                        <Card className='namecard py-2'> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
+                    {/*Add a map here to add all names in?*/}
+                    <div className='row p-0 m-3'>
+                        <Card className='col-10 namecard py-2 fav-animal-name'> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
                             <Card.Body>
                                 <Card.Text className='text-center'>
-                                    {/*Add a map here to add all names in?*/}
-                                    <h4>Animal Name here{props.generatedName}</h4>
+                                    Animal Name here{props.generatedName}
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+                        <Button className="btn-brown col-2 name-delete-btn" onClick={handleDeleteName}>X</Button>
                     </div>
+
+                    {/* <div className='row p-0 m-3'>
+                        <Card className='col-10 namecard py-2'> 
+                            <Card.Body>
+                                <Card.Text className='text-center'>
+                                    Animal Name here{props.generatedName}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                        <Button className="btn-brown col-2" onClick={handleDeleteName}>X</Button>
+                    </div> */}
+
                 </div>
             </div>
         </div>
