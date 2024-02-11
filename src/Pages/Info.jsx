@@ -82,7 +82,8 @@ function Info() {
 
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect (() => {
-        const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.dogID, animal])).values());
+{/**************************ADD CAT STUFF??? Maybe not now ID is changed*/}
+        const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
         console.log(`this is the unique animals list`, uniqueAnimals)
         localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
     }, [saveAnimal]);
@@ -102,7 +103,7 @@ function Info() {
 
       /*
         cardFact ={
-            "dogID": 6,
+            "ID": 6,
             "dogName": "Akita",
             "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
             "dogBreedGroup": "Working",
@@ -130,7 +131,7 @@ function Info() {
                     let dog = data[0].breeds[0];
 
                     let dogAPIData = {
-                        dogID: dog.id || 'No information available',
+                        ID: dog.id || 'No information available',
                         dogName: dog.name || 'No information available',
                         dogImg: data[0].url || 'No information available',
                         dogBreedGroup: dog.breed_group || 'No information available',
@@ -225,7 +226,7 @@ function Info() {
 
                 {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
 {/**************************ADD CAT STUFF*/}
-                {cardShown === true && animalChoice === 'Cat' ? (
+                {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
                     key={cardFact.catID}
                     animalBreed={cardFact.catName}
@@ -252,7 +253,7 @@ function Info() {
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
                 {cardShown === true && animalChoice === 'Dog' ? (
                 <FactCard 
-                    key={cardFact.dogID}
+                    key={cardFact.ID}
                     animalBreed={cardFact.dogName}
                     img={cardFact.dogImg}
                     title1='Breed group'
