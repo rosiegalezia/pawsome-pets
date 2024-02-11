@@ -104,7 +104,7 @@ function GenerateName() {
                             // variant="primary"
                             className='btn-brown m-2 w-100 text-nowrap'
                             onClick={regenerateClick}
-                            disabled="true"
+                            disabled={true}
                         >Save to Favourites</Button>
                     </div>
 

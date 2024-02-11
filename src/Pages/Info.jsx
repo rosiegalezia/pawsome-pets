@@ -19,7 +19,7 @@ import FactCard from '../Components/FactCard';
 
 //Imported Other
 import dogBreeds from '../assets/dogBreeds.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../Components/Components.css'
 
 
@@ -27,9 +27,32 @@ function Info() {
     const[cardShown, setCardShown] = useState(false);
     const[animalChoice, setAnimalChoice] = useState('');
     
-    // let savedAnimalObj = [];
-    const[saveAnimal, setSaveAnimal] = useState([]);
-    console.log(saveAnimal)
+    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
+    // console.log(saveAnimal)
+
+    // Adds saveAnimal variable to local Storage
+    useEffect (() => {
+        // console.log(saveAnimal)
+        localStorage.setItem("animal", JSON.stringify(saveAnimal))
+    }, [saveAnimal])
+
+
+      /*
+        cardFact ={
+            "dogID": 6,
+            "dogName": "Akita",
+            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
+            "dogBreedGroup": "Working",
+            "dogBredFor": "Hunting bears",
+            "dogLifeSpan": "10 - 14 years",
+            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
+        }
+        */
+
+
+
+
 
     // when cat is selected, then the cat breed drop down is shown + buttons
     // when  dog is selected, then the dog breed drop down is shown + buttons
@@ -74,10 +97,9 @@ function Info() {
         setBreedID(apiBreedID);
     };
 
-    // const[saveAnimal, setSaveAnimal] = useState(savedAnimalObj);
+    // const[saveAnimal, setSaveAnimal] = useState([]);
 
-    // let savedAnimalObj = [];
-    //Function to Save animal factCard to local storage
+    //Function to Save animal factCard info to saveAnimal variable
     const handleSaveAnimal = () => {
         console.log(cardFact)
 
@@ -88,22 +110,6 @@ function Info() {
             ...saveAnimal.slice(insertAt) // Items after the insertion point
           ];
           setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that was just saved by user
-
-        // localStorage.setItem('animal', JSON.stringify(cardFact))
-
-        /*
-        cardFact ={
-            "dogID": 6,
-            "dogName": "Akita",
-            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
-            "dogBreedGroup": "Working",
-            "dogBredFor": "Hunting bears",
-            "dogLifeSpan": "10 - 14 years",
-            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
-        }
-        */
-
-        // setSaveAnimal()
     };
 
     /************************************* Cat & Dog Facts API *************************************/
