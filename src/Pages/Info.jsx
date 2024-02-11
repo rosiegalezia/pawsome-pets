@@ -232,12 +232,12 @@ function Info() {
                     info1={cardFact.catBreedGroup}
                     title2='....'
                     info2={cardFact.catBredFor}
-                    title3='...'
+                    title3='....'
                     info3={cardFact.catLifeSpan}
-                    title4='...'
+                    title4='....'
                     info4={cardFact.catTemperament}
-                    handleShowInfoClick={handleShowInfoClick}
-                    handleSaveAnimal={handleSaveAnimal}
+                    // handleShowInfoClick={handleShowInfoClick}
+                    // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
