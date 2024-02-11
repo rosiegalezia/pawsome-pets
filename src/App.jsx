@@ -3,6 +3,7 @@ import Home from './Pages/Home';
 import GenerateName from './Pages/GenerateName'
 import About from './Pages/About'
 import Info from './Pages/Info';
+import Favourites from './Pages/Favourites';
 import NavBar from "./Components/NavBar";
 import Footer from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Info" element={<Info/>} />
             <Route path="/GenerateName" element={<GenerateName />} />
+            <Route path="/Favourites" element={<Favourites />} />
             <Route path="/About" element={<About />} />
         </Routes>
         <Footer/>

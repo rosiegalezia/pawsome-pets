@@ -25,6 +25,7 @@ function NavBar() {
             <Nav.Link href="/#">Home</Nav.Link>
             <Nav.Link href="#Info">Dog Breeds</Nav.Link>
             <Nav.Link href="#GenerateName">Name Generator</Nav.Link>
+            <Nav.Link href="#Favourites">Favourites</Nav.Link>
             <Nav.Link href="#About">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>
