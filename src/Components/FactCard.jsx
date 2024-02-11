@@ -9,8 +9,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Link } from 'react-router-dom';
-
 
 // import Info from '../Pages/Info';
 import './Components.css'
@@ -54,16 +52,16 @@ function FactCard(props) {
         <div>
             {/* Build card */}
             <Card text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
-                <Card.Img variant="top" className="object-fit-cover" src={props.dogImg} style={{ height: "50vh" }} alt={props.dogName} />
+                <Card.Img variant="top" className="object-fit-cover" src={props.img} style={{ height: "50vh" }} alt={props.animalBreed} />
 
                 <Card.Body>
-                    <Card.Title className='mb-4 fact-card-text' >{props.dogName}</Card.Title>
+                    <Card.Title className='mb-4 fact-card-text' >{props.animalBreed}</Card.Title>
 
                     <ListGroup className='mb-3' as="ul" style={{ textAlign: "left" }}>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Breed group: </span>{props.dogBreedGroup}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>Bred for: </span>{props.dogBredFor}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>Life span: </span>{props.dogLifeSpan}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><div className='fw-bold'>Temperament: </div><div>{props.dogTemperament}</div></ListGroup.Item> {/*get these 2 divs to go in a row and not in column*/}
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>{props.title1}: </span>{props.info1}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>{props.title2}: </span>{props.info2}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>{props.title3}: </span>{props.info3}</ListGroup.Item>
+                        <ListGroup.Item variant="light" as="li"><div className='fw-bold'>{props.title4}: </div><div>{props.info4}</div></ListGroup.Item> {/*get these 2 divs to go in a row and not in column*/}
                     </ListGroup>
 
                     <Card.Text className="fact-card-text">
