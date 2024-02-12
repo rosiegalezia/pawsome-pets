@@ -25,7 +25,7 @@ import dogBreeds from '../assets/dogBreeds.json';
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import '../Components/Components.css'
-import catBreeds from '../assets/catBreeds.json';
+import catNames from '../assets/catNames.json';
 
 
 function Info() {
@@ -41,13 +41,20 @@ function Info() {
         setAnimalChoice(animalChosen);
     }
 
-    // get a random breed object from the json
+    // get a random dog breed object from the json
     const generateRandom = () => {
         let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
         console.log(randomBreed.breed)
         return randomBreed;
     }
    
+    // get a random cat name object from the json
+    const generateRandomCat = () => {
+        let randomName = catNames[Math.floor(Math.random() * catNames.length)]
+        console.log(randomName.name)
+        return randomName;
+    }
+
     
     //variable used in the dog API URL
     const [breedID, setBreedID] = useState(''); 
@@ -79,14 +86,14 @@ function Info() {
 
     const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
-    console.log(`Animals in local storage:`)
-    console.log(saveAnimal)
+    // console.log(`Animals in local storage:`)
+    // console.log(saveAnimal)
 
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect (() => {
 {/**************************ADD CAT STUFF??? Maybe not now ID is changed??*/}
         const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
-        console.log(`this is the unique animals list`, uniqueAnimals)
+        // console.log(`this is the unique animals list`, uniqueAnimals)
         localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
     }, [saveAnimal]);
 
@@ -196,8 +203,8 @@ function Info() {
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                     <option id="breed-select">Please select a breed</option>
                                     {/* <option id="cat-breed-1">Cat Breed 1</option> */}
-                                    {catBreeds.map((name) => {
-                                        return <option id={name.id}>{name.name}</option>
+                                    {catNames.map((name) => {
+                                        return <option id={name.id} key={name.id}>{name.name}</option>
                                     })};
                                 </Form.Select>
                             </Form.Group>
