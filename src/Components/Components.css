@@ -1,3 +1,29 @@
+/* UNIVERSAL STYLING  */
+
+.bg-cream {
+    background-color: #f7f1ee !important;
+}
+
+.text-brown {
+    color: #51372A !important;
+}
+
+
+body {
+    font-family: poppins;
+}
+
+.bg-body-tertiary {
+    background-color: #f7f1ee !important;
+    /* height: 70px; */
+}
+
+.ms-auto {
+    font-family: poppins !important;
+}
+
+/* CARD STYLING  */
+
 .card {
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
     max-width: 700px !important;
@@ -13,9 +39,8 @@
     margin-bottom: 2rem
 }
 
-.bg-cream {
-    background-color: #f7f1ee !important;
-}
+
+/* FOOTER STYLING */
 
 .footer {
     position: absolute;
@@ -30,22 +55,57 @@
     margin: 0 auto;
 }
 
+/* NAVBAR STYLING  */
+
+.nav-link {
+    margin-right: 25px;
+}
+
+.navbar {
+    padding: 20px!important;
+}
+
 .navbar-logo {
     width: 300px;
 }
 
-.text-brown {
-    color: #51372A !important;
+
+/* CAROUSEL STYLING  */
+
+
+.c-item {
+    height: 600px;
+    background: black;
 }
+
+.carousel-img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.carouselBtn {
+    font-family: poppins !important;
+    margin-bottom: 40px;
+}
+
+.carouselP {
+    font-size: 25px;
+    font-family: poppins !important;
+    margin-bottom: 30px;
+}
+
+.carouselWelcome {
+    font-size: 35px;
+    font-family: poppins !important;
+    margin-bottom: 30px;
+}
+
+/* BUTTON STYLING  */
 
 .name-delete-btn{
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-}
-
-.fav-animal-name{
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
 }
 
 .side-btn{
@@ -100,59 +160,22 @@
     --bs-btn-disabled-border-color: #f8f9fa !important;
 }
 
+/* FAVOURITES PAGE STYLING  */
+
+.fav-animal-name{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+
+/* NAME GENERATOR PAGE STYLING  */
+
+.generatedName {
+    font-size: calc(1.325rem + .9vw);
+}
+
 .toast {
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
     border-color: #f6eeea;
-}
-
-/******************** NAVBAR STYLING ******************************/
-
-body {
-    font-family: poppins;
-}
-
-.bg-body-tertiary {
-    background-color: #f7f1ee !important;
-    /* height: 70px; */
-}
-
-.ms-auto {
-    font-family: poppins !important;
-}
-
-.c-item {
-    height: 600px;
-    background: black;
-}
-
-.carousel-img {
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
-}
-
-.carouselBtn {
-    font-family: poppins !important;
-    margin-bottom: 40px;
-}
-
-.carouselP {
-    font-size: 25px;
-    font-family: poppins !important;
-    margin-bottom: 30px;
-}
-
-.carouselWelcome {
-    font-size: 35px;
-    font-family: poppins !important;
-    margin-bottom: 30px;
-}
-
-.nav-link {
-    margin-right: 25px;
-}
-
-.navbar {
-    padding: 20px!important;
 }
