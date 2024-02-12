@@ -19,8 +19,8 @@ const randomDogBreedID = () => console.log(Math.floor(Math.random()* 264) + 1);
 
 /******************************** Dog Fact API call ***********************************************/
 
-const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7"; 
-/*TEST API*/let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=41&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog
+const apiKey = "live_CDjUNCZAWAG80tqvFP41G8d4obalIkFeQGnWwQk1MuAkFVWPkubyyYzxhbSKZLHV"; 
+/*TEST API*/let queryURLDogFacts = "https://api.thecatapi.com/v1/images/search?&api_key=" + apiKey; //breed_ids=41 should bring up Bernese Mountain Dog
 // let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + selectedBreedID + "&api_key=" + apiKey; 
 
 

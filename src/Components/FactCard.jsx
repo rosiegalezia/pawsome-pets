@@ -1,9 +1,7 @@
 /*********** TO DO ************/
 
 // Some images don't fit quite right in the Fact Card. Not sure how best to proceed...
-// Temperament -> get these 2 divs to go in a row and not in column
-// Swap wording like 'Breed group:' for props and then set this in Info so we can do different options for cat card
-// How to make card.text and btns generic - for info and fav pgs
+
 
 //Imported Components from React Bootstrap 
 import Button from 'react-bootstrap/Button';

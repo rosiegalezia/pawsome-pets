@@ -161,7 +161,7 @@ function Info() {
         //                 catBredFor: cat.bred_for || 'No information available',
         //                 catLifeSpan: cat.life_span || 'No information available',
         //                 catTemperament: cat.temperament || 'No information available'
-        //             };               
+        //             };     
         //             setCardFact(catAPIData);
 
         //         });

@@ -1,7 +1,5 @@
 /*********** TO DO ************/
 
-// How to render local storage to factCard and name box
-// Create function for delete btn
 // Add a Toast to notify when item is deleted?? or a 'Are you sure' confirmation?
 // Why is footer in wrong place? It's too high
 
@@ -22,18 +20,30 @@ import { NavLink } from "react-router-dom";
 
 function Favourites(props) {
 
-    // Get items from Local Storage
-    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []
-    const storedNames = JSON.parse(localStorage.getItem('name')) || []
-    // console.log('storedNames[0]: ' , storedNames[0])
 
-    // Functions to delete a favourite item
-    const handleDeleteAnimal = () => {
-        localStorage.removeItem()
+    const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
+
+    const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
+    const[saveName, setSaveName] = useState(storedNames);
+
+      
+
+    // Functions to delete an item on favourites page
+    const handleDeleteAnimal = (animalID) => {
+        let newStoredAnimals = storedAnimals.filter((animal) => {
+           return animal.ID !== animalID 
+        })
+        setSaveAnimal(newStoredAnimals)
+        localStorage.setItem('animal', JSON.stringify(newStoredAnimals))
     };
 
-    const handleDeleteName = () => {
-
+    const handleDeleteName = (deletedName) => {
+        let newStoredNames = storedNames.filter((name) => {
+            return name !== deletedName 
+         })
+         setSaveName(newStoredNames)
+        localStorage.setItem('name', JSON.stringify(newStoredNames))
     };
 
     return (
@@ -71,13 +81,12 @@ function Favourites(props) {
                                         info3={animal.dogLifeSpan}
                                         title4='Temperament'
                                         info4={animal.dogTemperament}
-                                        btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={handleDeleteAnimal}>Delete</Button>}
+                                        btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={() => handleDeleteAnimal (animal.ID)}>Delete</Button>}
                                     />)
                             })
                         )}
-
-
                 </div>
+
                 <div className="col-lg-4 col-sm-12">
                     <h2 className='py-3'>Names</h2>
 
@@ -105,7 +114,7 @@ function Favourites(props) {
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
-                                    <Button className="btn-brown col-2 name-delete-btn" onClick={handleDeleteName}>X</Button>
+                                    <Button className="btn-brown col-2 name-delete-btn" onClick={() => handleDeleteName(name)}>X</Button>
                                 </div>
                             )
                         })
