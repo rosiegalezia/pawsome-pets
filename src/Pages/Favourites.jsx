@@ -15,7 +15,7 @@ import './pages.css'
 import '../Components/Components.css'
 
 //Imported Other
-import { useState, useEffect } from 'react'; 
+import { useState } from 'react'; 
 import { NavLink } from "react-router-dom";
 
 function Favourites(props) {
@@ -32,7 +32,7 @@ function Favourites(props) {
     // Functions to delete an item on favourites page
     const handleDeleteAnimal = (animalID) => {
         let newStoredAnimals = storedAnimals.filter((animal) => {
-           return animal.ID !== animalID 
+           return animal.ID !== animalID //returns everything in storedAnimals that doesn't match the id of the animal that was seleted for delete - therefore new array is everything except deleted animal 
         })
         setSaveAnimal(newStoredAnimals)
         localStorage.setItem('animal', JSON.stringify(newStoredAnimals))
@@ -40,7 +40,7 @@ function Favourites(props) {
 
     const handleDeleteName = (deletedName) => {
         let newStoredNames = storedNames.filter((name) => {
-            return name !== deletedName 
+            return name !== deletedName //returns everything in storedNames that doesn't match the id of the name that was seleted for delete - therefore new array is everything except deleted name 
          })
          setSaveName(newStoredNames)
         localStorage.setItem('name', JSON.stringify(newStoredNames))
