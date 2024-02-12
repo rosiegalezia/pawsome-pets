@@ -67,12 +67,12 @@ function GenerateName() {
     /************************************* Local Storage *************************************/
 
     const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedNames to anything saved in local storage, but if that is empty, it will initialise as an empty array.
-    const[saveName, setSaveName] = useState(storedNames);
+    const [saveName, setSaveName] = useState(storedNames);
     console.log(`Names in local storage:`)
     console.log(saveName)
 
     // Tracks when saveName variable is updated and then updates local storage
-    useEffect (() => {
+    useEffect(() => {
         const uniqueNames = [...new Set(saveName)]
         console.log('unique names: ', uniqueNames)
         localStorage.setItem("name", JSON.stringify(uniqueNames))
@@ -80,78 +80,79 @@ function GenerateName() {
 
     //Function to Save Names to saveName variable
     const handleSaveName = () => {
-        
+
         const insertAt = 0; // Add new saved name to start of saveName array
         const nextSavedName = [
             ...saveName.slice(0, insertAt), // Items before the insertion point
             generatedName,// New item
             ...saveName.slice(insertAt) // Items after the insertion point
-            ];
-            setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
+        ];
+        setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
+        toggleToast();
     };
-    /*****************************************************************************************/
+/*****************************************************************************************/
 
-    return (
-        <div className='page-container'>
-            <div className='page-content generate-name d-flex flex-column'>
+return (
+    <div className='page-container'>
+        <div className='page-content generate-name d-flex flex-column'>
 
-                <h2 className='p-3 m-3  pt-5 text-center'>What gender name would you like for your pet?</h2>
+            <h2 className='p-3 m-3 pt-5 text-center'>What gender name would you like for your pet?</h2>
 
-                {/* dropdown for sex selection  */}
-                <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50 w-sm-100'>
-                    <option>Select your pet's sex</option>
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                    <option value="Don't mind">Don't mind</option>
-                </Form.Select>
+            {/* dropdown for sex selection  */}
+            <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50 w-sm-100'>
+                <option>Select your pet's sex</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Don't mind">Don't mind</option>
+            </Form.Select>
 
-                {/* card in which generated name is displayed */}
-                <div className='p-0 m-3 w-50'>
-                    <Card onClick={toggleToast} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
-                        <Card.Body>
-                            <Card.Text className='text-center'>
-                                <h2>{generatedName}</h2>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
+            {/* card in which generated name is displayed */}
+            <div className='p-0 m-3 w-50'>
+                <Card onClick={toggleToast} className='namecard py-5' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card.Body>
+                        <Card.Text className='text-center'>
+                            <p className='generatedName'>{generatedName}</p>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            {/* button that calls the generate name function again */}
+            <div className='p-3 m-3 row w-md-50'>
+                <div className='col-md'>
+                    <Button
+                        // variant="primary"
+                        className='btn-brown m-2 w-100'
+                        onClick={regenerateClick}
+                    >Re-generate</Button>
                 </div>
 
-                {/* button that calls the generate name function again */}
-                <div className='p-3 m-3 row w-md-50'>
-                    <div className='col-md'>
-                        <Button
-                            // variant="primary"
-                            className='btn-brown m-2 w-100'
-                            onClick={regenerateClick}
-                        >Re-generate</Button>
-                    </div>
-
-                    <div className='col-md'>
-                        <Button
-                            // variant="primary"
-                            className='btn-brown m-2 w-100 text-nowrap'
-                            onClick={handleSaveName}
-                            // disabled={true}
-                        >Save to Favourites</Button>
-                    </div>
-
+                <div className='col-md'>
+                    <Button
+                        // variant="primary"
+                        className='btn-brown m-2 w-100 text-nowrap'
+                        onClick={handleSaveName}
+                    // disabled={true}
+                    >Save to Favourites</Button>
                 </div>
-
-                {/* Toast to confirm name has been copied */}
-                <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
-                    <Toast.Body>Name copied to clipboard</Toast.Body>
-                </Toast>
-
-                {/* Toast to confirm name has been saved */}
-                {/* <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
-                    <Toast.Body>Name has been saved to Favourites</Toast.Body>
-                </Toast> */}
 
             </div>
+
+            {/* Toast to confirm name has been copied */}
+            {/* <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
+                <Toast.Body>Name saved to Favourites</Toast.Body>
+            </Toast> */}
+
+            {/* Toast to confirm name has been saved */}
+            <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
+                    <Toast.Body>Name has been saved to Favourites</Toast.Body>
+                </Toast>
+
         </div>
+    </div>
 
 
-    )
+)
 }
 
 export default GenerateName

@@ -25,7 +25,6 @@ import dogBreeds from '../assets/dogBreeds.json';
 import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import '../Components/Components.css'
-import catBreeds from '../assets/catBreeds.json';
 
 
 function Info() {
@@ -123,9 +122,6 @@ function Info() {
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
 
-    // const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
-    // let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedIDCat + "&api_key=" + apiKeyCat;
-
     const handleShowInfoClick = () => {
         if(animalChoice === 'Dog'){
             fetch(queryURLDogFacts)
@@ -150,7 +146,7 @@ function Info() {
 {/**************************ADD CAT STUFF*/}
 
         // }else if(animalChoice === 'Cat'){
-        //     fetch( = )
+        //     fetch(queryURLCatFacts)
         //         .then(function(response){
         //             return response.json();
         //         }).then(function (data){
@@ -165,7 +161,7 @@ function Info() {
         //                 catBredFor: cat.bred_for || 'No information available',
         //                 catLifeSpan: cat.life_span || 'No information available',
         //                 catTemperament: cat.temperament || 'No information available'
-        //             };     
+        //             };               
         //             setCardFact(catAPIData);
 
         //         });
@@ -195,10 +191,10 @@ function Info() {
                             <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                     <option id="breed-select">Please select a breed</option>
-                                    {/* <option id="cat-breed-1">Cat Breed 1</option> */}
-                                    {catBreeds.map((name) => {
-                                        return <option id={name.id}>{name.name}</option>
-                                    })};
+                                    <option id="cat-breed-1">Cat Breed 1</option>
+                                    {/* {catBreeds.map((breed) => {
+                                        return <option id={breed.id}>{breed.breed}</option>
+                                    })}; */}
                                 </Form.Select>
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
