@@ -2,6 +2,7 @@
 
 // Add a Toast to notify user has saved choice?
 // Add Cat stuff
+// Line 218 --> comment= // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
 
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
@@ -244,8 +245,6 @@ function Info() {
                     info3={cardFact.catLifeSpan}
                     title4='....'
                     info4={cardFact.catTemperament}
-                    // handleShowInfoClick={handleShowInfoClick}
-                    // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
@@ -269,8 +268,6 @@ function Info() {
                     info3={cardFact.dogLifeSpan}
                     title4='Temperament'
                     info4={cardFact.dogTemperament}
-                    // handleShowInfoClick={handleShowInfoClick}
-                    // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
