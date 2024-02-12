@@ -22,7 +22,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="/#">Home</Nav.Link>
-            <Nav.Link href="#Info">Dog Breeds</Nav.Link>
+            <Nav.Link href="#Info">Pet Breeds</Nav.Link>
             <Nav.Link href="#GenerateName">Name Generator</Nav.Link>
             <Nav.Link href="#Favourites">Favourites</Nav.Link>
             <Nav.Link href="#About">About</Nav.Link>
