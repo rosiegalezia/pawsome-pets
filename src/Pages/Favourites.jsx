@@ -39,20 +39,20 @@ function Favourites(props) {
     return (
         <div className="page-container container text-center">
             <div className="row justify-content-evenly page-content">
-                <div className="col-lg-8 col-sm-12">
-                    <h2 className='py-3'>Breeds</h2>
+                <div className="col-12 col-lg-5 col-sm-12 mx-3">
+                    <h2 className='p-3 m-3 pt-5 '>Breeds</h2>
 
 {/******************* How to chose either cat or dog?? *******************/}
                     {!storedAnimals.includes(storedAnimals[0]) ? ( 
-                        <div className='p-0 m-3' key={'no-saved-animals'}>
-                            <Card className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-lg-3'>
+                        <div className='p-0 m-3 justify-content-center' key={'no-saved-animals'}>
+                            <Card className='w-100 m-3 bg-cream text-center mx-auto d-flex justify-content-center'>
                                 <Card.Body>
                                     <Card.Text className='text-center'>
                                         No animals have been added to favourites yet!
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                            <NavLink to="/Info" role="button" className='btn btn-brown m-2' variant="primary">
+                            <NavLink to="/Info" role="button" className='w-100 btn btn-brown' variant="primary">
                                 Find your fur-ever friend
                             </NavLink>
                         </div>
@@ -78,8 +78,8 @@ function Favourites(props) {
 
 
                 </div>
-                <div className="col-lg-4 col-sm-12">
-                    <h2 className='py-3'>Names</h2>
+                <div className="col-12 col-lg-5 col-sm-12 mx-3">
+                    <h2 className='p-3 m-3 pt-5 '>Names</h2>
 
                     {!storedNames.includes(storedNames[0]) ? (
                         <div className='p-0 m-3 ' key={'no-saved-names'}>
