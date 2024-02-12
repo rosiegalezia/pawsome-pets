@@ -37,8 +37,8 @@ function Favourites(props) {
     };
 
     return (
-        <div className="container text-center">
-            <div className="row justify-content-evenly">
+        <div className="page-container container text-center">
+            <div className="row justify-content-evenly page-content">
                 <div className="col-lg-8 col-sm-12">
                     <h2 className='py-3'>Breeds</h2>
 
