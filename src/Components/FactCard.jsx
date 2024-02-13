@@ -28,7 +28,7 @@ function FactCard(props) {
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>{props.title1}: </span>{props.info1}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li"><span className='fw-bold'>{props.title2}: </span>{props.info2}</ListGroup.Item>
                         <ListGroup.Item variant="light" as="li" ><span className='fw-bold'>{props.title3}: </span>{props.info3}</ListGroup.Item>
-                        <ListGroup.Item variant="light" as="li"><div className='fw-bold'>{props.title4}: </div><div>{props.info4}</div></ListGroup.Item> {/*get these 2 divs to go in a row and not in column*/}
+                        <ListGroup.Item variant="light" as="li"><span className='fw-bold'>{props.title4}: </span><span>{props.info4}</span></ListGroup.Item> 
                     </ListGroup>
 
                     {props.msg}
