@@ -22,13 +22,23 @@ function GenerateName() {
 
     // event handler for when sex has been set/changed from dropdown
     const handleSexChange = (event) => {
+        event.preventDefault()
         console.log(event.target.value)
-        setSex(event.target.value)
-        generateName()
+
+        setSex((previous) => {
+
+            let updatedSex = previous === "Female" ? "Male" : "Female"
+            console.log(updatedSex)
+
+            // call the generate name function with the updated sex for next render
+            generateName(updatedSex)
+            return updatedSex
+        })
+
     };
 
     // calls the npm library and generates a name depending on chosen sex
-    const generateName = () => {
+    const generateName = (Sex) => {
         if (Sex === "Female") { setGeneratedName(dogNames.femaleRandom()) }
         else if (Sex === "Male") { setGeneratedName(dogNames.maleRandom()) }
         else { setGeneratedName(dogNames.allRandom()) }
@@ -36,7 +46,7 @@ function GenerateName() {
 
     // call the generate Name function as well if Re-generate button clicked
     const regenerateClick = () => {
-        generateName();
+        generateName(Sex);
     };
 
     // set the colour of the card depending on chosen sex
@@ -53,15 +63,12 @@ function GenerateName() {
         }
     };
 
-    // create states for the toast that confirms name has been copied
-    const [toast, setToast] = useState(true);
+    // create states for the toast that confirms name has been saved
+    const [toast, setToast] = useState(false);
 
-    // function to copy the generated name and toggle the Toast state
+    // function to toggle the Toast state
     const toggleToast = () => {
-        navigator.clipboard.writeText(generatedName)
-            .then(() => {
-                setToast(!toast)
-            })
+        setToast(!toast)
     };
 
     /************************************* Local Storage *************************************/
@@ -110,8 +117,8 @@ function GenerateName() {
                 <div className='p-0 m-auto w-50'>
                     <Card onClick={toggleToast} className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
-                            <Card.Text className='text-center'>
-                                <p className='generatedName'>{generatedName}</p>
+                            <Card.Text className='text-center generatedName'>
+                                {generatedName}
                             </Card.Text>
                         </Card.Body>
                     </Card>

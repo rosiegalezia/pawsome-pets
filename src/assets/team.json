@@ -28,7 +28,7 @@
         "name": "Emma",
         "github": "https://github.com/E-Davies",
         "image": "./team/Archie.jpeg",
-        "role": "dog facts API, save to favourites functionality",
+        "role": "dog facts API, random breed, save to favourites functionality, delete buttons",
         "favpet": "My dog Archie"
     }
 ]
