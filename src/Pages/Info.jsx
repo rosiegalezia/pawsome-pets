@@ -44,59 +44,108 @@ function Info() {
         setAnimalChoice(animalChosen);
     }
 
-    // get a random dog breed object from the json
+    // get a random breed object from the json
     const generateRandom = () => {
-        let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
-        console.log(randomBreed.breed)
-        return randomBreed;
-    }
-   
-    // get a random cat name object from the json
-    const generateRandomCat = () => {
-        let randomName = catNames[Math.floor(Math.random() * catNames.length)]
-        console.log(randomName.name)
-        return randomName;
+        let randomBreed;
+        // let apiBreedID;
+
+        if(animalChoice === 'Cat'){
+            randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
+            console.log(randomBreed)
+            setBreedID(randomBreed);
+            handleShowInfoClick()
+        }else if(animalChoice === 'Dog'){
+            randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
+            randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
+            setBreedID(randomBreed);
+            handleShowInfoClick()
+        }
+        // handleShowInfoClick()
     }
 
-    //variables used in the API URLs
+    //variable used in the dog API URL
     const [breedID, setBreedID] = useState(''); 
-    const [breedIDCat, setBreedIDCat] = useState('');
+    console.log(`Breed ID =`, breedID);
+
+    // Function to take users breed selection and obtain the API breed ID number to use in API URL call
+    const handleBreedChange = (event) => {
+        event.preventDefault();
+        let selectedBreed = event.target.value;
+        console.log(`User selectedBreed`, selectedBreed);
+
+        // declare breedObj variable
+        let breedObj;
+        let apiBreedID;
+
+        if(animalChoice === 'Cat'){
+            breedObj = catNames.find((name) => name.name == selectedBreed)
+            apiBreedID = breedObj.id
+            setBreedID(apiBreedID);
+        }else if(animalChoice === 'Dog'){
+            breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
+            apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
+            setBreedID(apiBreedID);
+        }
+
+        console.log(breedObj)
+    };
+
+
+
+
+    // get a random dog breed object from the json
+    // const generateRandom = () => {
+    //     let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
+    //     console.log(randomBreed.breed)
+    //     return randomBreed;
+    // }
+   
+    // get a random cat name object from the json
+    // const generateRandomCat = () => {
+    //     let randomName = catNames[Math.floor(Math.random() * catNames.length)]
+    //     console.log(randomName.name)
+    //     return randomName;
+    // }
+
+    //variables used in the API URLs
+    // const [breedID, setBreedID] = useState(''); 
+    // const [breedIDCat, setBreedIDCat] = useState('');
 
     // console.log(`Dog Breed ID = ${breedID}`);
 
     // Function to take users breed selection and obtain the API breed/name ID to use in API call
-    const handleBreedChange = (event) => {
-        console.log(`User selected ${event.target.value}`);
-        let selectedBreed = event.target.value;
+    // const handleBreedChange = (event) => {
+    //     console.log(`User selected ${event.target.value}`);
+    //     let selectedBreed = event.target.value;
 
    // Declare breedObj variable
-   let breedObj;
+//    let breedObj;
 
     // If the user selects "Please select a breed," set breedObj to a random breed
-   if (selectedBreed === 'Please select a breed') {
-       breedObj = animalChoice === 'Dog' ? generateRandom() : generateRandomCat();
+//    if (selectedBreed === 'Please select a breed') {
+//        breedObj = animalChoice === 'Dog' ? generateRandom() : generateRandomCat();
     // If the user has selected a specific breed, set breedObj to that breed
-    } else if (animalChoice === 'Dog') {
-        breedObj = dogBreeds.find((breed) => breed.breed === selectedBreed);
-    } else {
-        breedObj = catNames.find((name) => name.name === selectedBreed);
-    };
+//     } else if (animalChoice === 'Dog') {
+//         breedObj = dogBreeds.find((breed) => breed.breed === selectedBreed);
+//     } else {
+//         breedObj = catNames.find((name) => name.name === selectedBreed);
+//     };
 
-   console.log(breedObj);
+//    console.log(breedObj);
 
    // Set the appropriate breed ID based on the animal choice
-   if (animalChoice === 'Dog') {
-       let apiBreedID = breedObj.id.split('-')[1];
-       setBreedID(apiBreedID);
-   } else if (animalChoice === 'Cat') {
-       setBreedIDCat(breedObj.id);
-   }
+//    if (animalChoice === 'Dog') {
+//        let apiBreedID = breedObj.id.split('-')[1];
+//        setBreedID(apiBreedID);
+//    } else if (animalChoice === 'Cat') {
+//        setBreedIDCat(breedObj.id);
+//    }
 
         // same for randomly generated or user selected
-        let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
-        setBreedID(apiBreedID);
+    //     let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
+    //     setBreedID(apiBreedID);
 
-    };
+    // };
 
     /************************************* Local Storage *************************************/
 
@@ -148,7 +197,7 @@ function Info() {
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
 
     const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
-    let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedIDCat + "&api_key=" + apiKeyCat;
+    let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
 
     const handleShowInfoClick = () => {
         if(animalChoice === 'Dog'){
@@ -225,7 +274,7 @@ function Info() {
                             <div className="m-4 mx-auto d-flex justify-content-center">
                                 <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
                                     setCardShown(true)}}>Show info</Button>
-                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
                             </div> 
                         </>) : null}
 
@@ -244,7 +293,7 @@ function Info() {
                             <div className="m-4 mx-auto d-flex justify-content-center">
                                 <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
                                     setCardShown(true)}}>Show info</Button>
-                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed">Pick a random breed</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
                             </div> 
                         </>) : null}
                     </fieldset>
