@@ -15,37 +15,6 @@ import { NavLink } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 
 function FactCard(props) {
-
-    /***************************** Dog Img API ********************************/
-        // Need to populate this with user choice
-    //     const breedName = "dachshund";
-        
-    // const [cardImg, setCardImg] = useState(null);
-    // const imgAlt = "a " + breedName;
-    // const queryUrlImg = "https://dog.ceo/api/breed/" + breedName + "/images/random/50";
-    // const cardImg2 = "src/assets/example.jpg";
-
-    // useEffect(() => {
-    //     fetch(queryUrlImg)
-    //         .then(function (response) {
-    //             return response.json();
-    //         })
-    //         .then(function (data) {
-    //             // Update state with fetched data
-    //             setCardImg(data.message[0]);
-    //         });
-    // }, []);
-   /******************************************************************************************/
-
-    // function capitalizeFirstLetters(str) {
-    //     const words = str.split(' ');
-    //     const capitalisedWords = words.map(word => {
-    //         return word.charAt(0).toUpperCase() + word.slice(1);
-    //     });
-    //     return capitalisedWords.join(' ');
-    // }
-    // const breedNameCap = capitalizeFirstLetters(breedName);
-
     return (
         <div>
             {/* Build card */}
