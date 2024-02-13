@@ -1,7 +1,6 @@
 /*********** TO DO ************/
 
 // Add a Toast to notify user has saved choice?
-// Add Cat stuff
 
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
@@ -199,7 +198,7 @@ function Info() {
                     <fieldset >
 
                         {/* This input drop down is to choose cat or dog */}
-                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>

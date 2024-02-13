@@ -47,7 +47,7 @@ function GenerateName() {
             case 'Male':
                 return '#f0f9ff'; // Light blue for male
             case "Don't mind":
-                return '#fffbf0'; // Yellow for don't mind
+                return '#fffbf0'; // Yellow for 'don't mind'
             default:
                 return '#fff'; // Default white background
         }
@@ -90,69 +90,63 @@ function GenerateName() {
         setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
         toggleToast();
     };
-/*****************************************************************************************/
+    /*****************************************************************************************/
 
-return (
-    <div className='page-container'>
-        <div className='page-content generate-name d-flex flex-column'>
+    return (
+        <div className='page-container'>
+            <div className='page-content generate-name d-flex flex-column'>
 
-            <h2 className='p-3 m-3 pt-5 text-center'>What gender name would you like for your pet?</h2>
+                <h2 className='p-3 m-3 pt-5 text-center'>What gender name would you like for your pet?</h2>
 
-            {/* dropdown for sex selection  */}
-            <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50 w-sm-100'>
-                <option>Select your pet's sex</option>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Don't mind">Don't mind</option>
-            </Form.Select>
+                {/* dropdown for sex selection  */}
+                <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
+                    <option>Select your pet's sex</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Don't mind">Don't mind</option>
+                </Form.Select>
 
-            {/* card in which generated name is displayed */}
-            <div className='p-0 m-auto w-50'>
-                <Card onClick={toggleToast} className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
-                    <Card.Body>
-                        <Card.Text className='text-center'>
-                            <p className='generatedName'>{generatedName}</p>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-
-            {/* button that calls the generate name function again */}
-            <div className='p-3 m-3 row w-md-50'>
-                <div className='col-md'>
-                    <Button
-                        // variant="primary"
-                        className='btn-brown m-2 w-100'
-                        onClick={regenerateClick}
-                    >Re-generate</Button>
+                {/* card in which generated name is displayed */}
+                <div className='p-0 m-auto w-50'>
+                    <Card onClick={toggleToast} className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
+                        <Card.Body>
+                            <Card.Text className='text-center'>
+                                <p className='generatedName'>{generatedName}</p>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
                 </div>
 
-                <div className='col-md'>
-                    <Button
-                        // variant="primary"
-                        className='btn-brown m-2 w-100 text-nowrap'
-                        onClick={handleSaveName}
-                    // disabled={true}
-                    >Save to Favourites</Button>
+                {/* button that calls the generate name function again */}
+                <div className='p-3 m-3 row w-md-50'>
+                    <div className='col-md'>
+                        <Button
+                            // variant="primary"
+                            className='btn-brown m-2 w-100'
+                            onClick={regenerateClick}
+                        >Re-generate</Button>
+                    </div>
+
+                    <div className='col-md'>
+                        <Button
+                            // variant="primary"
+                            className='btn-brown m-2 w-100 text-nowrap'
+                            onClick={handleSaveName}
+                        >Save to Favourites</Button>
+                    </div>
+
                 </div>
 
-            </div>
-
-            {/* Toast to confirm name has been copied */}
-            {/* <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
-                <Toast.Body>Name saved to Favourites</Toast.Body>
-            </Toast> */}
-
-            {/* Toast to confirm name has been saved */}
-            <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={1000} autohide>
+                {/* Toast to confirm name has been saved */}
+                <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={2000} autohide>
                     <Toast.Body>Name has been saved to Favourites</Toast.Body>
                 </Toast>
 
+            </div>
         </div>
-    </div>
 
 
-)
+    )
 }
 
 export default GenerateName
