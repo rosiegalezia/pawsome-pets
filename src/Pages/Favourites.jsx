@@ -1,6 +1,7 @@
 /*********** TO DO ************/
 
 // Add a Toast to notify when item is deleted?? or a 'Are you sure' confirmation?
+// 'Pick a name for your pet' OR 'Pick a paw-fect pet name' ???
 // Why is footer in wrong place? It's too high
 
 // Imported Component

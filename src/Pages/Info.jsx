@@ -3,6 +3,8 @@
 // Add a Toast to notify user has saved choice?
 // Add Cat stuff
 // Line 218 --> comment= // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
+// 'Pick a name for your pet' OR 'Pick a paw-fect pet name' ???
+
 
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
@@ -273,7 +275,7 @@ function Info() {
                     btn2={
                         <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                             Pick a name for your pet
-                        </NavLink>}
+                        </NavLink>} 
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null} 
             </div>
