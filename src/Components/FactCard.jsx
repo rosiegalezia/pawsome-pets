@@ -4,15 +4,8 @@
 
 
 //Imported Components from React Bootstrap 
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
-// import Info from '../Pages/Info';
-import './Components.css'
-
-import { NavLink } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
 
 function FactCard(props) {
     return (
@@ -36,16 +29,6 @@ function FactCard(props) {
                     {props.btn2}
                     {props.btn3}
 
-
-                    {/* <Card.Text className="fact-card-text"> */}
-                    {/* <span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them. */}
-                    {/* </Card.Text> */}
-
-                    {/* <Button className='btn side-btn m-2' onClick={props.handleShowInfoClick}>See more images</Button> */}
-                    {/* <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
-                        Pick a name for your pet
-                    </NavLink> */}
-                    {/*<Button className='btn side-btn m-2' onClick={props.handleSaveAnimal}>Save to favourites</Button>*/} {/*disabled={true}   disabled-btn  */}
                 </Card.Body>
             </Card>
         </div>
