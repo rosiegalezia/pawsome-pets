@@ -69,7 +69,7 @@ function Info() {
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
-        // event.preventDefault();
+        event.preventDefault();
         let selectedBreed = event.target.value;
         console.log(`User selectedBreed`, selectedBreed);
 
@@ -185,7 +185,7 @@ function Info() {
                     <fieldset >
 
                         {/* This input drop down is to choose cat or dog */}
-                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                        <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
                             <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>

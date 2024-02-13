@@ -10,7 +10,6 @@ To meet the project Acceptance Criteria, the app:
 - Makes two API calls to two different API endpoints ✅ 
   - [The Dog API](https://www.thedogapi.com/)
   - [The Cat API](https://www.thecatapi.com/)
-  <!-- - [Dog.ceo API](https://dog.ceo/dog-api/) -->
 - Uses two libraries, packages or technologies not discussed in class ✅ 
   - [React-Bootstrap](https://react-bootstrap.netlify.app/)
   - [dog-names npm package](https://www.npmjs.com/package/dog-names?activeTab=readme)
@@ -18,7 +17,7 @@ To meet the project Acceptance Criteria, the app:
 - Uses Node.js ✅ 
 - Is responsive ❗
 - Is deployed via Netflify ✅
-- Has a clean and polished UI ❗
+- Has a clean and polished UI ✅
 - Has a clean repository ✅
 - Meets technical acceptance criteria ✅ including:
   - Multiple descriptive commit messages
@@ -33,13 +32,18 @@ No installation required.
 👨‍💻 The deployed webpage can be viewed [here](https://main--sunny-semifreddo-f70c5b.netlify.app/#)
 
 
-
 ### Screenshot
+A gif of the deployed site's functionality can be seen below:
 <!-- ![Screenshot of completed project](/screenshot.png) -->
-Coming soon
+
 
 ## Credits
-👏 Project designed and built by [Liam Cottrell](https://github.com/lico27), [Emma Davies](https://github.com/E-Davies), [Rosie Galezia](https://github.com/rosiegalezia) and [Mijeong Jin](https://github.com/Salala1005)<br/>
+Project designed and built by:
+<br/>
+👏 [Liam Cottrell](https://github.com/lico27) <br/>
+👏 [Emma Davies](https://github.com/E-Davies) <br/>
+👏 [Rosie Galezia](https://github.com/rosiegalezia) <br/> 
+👏 [Mijeong Jin](https://github.com/Salala1005)
 
 
 ## License
