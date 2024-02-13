@@ -174,16 +174,15 @@ function Info() {
                 }).then(function (dataCat){
                     console.log(dataCat);
                     let cat = dataCat[0].breeds[0];
-                    console.log(cat);
 
                     let catAPIData = {
                         ID: cat.id || 'No information available',
                         catName: cat.name || 'No information available',
                         catImg: dataCat[0].url || 'No information available',
-                        catBreedGroup: cat.breed_group || 'No information available',
-                        catBredFor: cat.bred_for || 'No information available',
+                        catOrigin: cat.origin || 'No information available',
+                        catTemperament: cat.temperament || 'No information available',
                         catLifeSpan: cat.life_span || 'No information available',
-                        catTemperament: cat.temperament || 'No information available'
+                        catDescription: cat.description || 'No information available'
                     };     
                     setCardFactCat(catAPIData);
 
@@ -255,14 +254,14 @@ function Info() {
                     key={cardFactCat.ID}
                     animalBreed={cardFactCat.catName}
                     img={cardFactCat.catImg}
-                    title1='....'
-                    info1={cardFactCat.catBreedGroup}
-                    title2='....'
-                    info2={cardFactCat.catBredFor}
-                    title3='....'
+                    title1='Origin'
+                    info1={cardFactCat.catOrigin}
+                    title2='Temperament'
+                    info2={cardFactCat.catTemperament}
+                    title3='Life span'
                     info3={cardFactCat.catLifeSpan}
-                    title4='Temperament'
-                    info4={cardFactCat.catTemperament}
+                    title4='Description'
+                    info4={cardFactCat.catDescription}
                     // handleShowInfoClick={handleShowInfoClick}
                     // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
