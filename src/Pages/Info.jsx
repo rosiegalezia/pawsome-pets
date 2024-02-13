@@ -41,26 +41,26 @@ function Info() {
     // updates animalChoice to cat or dog so that it can be used to show relevant breed dropdown
     const handleAnimalChange = (event) => {
         let animalChosen = event.target.value;
+        setCardShown(false);
         setAnimalChoice(animalChosen);
     }
 
     // get a random breed object from the json
     const generateRandom = () => {
         let randomBreed;
-        // let apiBreedID;
 
         if(animalChoice === 'Cat'){
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
-            console.log(randomBreed)
-            setBreedID(randomBreed);
+            console.log(`Random Cat Breed=`, randomBreed)
             handleShowInfoClick()
+            setBreedID(randomBreed);
         }else if(animalChoice === 'Dog'){
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
+            console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
             handleShowInfoClick()
         }
-        // handleShowInfoClick()
     }
 
     //variable used in the dog API URL
@@ -69,11 +69,11 @@ function Info() {
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         let selectedBreed = event.target.value;
         console.log(`User selectedBreed`, selectedBreed);
 
-        // declare breedObj variable
+        // declare breedObj and apiBreedID variables
         let breedObj;
         let apiBreedID;
 
@@ -92,60 +92,6 @@ function Info() {
 
 
 
-
-    // get a random dog breed object from the json
-    // const generateRandom = () => {
-    //     let randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)]
-    //     console.log(randomBreed.breed)
-    //     return randomBreed;
-    // }
-   
-    // get a random cat name object from the json
-    // const generateRandomCat = () => {
-    //     let randomName = catNames[Math.floor(Math.random() * catNames.length)]
-    //     console.log(randomName.name)
-    //     return randomName;
-    // }
-
-    //variables used in the API URLs
-    // const [breedID, setBreedID] = useState(''); 
-    // const [breedIDCat, setBreedIDCat] = useState('');
-
-    // console.log(`Dog Breed ID = ${breedID}`);
-
-    // Function to take users breed selection and obtain the API breed/name ID to use in API call
-    // const handleBreedChange = (event) => {
-    //     console.log(`User selected ${event.target.value}`);
-    //     let selectedBreed = event.target.value;
-
-   // Declare breedObj variable
-//    let breedObj;
-
-    // If the user selects "Please select a breed," set breedObj to a random breed
-//    if (selectedBreed === 'Please select a breed') {
-//        breedObj = animalChoice === 'Dog' ? generateRandom() : generateRandomCat();
-    // If the user has selected a specific breed, set breedObj to that breed
-//     } else if (animalChoice === 'Dog') {
-//         breedObj = dogBreeds.find((breed) => breed.breed === selectedBreed);
-//     } else {
-//         breedObj = catNames.find((name) => name.name === selectedBreed);
-//     };
-
-//    console.log(breedObj);
-
-   // Set the appropriate breed ID based on the animal choice
-//    if (animalChoice === 'Dog') {
-//        let apiBreedID = breedObj.id.split('-')[1];
-//        setBreedID(apiBreedID);
-//    } else if (animalChoice === 'Cat') {
-//        setBreedIDCat(breedObj.id);
-//    }
-
-        // same for randomly generated or user selected
-    //     let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
-    //     setBreedID(apiBreedID);
-
-    // };
 
     /************************************* Local Storage *************************************/
 
@@ -175,26 +121,14 @@ function Info() {
           setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
     };
 
-      /*
-        cardFact ={
-            "ID": 6,
-            "dogName": "Akita",
-            "dogImg": "https://cdn2.thedogapi.com/images/S1_8kx5Nm_1280.jpg",
-            "dogBreedGroup": "Working",
-            "dogBredFor": "Hunting bears",
-            "dogLifeSpan": "10 - 14 years",
-            "dogTemperament": "Docile, Alert, Responsive, Dignified, Composed, Friendly, Receptive, Faithful, Courageous"
-        }
-        */
-
 
     /************************************* Cat & Dog Facts API *************************************/
     
     const [cardFact, setCardFact] = useState('');
-    const [cardFactCat, setCardFactCat] = useState('');
+    // const [cardFactCat, setCardFactCat] = useState('');
 
-    const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
-    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
+    const apiKeyDog = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
+    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyDog; 
 
     const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
     let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
@@ -236,7 +170,7 @@ function Info() {
                         catLifeSpan: cat.life_span || 'No information available',
                         catDescription: cat.description || 'No information available'
                     };     
-                    setCardFactCat(catAPIData);
+                    setCardFact(catAPIData);
 
                 });
         }     
@@ -303,17 +237,17 @@ function Info() {
 {/**************************ADD CAT STUFF*/}
                 {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
-                    key={cardFactCat.ID}
-                    animalBreed={cardFactCat.catName}
-                    img={cardFactCat.catImg}
+                    key={cardFact.ID}
+                    animalBreed={cardFact.catName}
+                    img={cardFact.catImg}
                     title1='Origin'
-                    info1={cardFactCat.catOrigin}
+                    info1={cardFact.catOrigin}
                     title2='Temperament'
-                    info2={cardFactCat.catTemperament}
+                    info2={cardFact.catTemperament}
                     title3='Life span'
-                    info3={cardFactCat.catLifeSpan}
+                    info3={cardFact.catLifeSpan}
                     title4='Description'
-                    info4={cardFactCat.catDescription}
+                    info4={cardFact.catDescription}
                     // handleShowInfoClick={handleShowInfoClick}
                     // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
