@@ -1,17 +1,8 @@
 /*********** TO DO ************/
 
 // Add a Toast to notify user has saved choice?
-// Add Cat stuff
-// Line 218 --> comment= // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
-// 'Pick a name for your pet' OR 'Pick a paw-fect pet name' ???
-
-
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
-// Buttons: 
-/* Should the btns go at the end of input box or below...? Depends if we also have a 'select animal'
- input box. If so, add 'pick random breed' btn at end of 'select breed' input and then the 'show info'
- btn underneath??
-*/
+
 
 
 //Imported Components from React-Bootstrap 
@@ -89,8 +80,6 @@ function Info() {
 
         console.log(breedObj)
     };
-
-
 
 
     /************************************* Local Storage *************************************/
@@ -194,12 +183,10 @@ function Info() {
                         </Form.Group>
 
                         {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
-{/**************************ADD CAT STUFF*/}
                         {animalChoice === 'Cat' ? (<>
                             <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                     <option id="breed-select">Please select a breed</option>
-                                    {/* <option id="cat-breed-1">Cat Breed 1</option> */}
                                     {catNames.map((name) => {
                                         return <option id={name.id} key={name.id}>{name.name}</option>
                                     })};
@@ -218,8 +205,6 @@ function Info() {
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                     <option id="breed-select">Please select a breed</option>
                                     {dogBreeds.map((breed) => {
-
-                                        // ADDED KEY TO GET RID OF THE ERROR IN CONSOLE. NOT SURE IF id={breed.id} IS NEEDED?
                                         return <option id={breed.id} key={breed.id}>{breed.breed}</option>
                                     })};
                                 </Form.Select>
@@ -234,7 +219,6 @@ function Info() {
                 </Form>
 
                 {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
-{/**************************ADD CAT STUFF*/}
                 {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
                     key={cardFact.ID}
@@ -248,8 +232,6 @@ function Info() {
                     info3={cardFact.catLifeSpan}
                     title4='Description'
                     info4={cardFact.catDescription}
-                    // handleShowInfoClick={handleShowInfoClick}
-                    // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
