@@ -1,7 +1,6 @@
 /*********** TO DO ************/
 
 // Add a Toast to notify user has saved choice?
-// Add Cat stuff
 
 // Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
 // Buttons: 
