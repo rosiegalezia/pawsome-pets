@@ -186,7 +186,6 @@ function Info() {
                         </Form.Group>
 
                         {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
-{/**************************ADD CAT STUFF*/}
                         {animalChoice === 'Cat' ? (<>
                             <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">

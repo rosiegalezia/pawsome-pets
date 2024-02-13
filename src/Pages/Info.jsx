@@ -33,7 +33,7 @@ function Info() {
     const[animalChoice, setAnimalChoice] = useState('');
 
     // when cat is selected, then the cat breed drop down is shown + buttons
-    // when  dog is selected, then the dog breed drop down is shown + buttons
+    // when dog is selected, then the dog breed drop down is shown + buttons
 
     // updates animalChoice to cat or dog so that it can be used to show relevant breed dropdown
     const handleAnimalChange = (event) => {
@@ -55,31 +55,43 @@ function Info() {
         return randomName;
     }
 
-    
-    //variable used in the dog API URL
+    //variables used in the API URLs
     const [breedID, setBreedID] = useState(''); 
+    const [breedIDCat, setBreedIDCat] = useState('');
+
     // console.log(`Dog Breed ID = ${breedID}`);
 
-    // Function to take users breed selection and obtain the API breed ID number to use in API URL call
+    // Function to take users breed selection and obtain the API breed/name ID to use in API call
     const handleBreedChange = (event) => {
         console.log(`User selected ${event.target.value}`);
         let selectedBreed = event.target.value;
 
-        // declare breedObj variable
-        let breedObj;
+   // Declare breedObj variable
+   let breedObj;
 
-        // if user has selected a breed manually, set breedObj equal to that, otherwise set to randomBreed
-        if (selectedBreed) {
-            breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
-        } else {
-            breedObj = generateRandom();
-        }
+   if (selectedBreed === 'Please select a breed') {
+       // If the user selects "Please select a breed," set breedObj to a random breed
+       breedObj = animalChoice === 'Dog' ? generateRandom() : generateRandomCat();
+   } else {
+       // If the user has selected a specific breed, set breedObj to that breed
+       breedObj = animalChoice === 'Dog' ? dogBreeds.find((breed) => breed.breed === selectedBreed) : null;
+       breedObj = animalChoice === 'Cat' ? catNames.find((name) => name.name === selectedBreed) : null;
+   }
 
-        console.log(breedObj)
+   console.log(breedObj);
+
+   // Set the appropriate breed ID based on the animal choice
+   if (animalChoice === 'Dog') {
+       let apiBreedID = breedObj.id.split('-')[1];
+       setBreedID(apiBreedID);
+   } else if (animalChoice === 'Cat') {
+       setBreedIDCat(breedObj.id); // Set cat breed ID directly
+   }
 
         // same for randomly generated or user selected
         let apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
         setBreedID(apiBreedID);
+
     };
 
     /************************************* Local Storage *************************************/
@@ -130,8 +142,8 @@ function Info() {
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
 
-    // const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
-    // let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedIDCat + "&api_key=" + apiKeyCat;
+    const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
+    let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedIDCat + "&api_key=" + apiKeyCat;
 
     const handleShowInfoClick = () => {
         if(animalChoice === 'Dog'){
@@ -153,30 +165,27 @@ function Info() {
                     };               
                     setCardFact(dogAPIData);
                 });
-        }
-{/**************************ADD CAT STUFF*/}
+        } else if(animalChoice === 'Cat'){
+            fetch(queryURLCatFacts)
+                .then(function(response){
+                    return response.json();
+                }).then(function (data){
+                    console.log(data);
+                    let cat = data[0].breeds[0];
 
-        // }else if(animalChoice === 'Cat'){
-        //     fetch( = )
-        //         .then(function(response){
-        //             return response.json();
-        //         }).then(function (data){
-        //             console.log(data);
-        //             let cat = data[0].breeds[0];
+                    let catAPIData = {
+                        ID: cat.id || 'No information available',
+                        // catName: cat.name || 'No information available',
+                        // catImg: data[0].url || 'No information available',
+                        // catBreedGroup: cat.breed_group || 'No information available',
+                        // catBredFor: cat.bred_for || 'No information available',
+                        // catLifeSpan: cat.life_span || 'No information available',
+                        // catTemperament: cat.temperament || 'No information available'
+                    };     
+                    setCardFact(catAPIData);
 
-        //             let catAPIData = {
-        //                 ID: cat.id || 'No information available',
-        //                 catName: cat.name || 'No information available',
-        //                 catImg: data[0].url || 'No information available',
-        //                 catBreedGroup: cat.breed_group || 'No information available',
-        //                 catBredFor: cat.bred_for || 'No information available',
-        //                 catLifeSpan: cat.life_span || 'No information available',
-        //                 catTemperament: cat.temperament || 'No information available'
-        //             };     
-        //             setCardFact(catAPIData);
-
-        //         });
-        // }     
+                });
+        }     
     };
     /******************************************************************************************/
 
