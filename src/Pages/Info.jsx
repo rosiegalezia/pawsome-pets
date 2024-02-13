@@ -64,6 +64,7 @@ function Info() {
     const handleBreedChange = (event) => {
         console.log(`User selected ${event.target.value}`);
         let selectedBreed = event.target.value;
+        event.preventDefault();
 
    // Declare breedObj variable
    let breedObj;
