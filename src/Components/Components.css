@@ -67,8 +67,8 @@ body {
 .navbar-logo {
     width: 300px;
     height: auto;
+    display: flex;
 }
-
 
 /* CAROUSEL STYLING  */
 
@@ -166,7 +166,6 @@ body {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 }
-
 
 /* NAME GENERATOR PAGE STYLING  */
 
