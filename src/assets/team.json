@@ -4,7 +4,7 @@
         "name": "Rosie",
         "github": "https://github.com/rosiegalezia",
         "image": "./team/Bunny.jpg",
-        "role": "name generator, about section",
+        "role": "logo, footer, Info and About cards, Name Generator, app name",
         "favpet": "Rabbits!"
     },
     {
@@ -20,7 +20,7 @@
         "name": "Liam",
         "github": "https://github.com/lico27",
         "image": "./team/Pickle.jpg",
-        "role": "cat facts API, random breed, ",
+        "role": "dog images API (not used), cat API",
         "favpet": "My dog Pickle"
     },
     {

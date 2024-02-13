@@ -34,7 +34,7 @@ function NavBar() {
             <Nav.Link href="#Favourites" eventKey={"/Favourites"}>Favourites</Nav.Link>
             <Nav.Link href="#About" eventKey={"/About"}>About</Nav.Link>
           </Nav>
-          
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
