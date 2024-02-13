@@ -22,12 +22,9 @@ function CarouselFade() {
             <div className="mb-2">
               <p className='carouselWelcome'>Welcome to PAWESOME PETS</p>
               <LinkContainer to="Info">
-                {/* <Nav.Link href="#Info"> */}
-                {/* works fine BUT doesn't highlight in navbar  */}
                 <Button variant="outline-light" size="lg" className="carouselBtn">
                   Get Started
                 </Button>
-                {/* </Nav.Link> */}
               </LinkContainer>
             </div>
           </Carousel.Caption>
