@@ -69,14 +69,15 @@ function Info() {
    // Declare breedObj variable
    let breedObj;
 
+    // If the user selects "Please select a breed," set breedObj to a random breed
    if (selectedBreed === 'Please select a breed') {
-       // If the user selects "Please select a breed," set breedObj to a random breed
        breedObj = animalChoice === 'Dog' ? generateRandom() : generateRandomCat();
-   } else {
-       // If the user has selected a specific breed, set breedObj to that breed
-       breedObj = animalChoice === 'Dog' ? dogBreeds.find((breed) => breed.breed === selectedBreed) : null;
-       breedObj = animalChoice === 'Cat' ? catNames.find((name) => name.name === selectedBreed) : null;
-   }
+    // If the user has selected a specific breed, set breedObj to that breed
+    } else if (animalChoice === 'Dog') {
+        breedObj = dogBreeds.find((breed) => breed.breed === selectedBreed);
+    } else {
+        breedObj = catNames.find((name) => name.name === selectedBreed);
+    };
 
    console.log(breedObj);
 
@@ -85,7 +86,7 @@ function Info() {
        let apiBreedID = breedObj.id.split('-')[1];
        setBreedID(apiBreedID);
    } else if (animalChoice === 'Cat') {
-       setBreedIDCat(breedObj.id); // Set cat breed ID directly
+       setBreedIDCat(breedObj.id);
    }
 
         // same for randomly generated or user selected
@@ -138,6 +139,7 @@ function Info() {
     /************************************* Cat & Dog Facts API *************************************/
     
     const [cardFact, setCardFact] = useState('');
+    const [cardFactCat, setCardFactCat] = useState('');
 
     const apiKey = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKey; 
@@ -169,20 +171,21 @@ function Info() {
             fetch(queryURLCatFacts)
                 .then(function(response){
                     return response.json();
-                }).then(function (data){
-                    console.log(data);
-                    let cat = data[0].breeds[0];
+                }).then(function (dataCat){
+                    console.log(dataCat);
+                    let cat = dataCat[0].breeds[0];
+                    console.log(cat);
 
                     let catAPIData = {
                         ID: cat.id || 'No information available',
-                        // catName: cat.name || 'No information available',
-                        // catImg: data[0].url || 'No information available',
-                        // catBreedGroup: cat.breed_group || 'No information available',
-                        // catBredFor: cat.bred_for || 'No information available',
-                        // catLifeSpan: cat.life_span || 'No information available',
-                        // catTemperament: cat.temperament || 'No information available'
+                        catName: cat.name || 'No information available',
+                        catImg: dataCat[0].url || 'No information available',
+                        catBreedGroup: cat.breed_group || 'No information available',
+                        catBredFor: cat.bred_for || 'No information available',
+                        catLifeSpan: cat.life_span || 'No information available',
+                        catTemperament: cat.temperament || 'No information available'
                     };     
-                    setCardFact(catAPIData);
+                    setCardFactCat(catAPIData);
 
                 });
         }     
@@ -249,17 +252,17 @@ function Info() {
 {/**************************ADD CAT STUFF*/}
                 {cardShown === true && animalChoice === 'Cat' ? ( 
                 <FactCard 
-                    key={cardFact.ID}
-                    animalBreed={cardFact.catName}
-                    img={cardFact.catImg}
+                    key={cardFactCat.ID}
+                    animalBreed={cardFactCat.catName}
+                    img={cardFactCat.catImg}
                     title1='....'
-                    info1={cardFact.catBreedGroup}
+                    info1={cardFactCat.catBreedGroup}
                     title2='....'
-                    info2={cardFact.catBredFor}
+                    info2={cardFactCat.catBredFor}
                     title3='....'
-                    info3={cardFact.catLifeSpan}
-                    title4='....'
-                    info4={cardFact.catTemperament}
+                    info3={cardFactCat.catLifeSpan}
+                    title4='Temperament'
+                    info4={cardFactCat.catTemperament}
                     // handleShowInfoClick={handleShowInfoClick}
                     // handleSaveAnimal={handleSaveAnimal}
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
