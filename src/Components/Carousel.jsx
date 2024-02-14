@@ -41,7 +41,7 @@ function CarouselFade() {
           <img src={carouselImg3} alt='dog with stick' className='carousel-img d-block w-100' text="Second slide" />
           <Carousel.Caption>
             <div className="mb-2">
-              <p className='carouselP'>Find your fur-ever friend and come up with a paw-fect name for them 🐾</p>
+              <p className='carouselP'>Find your fur-ever friend🐾</p>
               <LinkContainer to="/Info">
                 <Button variant="outline-light" size="lg" className="carouselBtn">
                   Get Started
@@ -54,6 +54,7 @@ function CarouselFade() {
           <img src={carouselImg2} alt='cat walk' className='carousel-img d-block w-100' text="Third slide" />
           <Carousel.Caption>
             <div className="mb-2">
+            <p className='carouselP'>Come up with a paw-fect name for them 🐾</p>
               <Link to="Info">
                 <Button variant="outline-light" size="lg" className="carouselBtn">
                   Get Started
