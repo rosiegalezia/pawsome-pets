@@ -219,7 +219,8 @@ function Info() {
                                 </Form.Select>
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
-                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={(event) => {
+                                    event.preventDefault()
                                     setCardShown(true)
                                 }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
@@ -237,7 +238,8 @@ function Info() {
                                 </Form.Select>
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
-                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={(event) => {
+                                    event.preventDefault()
                                     setCardShown(true)
                                 }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
