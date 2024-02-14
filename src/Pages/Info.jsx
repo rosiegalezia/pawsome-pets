@@ -23,8 +23,9 @@ import catNames from '../assets/catNames.json';
 
 
 function Info() {
-    const[cardShown, setCardShown] = useState(false);
-    const[animalChoice, setAnimalChoice] = useState('');
+    const [cardShown, setCardShown] = useState(false);
+    const [animalChoice, setAnimalChoice] = useState('');
+    const [showMoreImg, setShowMoreImg] = useState(false);
 
     // when cat is selected, then the cat breed drop down is shown + buttons
     // when dog is selected, then the dog breed drop down is shown + buttons
@@ -40,26 +41,29 @@ function Info() {
     const generateRandom = () => {
         let randomBreed;
 
-        if(animalChoice === 'Cat'){
+        if (animalChoice === 'Cat') {
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
             console.log(`Random Cat Breed=`, randomBreed)
             setBreedID(randomBreed);
-            handleShowInfoClick()
-        }else if(animalChoice === 'Dog'){
+            // handleShowInfoClick()
+            setCardShown(true)
+        } else if (animalChoice === 'Dog') {
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
             handleShowInfoClick();
+            setCardShown(true)
         }
     };
 
     //variable used in the dog API URL
-    const [breedID, setBreedID] = useState(''); 
+    const [breedID, setBreedID] = useState('');
     console.log(`breedID variable =`, breedID);
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
+        // setCardShown(false)
         event.preventDefault();
         let selectedBreed = event.target.value;
         console.log(`User selectedBreed`, selectedBreed);
@@ -68,15 +72,15 @@ function Info() {
         let breedObj;
         let apiBreedID;
 
-        if(animalChoice === 'Cat'){
+        if (animalChoice === 'Cat') {
             breedObj = catNames.find((name) => name.name == selectedBreed)
             apiBreedID = breedObj.id
             setBreedID(apiBreedID);
-        }else if(animalChoice === 'Dog'){
+        } else if (animalChoice === 'Dog') {
             breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
             apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             setBreedID(apiBreedID);
-        }else{
+        } else {
             console.log('this the the the randomBreed:', randomBreed)
             // setBreedID(randomBreed)
         }
@@ -85,20 +89,19 @@ function Info() {
     };
 
     const scrollToTop = () => {
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
 
     /************************************* Local Storage *************************************/
 
     const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
-    const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
+    const [saveAnimal, setSaveAnimal] = useState(storedAnimals);
     // console.log(`Animals in local storage:`)
     // console.log(saveAnimal)
 
     // Tracks when saveAnimal variable is updated and then updates local storage
-    useEffect (() => {
-{/**************************ADD CAT STUFF??? Maybe not now ID is changed??*/}
+    useEffect(() => {
         const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
         // console.log(`this is the unique animals list`, uniqueAnimals)
         localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
@@ -113,11 +116,12 @@ function Info() {
             ...saveAnimal.slice(0, insertAt), // Items before the insertion point
             cardFact,// New item
             ...saveAnimal.slice(insertAt) // Items after the insertion point
-          ];
-          setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
-          toggleToast();
+        ];
+        setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
+        toggleToast();
     };
 
+    /************************************* Toast *************************************/
 
     // create states for the toast that confirms name has been saved
     const [toast, setToast] = useState(false);
@@ -128,60 +132,66 @@ function Info() {
     };
 
     /************************************* Cat & Dog Facts API *************************************/
-    
-    const [cardFact, setCardFact] = useState('');
-    // const [cardFactCat, setCardFactCat] = useState('');
 
-    const apiKeyDog = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";   
-    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyDog; 
+    const [cardFact, setCardFact] = useState('');
+
+
+    const apiKeyDog = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";
+    let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyDog;
 
     const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
     let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
 
     const handleShowInfoClick = () => {
-        console.log(`breedID variable =`, breedID)
-        if(animalChoice === 'Dog'){
-            console.log(`the breedId in fetch=`, breedID)
-            fetch(queryURLDogFacts)
-                .then(function(response){
-                    return response.json();
-                }).then(function (data){
-                    console.log(data);
-                    let dog = data[0].breeds[0];
+    }
 
-                    let dogAPIData = {
-                        ID: dog.id || 'No information available',
-                        dogName: dog.name || 'No information available',
-                        dogImg: data[0].url || 'No information available',
-                        dogBreedGroup: dog.breed_group || 'No information available',
-                        dogBredFor: dog.bred_for || 'No information available',
-                        dogLifeSpan: dog.life_span || 'No information available',
-                        dogTemperament: dog.temperament || 'No information available'
-                    };               
-                    setCardFact(dogAPIData);
-                });
-        } else if(animalChoice === 'Cat'){
-            fetch(queryURLCatFacts)
-                .then(function(response){
-                    return response.json();
-                }).then(function (dataCat){
-                    console.log(dataCat);
-                    let cat = dataCat[0].breeds[0];
+    useEffect(() => {
+        if (breedID) {
+            console.log('show img', showMoreImg)
+            console.log('breed id change', breedID)
+            if (animalChoice === 'Dog') {
+                console.log(`the breedId in fetch=`, breedID)
+                fetch(queryURLDogFacts)
+                    .then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        console.log(data);
+                        let dog = data[0].breeds[0];
 
-                    let catAPIData = {
-                        ID: cat.id || 'No information available',
-                        catName: cat.name || 'No information available',
-                        catImg: dataCat[0].url || 'No information available',
-                        catOrigin: cat.origin || 'No information available',
-                        catTemperament: cat.temperament || 'No information available',
-                        catLifeSpan: cat.life_span || 'No information available',
-                        catDescription: cat.description || 'No information available'
-                    };     
-                    setCardFact(catAPIData);
+                        let dogAPIData = {
+                            ID: dog.id || 'No information available',
+                            dogName: dog.name || 'No information available',
+                            dogImg: data[0].url || 'No information available',
+                            dogBreedGroup: dog.breed_group || 'No information available',
+                            dogBredFor: dog.bred_for || 'No information available',
+                            dogLifeSpan: dog.life_span || 'No information available',
+                            dogTemperament: dog.temperament || 'No information available'
+                        };
+                        setCardFact(dogAPIData);
+                    });
+            } else if (animalChoice === 'Cat') {
+                fetch(queryURLCatFacts)
+                    .then(function (response) {
+                        return response.json();
+                    }).then(function (dataCat) {
+                        console.log(dataCat);
+                        let cat = dataCat[0].breeds[0];
 
-                });
-        }     
-    };
+                        let catAPIData = {
+                            ID: cat.id || 'No information available',
+                            catName: cat.name || 'No information available',
+                            catImg: dataCat[0].url || 'No information available',
+                            catOrigin: cat.origin || 'No information available',
+                            catTemperament: cat.temperament || 'No information available',
+                            catLifeSpan: cat.life_span || 'No information available',
+                            catDescription: cat.description || 'No information available'
+                        };
+                        setCardFact(catAPIData);
+                    });
+            }
+        }
+    }, [breedID, showMoreImg])
+    
     /******************************************************************************************/
 
     return (
@@ -211,10 +221,12 @@ function Info() {
                                 </Form.Select>
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
-                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
-                                    setCardShown(true)}}>Show info</Button>
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
+                                    handleShowInfoClick()
+                                    setCardShown(true)
+                                }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
-                            </div> 
+                            </div>
                         </>) : null}
 
                         {/*If user selects Dog then the Dog breed drop down is rendered along with btns*/}
@@ -226,61 +238,65 @@ function Info() {
                                         return <option id={breed.id} key={breed.id}>{breed.breed}</option>
                                     })};
                                 </Form.Select>
-                            </Form.Group> 
+                            </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
-                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {handleShowInfoClick() 
-                                    setCardShown(true)}}>Show info</Button>
+                                <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
+                                    handleShowInfoClick()
+                                    setCardShown(true)
+                                }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
-                            </div> 
+                            </div>
                         </>) : null}
                     </fieldset>
                 </Form>
 
                 {/*If user selects Cat then the Cat breed info is rendered onto the FactCard*/}
-                {cardShown === true && animalChoice === 'Cat' ? ( 
-                <FactCard 
-                    key={cardFact.ID}
-                    animalBreed={cardFact.catName}
-                    img={cardFact.catImg}
-                    title1='Origin'
-                    info1={cardFact.catOrigin}
-                    title2='Temperament'
-                    info2={cardFact.catTemperament}
-                    title3='Life span'
-                    info3={cardFact.catLifeSpan}
-                    title4='Description'
-                    info4={cardFact.catDescription}
-                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
-                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
-                    btn2={
-                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
-                            Pick a name for your pet
-                        </NavLink>}
-                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
-                />) : null}
+                {cardShown === true && animalChoice === 'Cat' ? (
+                    <FactCard
+                        key={cardFact.ID}
+                        animalBreed={cardFact.catName}
+                        img={cardFact.catImg}
+                        title1='Origin'
+                        info1={cardFact.catOrigin}
+                        title2='Temperament'
+                        info2={cardFact.catTemperament}
+                        title3='Life span'
+                        info3={cardFact.catLifeSpan}
+                        title4='Description'
+                        info4={cardFact.catDescription}
+                        msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                        btn1={<Button className='btn side-btn m-2' onClick={() => {setShowMoreImg(true)
+                            console.log('clicked show more img')}}>See more images</Button>}
+                        btn2={
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                                Pick a name for your pet
+                            </NavLink>}
+                        btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
+                    />) : null}
 
                 {/*If user selects Dog then the Dog breed info is rendered onto the FactCard*/}
                 {cardShown === true && animalChoice === 'Dog' ? (
-                <FactCard 
-                    key={cardFact.ID}
-                    animalBreed={cardFact.dogName}
-                    img={cardFact.dogImg}
-                    title1='Breed group'
-                    info1={cardFact.dogBreedGroup}
-                    title2='Bred for'
-                    info2={cardFact.dogBredFor}
-                    title3='Life span'
-                    info3={cardFact.dogLifeSpan}
-                    title4='Temperament'
-                    info4={cardFact.dogTemperament}
-                    msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
-                    btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
-                    btn2={
-                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
-                            Pick a name for your pet
-                        </NavLink>} 
-                    btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
-                />) : null} 
+                    <FactCard
+                        key={cardFact.ID}
+                        animalBreed={cardFact.dogName}
+                        img={cardFact.dogImg}
+                        title1='Breed group'
+                        info1={cardFact.dogBreedGroup}
+                        title2='Bred for'
+                        info2={cardFact.dogBredFor}
+                        title3='Life span'
+                        info3={cardFact.dogLifeSpan}
+                        title4='Temperament'
+                        info4={cardFact.dogTemperament}
+                        msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
+                        btn1={<Button className='btn side-btn m-2' onClick={() => {setShowMoreImg(true) 
+                            console.log('clicked show more img')}}>See more images</Button>}
+                        btn2={
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                                Pick a name for your pet
+                            </NavLink>}
+                        btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
+                    />) : null}
 
                 {/* Toast to confirm animal has been saved */}
                 <Toast className='toast mx-auto w-md-50 text-center' show={toast} onClose={toggleToast} delay={2000} autohide>
