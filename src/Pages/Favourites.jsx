@@ -1,8 +1,3 @@
-/*********** TO DO ************/
-
-// Add a Toast to notify when item is deleted?? or a 'Are you sure' confirmation?
-// 'Pick a name for your pet' OR 'Pick a paw-fect pet name' ???
-// Why is footer in wrong place? It's too high
 
 // Imported Component
 import FactCard from '../Components/FactCard';
@@ -21,14 +16,11 @@ import { NavLink } from "react-router-dom";
 
 function Favourites(props) {
 
-
     const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const[saveAnimal, setSaveAnimal] = useState(storedAnimals);
 
     const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const[saveName, setSaveName] = useState(storedNames);
-
-      
 
     // Functions to delete an item on favourites page
     const handleDeleteAnimal = (animalID) => {
@@ -52,8 +44,7 @@ function Favourites(props) {
             <div className="row justify-content-evenly page-content">
                 <div className="col-12 col-lg-5 col-sm-12 mx-3">
                     <h2 className='p-3 m-3 pt-5 '>Breeds</h2>
-
-{/******************* How to chose either cat or dog?? *******************/}
+                    {/* display empty card until favourites are saved */}
                     {!storedAnimals.includes(storedAnimals[0]) ? ( 
                         <div className='p-0 m-3 justify-content-center' key={'no-saved-animals'}>
                             <Card className='w-100 m-3 bg-cream text-center mx-auto d-flex justify-content-center'>
@@ -63,6 +54,7 @@ function Favourites(props) {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+                            {/* link back to info page */}
                             <NavLink to="/Info" role="button" className='w-100 btn btn-brown' variant="primary">
                                 Find your fur-ever friend
                             </NavLink>
@@ -70,6 +62,7 @@ function Favourites(props) {
                         ) : (
                             storedAnimals.map((animal) => {
                                 return(
+                                    // show fact card for each saved animal
                                     <FactCard 
                                         key={animal.ID}
                                         animalBreed={animal.name}
@@ -82,6 +75,7 @@ function Favourites(props) {
                                         info3={animal.info3}
                                         title4={animal.title4}
                                         info4={animal.info4}
+                                        // delete from favourites
                                         btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={() => handleDeleteAnimal (animal.ID)}>Delete</Button>}
                                     />)
                             })
@@ -89,7 +83,7 @@ function Favourites(props) {
                 </div>
                 <div className="col-12 col-lg-5 col-sm-12 mx-3" key={'no-saved-animals'}>
                     <h2 className='p-3 m-3 pt-5 '>Names</h2>
-
+                    {/* display empty card until favourites are saved */}
                     {!storedNames.includes(storedNames[0]) ? (
                         <div className='p-0 m-3 ' key={'no-saved-names'}>
                             <Card className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-lg-7'>
@@ -99,6 +93,7 @@ function Favourites(props) {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
+                            {/* link back to name generator */}
                             <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                                 Pick a name for your pet
                             </NavLink>
@@ -107,13 +102,15 @@ function Favourites(props) {
                         storedNames.map((name) =>{
                             return (
                                 <div className='row p-0 m-3' key={name}>
-                                    <Card className='col-10 namecard py-1 fav-animal-name' id={name} key={name}> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
+                                    <Card className='col-10 namecard py-1 fav-animal-name' id={name} key={name}>
+                                        {/* card to display saved name(s) */}
                                         <Card.Body>
                                             <Card.Text className='text-center'>
                                                 {name}
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
+                                    {/* delete from favourites */}
                                     <Button className="btn-brown col-2 name-delete-btn" onClick={() => handleDeleteName(name)}>X</Button>
                                 </div>
                             )
