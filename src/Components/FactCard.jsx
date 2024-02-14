@@ -12,7 +12,7 @@ function FactCard(props) {
         <div>
             {/* Build card */}
             <Card text='dark' className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-md-8'>
-                <Card.Img variant="top" className="object-fit-cover" src={props.img} style={{ height: "50vh" }} alt={props.animalBreed} />
+                <Card.Img variant="top" className="object-fit-contain" src={props.img} alt={props.animalBreed} />
 
                 <Card.Body>
                     <Card.Title className='mb-4 fact-card-text' >{props.animalBreed}</Card.Title>
