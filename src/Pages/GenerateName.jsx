@@ -23,18 +23,9 @@ function GenerateName() {
     // event handler for when sex has been set/changed from dropdown
     const handleSexChange = (event) => {
         event.preventDefault()
-        console.log(event.target.value)
-
-        setSex((previous) => {
-
-            let updatedSex = previous === "Female" ? "Male" : "Female"
-            console.log(updatedSex)
-
-            // call the generate name function with the updated sex for next render
-            generateName(updatedSex)
-            return updatedSex
-        })
-
+        let updatedSex = event.target.value
+        setSex(updatedSex)
+        generateName(updatedSex)
     };
 
     // calls the npm library and generates a name depending on chosen sex
