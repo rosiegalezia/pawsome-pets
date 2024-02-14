@@ -1,7 +1,3 @@
-/*********** TO DO ************/
-
-// Some images don't fit quite right in the Fact Card. Not sure how best to proceed...
-
 
 //Imported Components from React Bootstrap 
 import Card from 'react-bootstrap/Card';
