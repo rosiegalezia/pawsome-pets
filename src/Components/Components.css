@@ -53,6 +53,10 @@ body {
     margin: 0 auto;
 }
 
+.text-center {
+    font-family: poppins;
+}
+
 /* NAVBAR STYLING  */
 
 .nav-link {
