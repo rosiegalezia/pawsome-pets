@@ -2,7 +2,7 @@
 A guide for new pet owners, created for Project 2 of the Web Development Bootcamp
 
 ## Description
-A resource to help prospective pet (dog) owners choose a breed and a name for their furry friend 🐶.
+A resource to help prospective cat and dog owners choose a breed, learn facts, and pick a name for their furry friend 🐶.
 
 ### Project Deliverables
 To meet the project Acceptance Criteria, the app:
