@@ -21,7 +21,6 @@ function FactCard(props) {
                     </ListGroup>
 
                     {props.msg}
-                    {props.btn1}
                     {props.btn2}
                     {props.btn3}
 

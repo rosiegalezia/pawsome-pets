@@ -25,7 +25,6 @@ import catNames from '../assets/catNames.json';
 function Info() {
     const [cardShown, setCardShown] = useState(false);
     const [animalChoice, setAnimalChoice] = useState('');
-    const [showMoreImg, setShowMoreImg] = useState(false);
 
     // when cat is selected, then the cat breed drop down is shown + buttons
     // when dog is selected, then the dog breed drop down is shown + buttons
@@ -147,7 +146,6 @@ function Info() {
 
     useEffect(() => {
         if (breedID) {
-            console.log('show img', showMoreImg)
             console.log('breed id change', breedID)
             if (animalChoice === 'Dog') {
                 console.log(`the breedId in fetch=`, breedID)
@@ -190,7 +188,7 @@ function Info() {
                     });
             }
         }
-    }, [breedID, showMoreImg])
+    }, [breedID])
     
     /******************************************************************************************/
 
@@ -265,10 +263,8 @@ function Info() {
                         title4='Description'
                         info4={cardFact.catDescription}
                         msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
-                        btn1={<Button className='btn side-btn m-2' onClick={() => {setShowMoreImg(true)
-                            console.log('clicked show more img')}}>See more images</Button>}
                         btn2={
-                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-1' variant="primary">
                                 Pick a name for your pet
                             </NavLink>}
                         btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
@@ -289,10 +285,8 @@ function Info() {
                         title4='Temperament'
                         info4={cardFact.dogTemperament}
                         msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
-                        btn1={<Button className='btn side-btn m-2' onClick={() => {setShowMoreImg(true) 
-                            console.log('clicked show more img')}}>See more images</Button>}
                         btn2={
-                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-1' variant="primary">
                                 Pick a name for your pet
                             </NavLink>}
                         btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
