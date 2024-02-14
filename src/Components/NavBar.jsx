@@ -21,7 +21,7 @@ function NavBar() {
     <Navbar expand="lg" className="bg-cream">
       <Container className=''>
         <Link to="/">
-          <img src={Logo} alt="" className='navbar-logo p-2' />
+          <img src={Logo} alt="" className='navbar-logo p-2 img-fluid'/>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
