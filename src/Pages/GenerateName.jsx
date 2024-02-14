@@ -66,8 +66,6 @@ function GenerateName() {
 
     const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedNames to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const [saveName, setSaveName] = useState(storedNames);
-    // console.log(`Names in local storage:`)
-    // console.log(saveName)
 
     // Tracks when saveName variable is updated and then updates local storage
     useEffect(() => {
@@ -119,7 +117,6 @@ function GenerateName() {
                 <div className='p-3 m-3 row w-md-50'>
                     <div className='col-md'>
                         <Button
-                            // variant="primary"
                             className='btn-brown m-2 w-100'
                             onClick={regenerateClick}
                         >Re-generate</Button>
@@ -127,7 +124,6 @@ function GenerateName() {
 
                     <div className='col-md'>
                         <Button
-                            // variant="primary"
                             className='btn-brown m-2 w-100 text-nowrap'
                             onClick={handleSaveName}
                         >Save to Favourites</Button>

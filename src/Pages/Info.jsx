@@ -1,9 +1,3 @@
-/*********** TO DO ************/
-
-// Add a Toast to notify user has saved choice?
-// Find out what id="disabledSelect" is on the form (React Bootstrap) - should it be different? (without disabled?)
-
-
 
 //Imported Components from React-Bootstrap 
 import Button from 'react-bootstrap/Button';
@@ -20,7 +14,6 @@ import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import '../Components/Components.css'
 import catNames from '../assets/catNames.json';
-
 
 function Info() {
     const [cardShown, setCardShown] = useState(false);
@@ -42,13 +35,11 @@ function Info() {
         setCardShown(false)
         if (animalChoice === 'Cat') {
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
-            console.log(`Random Cat Breed=`, randomBreed)
             setBreedID(randomBreed);
             setCardShown(true)
         } else if (animalChoice === 'Dog') {
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
-            console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
             setCardShown(true)
         }
@@ -56,14 +47,12 @@ function Info() {
 
     //variable used in the dog API URL
     const [breedID, setBreedID] = useState('');
-    console.log(`breedID variable =`, breedID);
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
         setCardShown(false)
         event.preventDefault();
         let selectedBreed = event.target.value;
-        console.log(`User selectedBreed`, selectedBreed);
 
         // declare breedObj and apiBreedID variables
         let breedObj;
@@ -77,18 +66,15 @@ function Info() {
             breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
             apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             setBreedID(apiBreedID);
-        } else {
-            console.log('this the the the randomBreed:', randomBreed)
-        }
+        } 
 
-        console.log(breedObj)
     };
 
     /************************************* Scroll to Top Func *************************************/
+
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
 
     /************************************* Local Storage *************************************/
 
@@ -98,14 +84,11 @@ function Info() {
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect(() => {
         const uniqueAnimals = Array.from(new Map(saveAnimal.map(animal => [animal.ID, animal])).values());
-        // console.log(`this is the unique animals list`, uniqueAnimals)
         localStorage.setItem("animal", JSON.stringify(uniqueAnimals))
     }, [saveAnimal]);
 
     //Function to Save animal factCard info to saveAnimal variable
     const handleSaveAnimal = () => {
-        console.log(cardFact)
-
         const insertAt = 0; // Add new saved animal obj to start of saveAnimal array
         const nextSavedAnimal = [
             ...saveAnimal.slice(0, insertAt), // Items before the insertion point
@@ -138,14 +121,11 @@ function Info() {
 
     useEffect(() => {
         if (breedID) {
-            console.log('breed id change', breedID)
             if (animalChoice === 'Dog') {
-                console.log(`the breedId in fetch=`, breedID)
                 fetch(queryURLDogFacts)
                     .then(function (response) {
                         return response.json();
                     }).then(function (data) {
-                        console.log(data);
                         let dog = data[0].breeds[0];
 
                         let dogAPIData = {
@@ -168,7 +148,6 @@ function Info() {
                     .then(function (response) {
                         return response.json();
                     }).then(function (dataCat) {
-                        console.log(dataCat);
                         let cat = dataCat[0].breeds[0];
 
                         let catAPIData = {
