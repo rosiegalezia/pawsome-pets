@@ -9,7 +9,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-
+import Toast from 'react-bootstrap/Toast';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
@@ -43,20 +43,20 @@ function Info() {
         if(animalChoice === 'Cat'){
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
             console.log(`Random Cat Breed=`, randomBreed)
-            handleShowInfoClick()
             setBreedID(randomBreed);
+            handleShowInfoClick()
         }else if(animalChoice === 'Dog'){
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
-            handleShowInfoClick()
+            handleShowInfoClick();
         }
-    }
+    };
 
     //variable used in the dog API URL
     const [breedID, setBreedID] = useState(''); 
-    console.log(`Breed ID =`, breedID);
+    console.log(`breedID variable =`, breedID);
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
@@ -76,9 +76,16 @@ function Info() {
             breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
             apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             setBreedID(apiBreedID);
+        }else{
+            console.log('this the the the randomBreed:', randomBreed)
+            // setBreedID(randomBreed)
         }
 
         console.log(breedObj)
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
 
@@ -108,8 +115,17 @@ function Info() {
             ...saveAnimal.slice(insertAt) // Items after the insertion point
           ];
           setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
+          toggleToast();
     };
 
+
+    // create states for the toast that confirms name has been saved
+    const [toast, setToast] = useState(false);
+
+    // function to toggle the Toast state
+    const toggleToast = () => {
+        setToast(!toast)
+    };
 
     /************************************* Cat & Dog Facts API *************************************/
     
@@ -123,7 +139,9 @@ function Info() {
     let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
 
     const handleShowInfoClick = () => {
+        console.log(`breedID variable =`, breedID)
         if(animalChoice === 'Dog'){
+            console.log(`the breedId in fetch=`, breedID)
             fetch(queryURLDogFacts)
                 .then(function(response){
                     return response.json();
@@ -175,7 +193,7 @@ function Info() {
 
                         {/* This input drop down is to choose cat or dog */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
-                            <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
+                            <Form.Select id="animalInput" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>
                                 <option>Dog</option>
@@ -185,7 +203,7 @@ function Info() {
                         {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
                         {animalChoice === 'Cat' ? (<>
                             <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
-                                <Form.Select onChange={handleBreedChange} id="disabledSelect">
+                                <Form.Select onChange={handleBreedChange} id="BreedInput">
                                     <option id="breed-select">Please select a breed</option>
                                     {catNames.map((name) => {
                                         return <option id={name.id} key={name.id}>{name.name}</option>
@@ -235,7 +253,7 @@ function Info() {
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
-                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                             Pick a name for your pet
                         </NavLink>}
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
@@ -258,11 +276,16 @@ function Info() {
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
-                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                             Pick a name for your pet
                         </NavLink>} 
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null} 
+
+                {/* Toast to confirm animal has been saved */}
+                <Toast className='toast mx-auto w-md-50 text-center' show={toast} onClose={toggleToast} delay={2000} autohide>
+                    <Toast.Body>Animal has been saved to Favourites</Toast.Body>
+                </Toast>
             </div>
         </div>
     )

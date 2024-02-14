@@ -13,6 +13,11 @@ import "@fontsource/poppins"; // Defaults to weight 400
 import './Components.css';
 
 function CarouselFade() {
+
+  const scrollToTop = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+  
   return (
     <>
       <Carousel fade>
@@ -22,7 +27,9 @@ function CarouselFade() {
             <div className="mb-2">
               <p className='carouselWelcome'>Welcome to PAWESOME PETS</p>
               <LinkContainer to="Info">
-                <Button variant="outline-light" size="lg" className="carouselBtn">
+                {/* <Nav.Link href="#Info"> */}
+                {/* works fine BUT doesn't highlight in navbar  */}
+                <Button onClick={scrollToTop} variant="outline-light" size="lg" className="carouselBtn">
                   Get Started
                 </Button>
               </LinkContainer>

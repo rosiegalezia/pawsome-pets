@@ -7,8 +7,8 @@ import Favourites from './Pages/Favourites';
 import NavBar from "./Components/NavBar";
 import Footer from './Components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Carousel } from 'bootstrap';
-import CarouselFade from './Components/Carousel';
+// import { Carousel } from 'bootstrap';
+// import CarouselFade from './Components/Carousel';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
