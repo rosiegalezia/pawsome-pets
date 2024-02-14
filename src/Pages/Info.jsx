@@ -210,7 +210,7 @@ function Info() {
 
                         {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
                         {animalChoice === 'Cat' ? (<>
-                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
                                 <Form.Select onChange={handleBreedChange} id="BreedInput">
                                     <option id="breed-select">Please select a breed</option>
                                     {catNames.map((name) => {
@@ -229,7 +229,7 @@ function Info() {
 
                         {/*If user selects Dog then the Dog breed drop down is rendered along with btns*/}
                         {animalChoice === 'Dog' ? (<>
-                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
+                            <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
                                 <Form.Select onChange={handleBreedChange} id="disabledSelect">
                                     <option id="breed-select">Please select a breed</option>
                                     {dogBreeds.map((breed) => {
