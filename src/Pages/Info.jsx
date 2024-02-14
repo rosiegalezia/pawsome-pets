@@ -43,20 +43,20 @@ function Info() {
         if(animalChoice === 'Cat'){
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
             console.log(`Random Cat Breed=`, randomBreed)
-            handleShowInfoClick()
             setBreedID(randomBreed);
+            handleShowInfoClick()
         }else if(animalChoice === 'Dog'){
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
-            handleShowInfoClick()
+            handleShowInfoClick();
         }
-    }
+    };
 
     //variable used in the dog API URL
     const [breedID, setBreedID] = useState(''); 
-    console.log(`Breed ID =`, breedID);
+    console.log(`breedID variable =`, breedID);
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
@@ -76,6 +76,9 @@ function Info() {
             breedObj = dogBreeds.find((breed) => breed.breed == selectedBreed)
             apiBreedID = breedObj.id.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             setBreedID(apiBreedID);
+        }else{
+            console.log('this the the the randomBreed:', randomBreed)
+            // setBreedID(randomBreed)
         }
 
         console.log(breedObj)
@@ -123,7 +126,9 @@ function Info() {
     let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
 
     const handleShowInfoClick = () => {
+        console.log(`breedID variable =`, breedID)
         if(animalChoice === 'Dog'){
+            console.log(`the breedId in fetch=`, breedID)
             fetch(queryURLDogFacts)
                 .then(function(response){
                     return response.json();
@@ -175,7 +180,7 @@ function Info() {
 
                         {/* This input drop down is to choose cat or dog */}
                         <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column col-10 col-sm-10 col-lg-6">
-                            <Form.Select id="disabledSelect" onChange={handleAnimalChange}>
+                            <Form.Select id="animalInput" onChange={handleAnimalChange}>
                                 <option>Please select an animal</option>
                                 <option>Cat</option>
                                 <option>Dog</option>
@@ -185,7 +190,7 @@ function Info() {
                         {/*If user selects Cat then the Cat breed drop down is rendered along with btns*/}
                         {animalChoice === 'Cat' ? (<>
                             <Form.Group className="mb-3 mx-auto d-flex justify-content-center flex-column" style={{ width: "50%" }}>
-                                <Form.Select onChange={handleBreedChange} id="disabledSelect">
+                                <Form.Select onChange={handleBreedChange} id="BreedInput">
                                     <option id="breed-select">Please select a breed</option>
                                     {catNames.map((name) => {
                                         return <option id={name.id} key={name.id}>{name.name}</option>
