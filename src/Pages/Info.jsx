@@ -40,7 +40,7 @@ function Info() {
     // get a random breed object from the json
     const generateRandom = () => {
         let randomBreed;
-
+        setCardShown(false)
         if (animalChoice === 'Cat') {
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
             console.log(`Random Cat Breed=`, randomBreed)
@@ -61,7 +61,7 @@ function Info() {
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
-        // setCardShown(false)
+        setCardShown(false)
         event.preventDefault();
         let selectedBreed = event.target.value;
         console.log(`User selectedBreed`, selectedBreed);
