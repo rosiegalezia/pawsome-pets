@@ -39,19 +39,17 @@ function Info() {
     // get a random breed object from the json
     const generateRandom = () => {
         let randomBreed;
-
+        setCardShown(false)
         if (animalChoice === 'Cat') {
             randomBreed = catNames[Math.floor(Math.random() * catNames.length)].id
             console.log(`Random Cat Breed=`, randomBreed)
             setBreedID(randomBreed);
-            // handleShowInfoClick()
             setCardShown(true)
         } else if (animalChoice === 'Dog') {
             randomBreed = dogBreeds[Math.floor(Math.random() * dogBreeds.length)].id
             randomBreed = randomBreed.split('-')[1]; //get the number from the id key in the json file so we can pass just the number for the API key
             console.log(`Random Dog Breed=`, randomBreed)
             setBreedID(randomBreed);
-            handleShowInfoClick();
             setCardShown(true)
         }
     };
@@ -62,7 +60,7 @@ function Info() {
 
     // Function to take users breed selection and obtain the API breed ID number to use in API URL call
     const handleBreedChange = (event) => {
-        // setCardShown(false)
+        setCardShown(false)
         event.preventDefault();
         let selectedBreed = event.target.value;
         console.log(`User selectedBreed`, selectedBreed);
@@ -81,12 +79,12 @@ function Info() {
             setBreedID(apiBreedID);
         } else {
             console.log('this the the the randomBreed:', randomBreed)
-            // setBreedID(randomBreed)
         }
 
         console.log(breedObj)
     };
 
+    /************************************* Scroll to Top Func *************************************/
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -96,8 +94,6 @@ function Info() {
 
     const storedAnimals = JSON.parse(localStorage.getItem('animal')) || []; // Sets storedAnimals to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const [saveAnimal, setSaveAnimal] = useState(storedAnimals);
-    // console.log(`Animals in local storage:`)
-    // console.log(saveAnimal)
 
     // Tracks when saveAnimal variable is updated and then updates local storage
     useEffect(() => {
@@ -134,15 +130,11 @@ function Info() {
 
     const [cardFact, setCardFact] = useState('');
 
-
     const apiKeyDog = "live_YfWC06FaSScnxQmCVmhGtpZkjdXWNT1MWyQyFQNwXWvkZI3Z9KVttI08TsgFY5a7";
     let queryURLDogFacts = "https://api.thedogapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyDog;
 
     const apiKeyCat = "live_1DOpjKMfcP15eQ7PbRy6uDlF7mgQXz2YHwjHBuJi2fpKtSrXPcjAgYxTk0kTt4tw";
     let queryURLCatFacts = "https://api.thecatapi.com/v1/images/search?breed_ids=" + breedID + "&api_key=" + apiKeyCat;
-
-    const handleShowInfoClick = () => {
-    }
 
     useEffect(() => {
         if (breedID) {
@@ -158,12 +150,16 @@ function Info() {
 
                         let dogAPIData = {
                             ID: dog.id || 'No information available',
-                            dogName: dog.name || 'No information available',
-                            dogImg: data[0].url || 'No information available',
-                            dogBreedGroup: dog.breed_group || 'No information available',
-                            dogBredFor: dog.bred_for || 'No information available',
-                            dogLifeSpan: dog.life_span || 'No information available',
-                            dogTemperament: dog.temperament || 'No information available'
+                            name: dog.name || 'No information available',
+                            img: data[0].url || 'No information available',
+                            title1:'Breed group',
+                            info1: dog.breed_group || 'No information available',
+                            title2:'Bred for',
+                            info2: dog.bred_for || 'No information available',
+                            title3:'Life span',
+                            info3: dog.life_span || 'No information available',
+                            title4:'Temperament',
+                            info4: dog.temperament || 'No information available'
                         };
                         setCardFact(dogAPIData);
                     });
@@ -177,12 +173,16 @@ function Info() {
 
                         let catAPIData = {
                             ID: cat.id || 'No information available',
-                            catName: cat.name || 'No information available',
-                            catImg: dataCat[0].url || 'No information available',
-                            catOrigin: cat.origin || 'No information available',
-                            catTemperament: cat.temperament || 'No information available',
-                            catLifeSpan: cat.life_span || 'No information available',
-                            catDescription: cat.description || 'No information available'
+                            name: cat.name || 'No information available',
+                            img: dataCat[0].url || 'No information available',
+                            title1:'Origin',
+                            info1: cat.origin || 'No information available',
+                            title2:'Temperament',
+                            info2: cat.temperament || 'No information available',
+                            title3:'Life span',
+                            info3: cat.life_span || 'No information available',
+                            title4:'Description',
+                            info4: cat.description || 'No information available'
                         };
                         setCardFact(catAPIData);
                     });
@@ -220,7 +220,6 @@ function Info() {
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
                                 <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
-                                    handleShowInfoClick()
                                     setCardShown(true)
                                 }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
@@ -239,7 +238,6 @@ function Info() {
                             </Form.Group>
                             <div className="m-4 mx-auto d-flex justify-content-center">
                                 <Button className='btn-brown' variant="primary" type="submit" onClick={() => {
-                                    handleShowInfoClick()
                                     setCardShown(true)
                                 }}>Show info</Button>
                                 <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
@@ -252,16 +250,16 @@ function Info() {
                 {cardShown === true && animalChoice === 'Cat' ? (
                     <FactCard
                         key={cardFact.ID}
-                        animalBreed={cardFact.catName}
-                        img={cardFact.catImg}
-                        title1='Origin'
-                        info1={cardFact.catOrigin}
-                        title2='Temperament'
-                        info2={cardFact.catTemperament}
-                        title3='Life span'
-                        info3={cardFact.catLifeSpan}
-                        title4='Description'
-                        info4={cardFact.catDescription}
+                        animalBreed={cardFact.name}
+                        img={cardFact.img}
+                        title1={cardFact.title1}
+                        info1={cardFact.info1}
+                        title2={cardFact.title2}
+                        info2={cardFact.info2}
+                        title3={cardFact.title3}
+                        info3={cardFact.info3}
+                        title4={cardFact.title4}
+                        info4={cardFact.info4}
                         msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                         btn2={
                             <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-1' variant="primary">
@@ -274,16 +272,16 @@ function Info() {
                 {cardShown === true && animalChoice === 'Dog' ? (
                     <FactCard
                         key={cardFact.ID}
-                        animalBreed={cardFact.dogName}
-                        img={cardFact.dogImg}
-                        title1='Breed group'
-                        info1={cardFact.dogBreedGroup}
-                        title2='Bred for'
-                        info2={cardFact.dogBredFor}
-                        title3='Life span'
-                        info3={cardFact.dogLifeSpan}
-                        title4='Temperament'
-                        info4={cardFact.dogTemperament}
+                        animalBreed={cardFact.name}
+                        img={cardFact.img}
+                        title1={cardFact.title1}
+                        info1={cardFact.info1}
+                        title2={cardFact.title2}
+                        info2={cardFact.info2}
+                        title3={cardFact.title3}
+                        info3={cardFact.info3}
+                        title4={cardFact.title4}
+                        info4={cardFact.info4}
                         msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                         btn2={
                             <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-1' variant="primary">

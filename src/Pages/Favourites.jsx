@@ -72,22 +72,22 @@ function Favourites(props) {
                                 return(
                                     <FactCard 
                                         key={animal.ID}
-                                        animalBreed={animal.dogName}
-                                        img={animal.dogImg}
-                                        title1='Breed group'
-                                        info1={animal.dogBreedGroup}
-                                        title2='Bred for'
-                                        info2={animal.dogBredFor}
-                                        title3='Life span'
-                                        info3={animal.dogLifeSpan}
-                                        title4='Temperament'
-                                        info4={animal.dogTemperament}
+                                        animalBreed={animal.name}
+                                        img={animal.img}
+                                        title1={animal.title1}
+                                        info1={animal.info1}
+                                        title2={animal.title2}
+                                        info2={animal.info2}
+                                        title3={animal.title3}
+                                        info3={animal.info3}
+                                        title4={animal.title4}
+                                        info4={animal.info4}
                                         btn2={<Button className='btn btn-brown m-2' variant="primary" onClick={() => handleDeleteAnimal (animal.ID)}>Delete</Button>}
                                     />)
                             })
                         )}
                 </div>
-                <div className="col-12 col-lg-5 col-sm-12 mx-3">
+                <div className="col-12 col-lg-5 col-sm-12 mx-3" key={'no-saved-animals'}>
                     <h2 className='p-3 m-3 pt-5 '>Names</h2>
 
                     {!storedNames.includes(storedNames[0]) ? (
@@ -106,7 +106,7 @@ function Favourites(props) {
                     ) : (
                         storedNames.map((name) =>{
                             return (
-                                <div className='row p-0 m-3'>
+                                <div className='row p-0 m-3' key={name}>
                                     <Card className='col-10 namecard py-1 fav-animal-name' id={name} key={name}> {/*style={{ backgroundColor: setBackgroundColor() }}*/}
                                         <Card.Body>
                                             <Card.Text className='text-center'>
