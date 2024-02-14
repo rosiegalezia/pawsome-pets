@@ -75,8 +75,8 @@ function GenerateName() {
 
     const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedNames to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const [saveName, setSaveName] = useState(storedNames);
-    console.log(`Names in local storage:`)
-    console.log(saveName)
+    // console.log(`Names in local storage:`)
+    // console.log(saveName)
 
     // Tracks when saveName variable is updated and then updates local storage
     useEffect(() => {
@@ -106,7 +106,7 @@ function GenerateName() {
                 <h2 className='p-3 m-3 pt-5 text-center'>What gender name would you like for your pet?</h2>
 
                 {/* dropdown for sex selection  */}
-                <Form.Select aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
+                <Form.Select id='select-pet-sex' aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
                     <option>Select your pet's sex</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
