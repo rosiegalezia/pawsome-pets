@@ -75,8 +75,8 @@ function GenerateName() {
 
     const storedNames = JSON.parse(localStorage.getItem('name')) || []; // Sets storedNames to anything saved in local storage, but if that is empty, it will initialise as an empty array.
     const [saveName, setSaveName] = useState(storedNames);
-    console.log(`Names in local storage:`)
-    console.log(saveName)
+    // console.log(`Names in local storage:`)
+    // console.log(saveName)
 
     // Tracks when saveName variable is updated and then updates local storage
     useEffect(() => {
