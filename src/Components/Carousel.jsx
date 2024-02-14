@@ -32,6 +32,7 @@ function CarouselFade() {
                 <Button onClick={scrollToTop} variant="outline-light" size="lg" className="carouselBtn">
                   Get Started
                 </Button>
+                {/* </Nav.Link> */}
               </LinkContainer>
             </div>
           </Carousel.Caption>
