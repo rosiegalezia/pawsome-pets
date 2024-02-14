@@ -115,7 +115,7 @@ function GenerateName() {
 
                 {/* card in which generated name is displayed */}
                 <div className='p-0 m-auto w-50'>
-                    <Card onClick={toggleToast} className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center generatedName'>
                                 {generatedName}
