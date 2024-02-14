@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom';
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-import ReactDOM from 'react-dom'
 import Logo from "../assets/logo-one-line.svg"
 import '../Components/Components.css'
 
@@ -18,6 +17,7 @@ function NavBar() {
   let location = useLocation()
 
   return (
+    // navbar from react-bootstrap
     <Navbar expand="lg" className="bg-cream">
       <Container className=''>
         <Link to="/">
