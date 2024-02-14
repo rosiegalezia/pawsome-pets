@@ -9,7 +9,7 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
-
+import Toast from 'react-bootstrap/Toast';
 
 //Imported Component 
 import FactCard from '../Components/FactCard';
@@ -111,8 +111,17 @@ function Info() {
             ...saveAnimal.slice(insertAt) // Items after the insertion point
           ];
           setSaveAnimal(nextSavedAnimal) //updates saveAnimal array with new animal obj that the user just click 'save to favs' on
+          toggleToast();
     };
 
+
+    // create states for the toast that confirms name has been saved
+    const [toast, setToast] = useState(false);
+
+    // function to toggle the Toast state
+    const toggleToast = () => {
+        setToast(!toast)
+    };
 
     /************************************* Cat & Dog Facts API *************************************/
     
@@ -268,6 +277,11 @@ function Info() {
                         </NavLink>} 
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
                 />) : null} 
+
+                {/* Toast to confirm animal has been saved */}
+                <Toast className='toast mx-auto w-md-50 text-center' show={toast} onClose={toggleToast} delay={2000} autohide>
+                    <Toast.Body>Animal has been saved to Favourites</Toast.Body>
+                </Toast>
             </div>
         </div>
     )
