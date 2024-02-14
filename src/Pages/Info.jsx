@@ -84,6 +84,10 @@ function Info() {
         console.log(breedObj)
     };
 
+    const scrollToTop = () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
 
     /************************************* Local Storage *************************************/
 
@@ -249,7 +253,7 @@ function Info() {
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
-                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                             Pick a name for your pet
                         </NavLink>}
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
@@ -272,7 +276,7 @@ function Info() {
                     msg={<Card.Text className="fact-card-text"><span className='fw-bold'>Have you found your fur-ever friend?</span> <br /> If so, why not get some help to chose the paw-fect name for them.</Card.Text>}
                     btn1={<Button className='btn side-btn m-2' onClick={handleShowInfoClick}>See more images</Button>}
                     btn2={
-                        <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                        <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                             Pick a name for your pet
                         </NavLink>} 
                     btn3={<Button className='btn side-btn m-2' onClick={handleSaveAnimal}>Save to favourites</Button>}
