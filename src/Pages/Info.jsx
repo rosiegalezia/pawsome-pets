@@ -202,7 +202,9 @@ function Info() {
                                     event.preventDefault()
                                     setCardShown(true)
                                 }}>Show info</Button>
-                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={(event) => {
+                                    event.preventDefault()
+                                    generateRandom()}}>Pick a random breed</Button>
                             </div>
                         </>) : null}
 
@@ -221,7 +223,9 @@ function Info() {
                                     event.preventDefault()
                                     setCardShown(true)
                                 }}>Show info</Button>
-                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={generateRandom}>Pick a random breed</Button>
+                                <Button className='btn-brown ms-2 btn-primary' variant="primary" type="random-breed" onClick={(event) => {
+                                    event.preventDefault()
+                                    generateRandom()}}>Pick a random breed</Button>
                             </div>
                         </>) : null}
                     </fieldset>
