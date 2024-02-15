@@ -116,7 +116,7 @@ function GenerateName() {
 
                 {/* card in which generated name is displayed */}
                 <div className='p-3 m-auto w-100'>
-                    <Card className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
+                    <Card className='namecard py-5 w-100 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center generatedName'>
                                 {generatedName}
@@ -125,29 +125,31 @@ function GenerateName() {
                     </Card>
                 </div>
 
-                <div className=''>
-                    {/* button that calls the generate name function again */}
+                <div className='w-100'>
                     <div className='py-2 m-1 row w-100'>
+
+                        {/* button that calls the generate name function again */}
+
                         <div className='col-md'>
                             <Button
-                                className='btn-brown m-2 w-100'
+                                className='btn-brown m-2 w-100 mx-auto'
                                 onClick={regenerateClick}
                             >Re-generate</Button>
                         </div>
 
+                        {/* button that saves name to favourites  */}
                         <div className='col-md'>
                             <Button
-                                className='btn-brown m-2 w-100 text-nowrap'
+                                className='btn-brown m-2 w-100 text-nowrap mx-auto'
                                 onClick={handleSaveName}
                             >Save to Favourites</Button>
-
                         </div>
 
                     </div>
 
-                    <LinkContainer to="/Favourites" className='m-1 row w-100' onClick={scrollToTop}>
-                        {/* button links to favourites page */}
-                        <Button className="btn side-btn w-100 m-0">
+                    {/* button that  links to favourites page */}
+                    <LinkContainer to="/Favourites" className='col row w-100' onClick={scrollToTop}>
+                        <Button className="p-2 m-1 btn side-btn w-100 mx-2">
                             View Favourites
                         </Button>
                     </LinkContainer>
