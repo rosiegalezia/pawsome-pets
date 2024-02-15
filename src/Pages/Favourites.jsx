@@ -39,6 +39,13 @@ function Favourites(props) {
         localStorage.setItem('name', JSON.stringify(newStoredNames))
     };
 
+    /************************************* Scroll to Top Func *************************************/
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    
+
     return (
         <div className="page-container container text-center">
             <div className="row justify-content-evenly page-content">
@@ -55,7 +62,7 @@ function Favourites(props) {
                                 </Card.Body>
                             </Card>
                             {/* link back to info page */}
-                            <NavLink to="/Info" role="button" className='w-100 btn btn-brown' variant="primary">
+                            <NavLink onClick={scrollToTop} to="/Info" role="button" className='w-100 btn btn-brown' variant="primary">
                                 Find your fur-ever friend
                             </NavLink>
                         </div>
@@ -94,7 +101,7 @@ function Favourites(props) {
                                 </Card.Body>
                             </Card>
                             {/* link back to name generator */}
-                            <NavLink to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
                                 Pick a name for your pet
                             </NavLink>
                         </div>
