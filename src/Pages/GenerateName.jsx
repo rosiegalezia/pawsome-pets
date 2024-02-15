@@ -10,6 +10,11 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Toast from 'react-bootstrap/Toast';
 
+import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
+
+
 // Imported CSS
 import './pages.css'
 import '../Components/Components.css'
@@ -86,6 +91,13 @@ function GenerateName() {
         setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
         toggleToast();
     };
+
+
+    /************************************* Scroll to Top Func *************************************/
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
     /*****************************************************************************************/
 
     return (
@@ -103,7 +115,7 @@ function GenerateName() {
                 </Form.Select>
 
                 {/* card in which generated name is displayed */}
-                <div className='p-0 m-auto w-100'>
+                <div className='p-3 m-auto w-100'>
                     <Card className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center generatedName'>
@@ -113,30 +125,41 @@ function GenerateName() {
                     </Card>
                 </div>
 
-                {/* button that calls the generate name function again */}
-                <div className='p-3 m-3 row w-100'>
-                    <div className='col-md'>
-                        <Button
-                            className='btn-brown m-2 w-100'
-                            onClick={regenerateClick}
-                        >Re-generate</Button>
+                <div className=''>
+                    {/* button that calls the generate name function again */}
+                    <div className='py-2 m-1 row w-100'>
+                        <div className='col-md'>
+                            <Button
+                                className='btn-brown m-2 w-100'
+                                onClick={regenerateClick}
+                            >Re-generate</Button>
+                        </div>
+
+                        <div className='col-md'>
+                            <Button
+                                className='btn-brown m-2 w-100 text-nowrap'
+                                onClick={handleSaveName}
+                            >Save to Favourites</Button>
+
+                        </div>
+
                     </div>
 
-                    <div className='col-md'>
-                        <Button
-                            className='btn-brown m-2 w-100 text-nowrap'
-                            onClick={handleSaveName}
-                        >Save to Favourites</Button>
-                    </div>
-
+                    <LinkContainer to="/Favourites" className='m-1 row w-100' onClick={scrollToTop}>
+                        {/* button links to favourites page */}
+                        <Button className="btn side-btn w-100 m-0">
+                            View Favourites
+                        </Button>
+                    </LinkContainer>
                 </div>
 
                 {/* Toast to confirm name has been saved */}
-                <Toast className='toast w-md-50 text-center' show={toast} onClose={toggleToast} delay={2000} autohide>
+                <Toast className='toast text-center m-3' show={toast} onClose={toggleToast} delay={2000} autohide>
                     <Toast.Body>Name has been saved to Favourites</Toast.Body>
                 </Toast>
 
             </div>
+
         </div>
 
 
