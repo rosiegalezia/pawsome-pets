@@ -101,7 +101,7 @@ function Favourites(props) {
                                 </Card.Body>
                             </Card>
                             {/* link back to name generator */}
-                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='btn btn-brown m-2' variant="primary">
+                            <NavLink onClick={scrollToTop} to="/GenerateName" role="button" className='w-100 btn btn-brown' variant="primary">
                                 Pick a name for your pet
                             </NavLink>
                         </div>
