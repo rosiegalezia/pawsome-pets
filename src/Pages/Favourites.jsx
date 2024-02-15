@@ -93,7 +93,7 @@ function Favourites(props) {
                     {/* display empty card until favourites are saved */}
                     {!storedNames.includes(storedNames[0]) ? (
                         <div className='p-0 m-3 ' key={'no-saved-names'}>
-                            <Card className='bg-cream m-2 text-center mx-auto d-flex justify-content-center col-10 col-lg-7'>
+                             <Card className='w-100 m-3 bg-cream text-center mx-auto d-flex justify-content-center'>
                                 <Card.Body>
                                     <Card.Text className='text-center'>
                                         No names have been added to favourites yet!
