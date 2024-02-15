@@ -80,7 +80,7 @@ function GenerateName() {
         const insertAt = 0; // Add new saved name to start of saveName array
         const nextSavedName = [
             ...saveName.slice(0, insertAt), // Items before the insertion point
-            generatedName,// New item
+            generatedName, // New item
             ...saveName.slice(insertAt) // Items after the insertion point
         ];
         setSaveName(nextSavedName) //updates saveName array with new animal obj that the user just click 'save to favs' on
@@ -90,12 +90,12 @@ function GenerateName() {
 
     return (
         <div className='page-container'>
-            <div className='page-content generate-name d-flex flex-column'>
+            <div className='page-content generate-name d-flex flex-column col-12 col-sm-12 col-md-10 col-lg-6 m-auto p-3'>
 
                 <h2 className='p-3 m-3 pt-5 text-center'>What gender name would you like for your pet?</h2>
 
                 {/* dropdown for sex selection  */}
-                <Form.Select id='select-pet-sex' aria-label="Default select example" size="sm" onChange={handleSexChange} className='p-3 m-3 w-50'>
+                <Form.Select id='select-pet-sex' aria-label="Default select example" size="xs" onChange={handleSexChange} className='p-3 m-3 w-100'>
                     <option>Select your pet's sex</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
@@ -103,7 +103,7 @@ function GenerateName() {
                 </Form.Select>
 
                 {/* card in which generated name is displayed */}
-                <div className='p-0 m-auto w-50'>
+                <div className='p-0 m-auto w-100'>
                     <Card className='namecard py-5 m-auto' style={{ backgroundColor: setBackgroundColor() }}>
                         <Card.Body>
                             <Card.Text className='text-center generatedName'>
@@ -114,7 +114,7 @@ function GenerateName() {
                 </div>
 
                 {/* button that calls the generate name function again */}
-                <div className='p-3 m-3 row w-md-50'>
+                <div className='p-3 m-3 row w-100'>
                     <div className='col-md'>
                         <Button
                             className='btn-brown m-2 w-100'
