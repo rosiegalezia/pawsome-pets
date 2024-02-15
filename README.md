@@ -15,7 +15,7 @@ To meet the project Acceptance Criteria, the app:
   - [dog-names npm package](https://www.npmjs.com/package/dog-names?activeTab=readme)
 - Uses React.js ✅ 
 - Uses Node.js ✅ 
-- Is responsive ❗
+- Is responsive ✅
 - Is deployed via Netflify ✅
 - Has a clean and polished UI ✅
 - Has a clean repository ✅
@@ -34,7 +34,8 @@ No installation required.
 
 ### Screenshot
 A gif of the deployed site's functionality can be seen below:
-<!-- ![Screenshot of completed project](/screenshot.png) -->
+
+<img src="src/assets/Demo.gif" width="60%"/>
 
 
 ## Credits
@@ -51,10 +52,7 @@ Project designed and built by:
 Produced under the MIT license. 
 
 ## Badges
-![Static Badge](https://img.shields.io/badge/project-in_progress-blue)
-
-<!-- ## Badges
-![Static Badge](https://img.shields.io/badge/project-complete-brightgreen) -->
+![Static Badge](https://img.shields.io/badge/project-complete-brightgreen)
 
 ![JavaScript Badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
 ![JSON](https://img.shields.io/badge/JSON-FAF0E6?style=for-the-badge&logo=json&logoColor=2A2A2A) 
